@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
-// GitHub Pages serves the site from /<repo-name>, so the workflow passes the base path in.
-const basePath = process.env.PAGES_BASE_PATH || "";
+// Two deploy targets:
+// - GitHub Pages: static files only, served from /<repo-name>. The workflow sets GITHUB_PAGES=true.
+// - Hostinger / Vercel / any Node host: normal Next.js server build in .next, run with `npm start`.
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+const basePath = isGithubPages ? process.env.PAGES_BASE_PATH || "" : "";
 
 const nextConfig: NextConfig = {
-  output: "export",
+  ...(isGithubPages ? { output: "export" as const } : {}),
   basePath,
   trailingSlash: true,
   images: { unoptimized: true },
