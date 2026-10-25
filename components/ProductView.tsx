@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useCart } from "@/lib/cart";
 import { useCatalog } from "@/lib/catalog";
 import { discountPercent, formatPrice, getCategory, hasVariations, Product, productHref, totalStock } from "@/lib/products";
+import { categoryHref } from "@/lib/seo";
 import ProductCard, { PriceLine, ProductPhoto, WishButton } from "./ProductCard";
 import { CashIcon, CheckIcon, TruckIcon } from "./Icons";
 
@@ -106,7 +107,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
       <nav className="text-[13px] text-muted sm:text-[14px]" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span className="mx-2">/</span>
-        <Link href={`/products/?category=${product.category}`} className="hover:text-ink">{category?.name ?? "Shop"}</Link>
+        <Link href={categoryHref(product.category)} className="hover:text-ink">{category?.name ?? "Shop"}</Link>
       </nav>
 
       <div className="mt-3 grid gap-6 sm:mt-5 md:grid-cols-2 md:gap-8 lg:gap-14">
@@ -119,12 +120,9 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             {off > 0 && <span className="bg-alert px-2 py-1 text-white">-{off}%</span>}
             {product.badge && <span className="bg-gold px-2 py-1 text-paper">{product.badge}</span>}
           </div>
-          <h1 className="mt-3 text-[1.35rem] font-bold leading-tight sm:text-[1.6rem] md:text-[2rem] md:uppercase md:leading-[1.12]">
-            <span className="md:hidden">{product.name}</span>
-            <span className="hidden md:inline">{product.title || product.name}</span>
-          </h1>
+          <h1 className="mt-3 text-[1.35rem] font-bold leading-tight sm:text-[1.6rem] md:text-[2rem] md:uppercase md:leading-[1.12]">{product.name}</h1>
           {product.title && product.title !== product.name && (
-            <p className="mt-1.5 text-[13px] leading-snug text-muted md:hidden">{product.title.replace(product.name, "").replace(/^\s*Bangladesh\b/, "").replace(/^[\s–|-]+/, "")}</p>
+            <p className="mt-1.5 text-[13px] leading-snug text-muted md:text-[15px]">{product.title.replace(product.name, "").replace(/^\s*Bangladesh\b/, "").replace(/^[\s–|-]+/, "")}</p>
           )}
 
           <div className="mt-3 text-[1.4rem] font-semibold sm:mt-4 sm:text-2xl">

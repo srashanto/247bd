@@ -8,6 +8,7 @@ import { useCart } from "@/lib/cart";
 import { useCatalog } from "@/lib/catalog";
 import { useWishlist } from "@/lib/wishlist";
 import { categories, productHref } from "@/lib/products";
+import { categoryHref } from "@/lib/seo";
 import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, UserIcon } from "./Icons";
 
 export function Logo({ className = "text-[26px]" }: { className?: string }) {
@@ -19,10 +20,11 @@ export function Logo({ className = "text-[26px]" }: { className?: string }) {
 }
 
 const mainNav = [
-  { href: "/products/?category=hair-styling", label: "Hair styling" },
-  { href: "/products/?category=curly-hair", label: "Curly hair" },
-  { href: "/products/?category=skincare", label: "Skin care" },
-  { href: "/products/?category=combos", label: "Combos" },
+  { href: "/hair-styling/", label: "Hair styling" },
+  { href: "/hair-care/", label: "Hair care" },
+  { href: "/curly-hair/", label: "Curly hair" },
+  { href: "/skin-care/", label: "Skin care" },
+  { href: "/combos/", label: "Combos" },
 ];
 
 function Ticker({ items }: { items: string[] }) {
@@ -144,7 +146,7 @@ export default function Header() {
               return (
                 <div key={cat.slug}>
                   <Link
-                    href={`/products/?category=${cat.slug}`}
+                    href={categoryHref(cat.slug)}
                     onClick={() => setMegaOpen(false)}
                     className="text-[12px] font-semibold uppercase tracking-[0.12em] text-gold hover:text-gold-2"
                   >
@@ -163,7 +165,7 @@ export default function Header() {
               );
             })}
             <Link
-              href="/products/?category=combos"
+              href="/combos/"
               onClick={() => setMegaOpen(false)}
               className="concrete flex flex-col justify-end border border-line p-5"
             >

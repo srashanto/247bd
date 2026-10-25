@@ -36,7 +36,7 @@ export default function MobileNav() {
   const items = [
     { href: "/", label: "Home", icon: <HomeIcon />, on: path === "/" },
     { href: "/products/", label: "Shop", icon: <GridIcon />, on: path.startsWith("/products") },
-    { href: "/products/?category=combos", label: "Combos", icon: <GiftIcon />, on: false },
+    { href: "/combos/", label: "Combos", icon: <GiftIcon />, on: path.startsWith("/combos") },
     auth.enabled
       ? { href: "/account/", label: auth.user ? "Account" : "Sign in", icon: <UserIcon className="h-5.5 w-5.5" />, on: path.startsWith("/account") }
       : { href: "/orders/", label: "Track", icon: <SearchIcon className="h-5.5 w-5.5" />, on: path.startsWith("/orders") },

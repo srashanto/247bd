@@ -18,7 +18,7 @@ export default function CartPage() {
         <p className="mt-2 text-muted">Add a few products and they&apos;ll show up here.</p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Link href="/products/" className="btn-gold px-6 py-3">Shop all</Link>
-          <Link href="/products/?category=combos" className="btn-ghost px-6 py-3">Shop combos</Link>
+          <Link href="/combos/" className="btn-ghost px-6 py-3">Shop combos</Link>
         </div>
       </div>
     );

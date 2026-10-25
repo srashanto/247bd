@@ -2,7 +2,11 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import ProductList from "./ProductList";
 
-export const metadata: Metadata = { title: "Shop PRIDE grooming | 247BD" };
+export const metadata: Metadata = {
+  title: "Shop All Men's Grooming Products",
+  description: "All PRIDE grooming products: hair clay, pomade, sea salt spray, shampoo, conditioner, curl cream and men's skin care. Cash on delivery all over Bangladesh.",
+  alternates: { canonical: "/products/" },
+};
 
 export default function ProductsPage() {
   return (

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCatalog } from "@/lib/catalog";
 import { categories } from "@/lib/products";
+import { categoryHref } from "@/lib/seo";
 import { FacebookIcon, GroupIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsappIcon, YoutubeIcon } from "./Icons";
 
 export default function Footer() {
@@ -51,10 +52,10 @@ export default function Footer() {
         <div>
           <h3 className="text-[12px] font-semibold uppercase tracking-[0.12em] text-gold">Shop</h3>
           <ul className="mt-4 space-y-2.5 text-[15px]">
-            <li><Link href="/products/" className="hover:text-ink">All products</Link></li>
+            <li><Link href="/mens-grooming/" className="hover:text-ink">All grooming products</Link></li>
             {categories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/products/?category=${c.slug}`} className="hover:text-ink">{c.name}</Link>
+                <Link href={categoryHref(c.slug)} className="hover:text-ink">{c.name}</Link>
               </li>
             ))}
           </ul>
