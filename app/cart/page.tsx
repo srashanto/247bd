@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Packshot from "@/components/Packshot";
-import { tileBg } from "@/components/ProductCard";
 import { TrashIcon } from "@/components/Icons";
 import { useCart } from "@/lib/cart";
 import { formatPrice } from "@/lib/products";
@@ -19,8 +18,8 @@ export default function CartPage() {
         <h1 className="font-display text-3xl font-bold">Your cart is empty</h1>
         <p className="mt-2 text-muted">Pick a few essentials and they&apos;ll show up here.</p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <Link href="/products/?for=him" className="rounded-full bg-him px-6 py-3 font-semibold text-paper hover:bg-him-deep">Shop for him</Link>
-          <Link href="/products/?for=her" className="rounded-full bg-her px-6 py-3 font-semibold text-paper hover:bg-her-deep">Shop for her</Link>
+          <Link href="/products/?for=him" className="btn-gold px-6 py-3">Shop for him</Link>
+          <Link href="/products/?for=her" className="btn-ghost px-6 py-3">Shop for her</Link>
         </div>
       </div>
     );
@@ -36,7 +35,7 @@ export default function CartPage() {
         <ul className="divide-y divide-line border-y border-line">
           {items.map(({ product, qty }) => (
             <li key={product.slug} className="flex gap-4 py-4">
-              <Link href={`/products/${product.slug}/`} className={`grid h-24 w-24 shrink-0 place-items-center rounded-2xl ${tileBg[product.gender]}`}>
+              <Link href={`/products/${product.slug}/`} className={`grid h-24 w-24 shrink-0 place-items-center studio`}>
                 <Packshot product={product} className="h-[78%]" />
               </Link>
               <div className="flex flex-1 flex-col">
@@ -46,7 +45,7 @@ export default function CartPage() {
                 </div>
                 <span className="text-sm text-muted">{formatPrice(product.price)} each{product.size && ` · ${product.size}`}</span>
                 <div className="mt-auto flex items-center justify-between gap-2 pt-2">
-                  <div className="flex items-center rounded-full ring-1 ring-line">
+                  <div className="flex items-center ring-1 ring-line">
                     <button className="px-3 py-1" onClick={() => setQty(product.slug, qty - 1)} aria-label={`Decrease ${product.name}`}>−</button>
                     <span className="w-7 text-center text-sm font-semibold">{qty}</span>
                     <button className="px-3 py-1" onClick={() => setQty(product.slug, Math.min(product.stock, qty + 1))} aria-label={`Increase ${product.name}`}>+</button>
@@ -60,7 +59,7 @@ export default function CartPage() {
           ))}
         </ul>
 
-        <aside className="h-fit rounded-[18px] bg-white p-5 ring-1 ring-line">
+        <aside className="h-fit bg-card p-5 ring-1 ring-line">
           <h2 className="text-lg font-semibold">Order summary</h2>
           <div className="mt-4 flex justify-between">
             <span>Subtotal</span>
@@ -71,14 +70,14 @@ export default function CartPage() {
             <span>{toFree <= 0 ? "Free" : "Calculated at checkout"}</span>
           </div>
           <div className="mt-5">
-            <div className="h-1.5 overflow-hidden rounded-full bg-paper">
-              <div className="h-full rounded-full bg-saffron" style={{ width: `${progress}%` }} />
+            <div className="h-1.5 overflow-hidden bg-paper">
+              <div className="h-full bg-gold" style={{ width: `${progress}%` }} />
             </div>
             <p className="mt-2 text-sm">
               {toFree > 0 ? <>Add {formatPrice(toFree)} more for free delivery.</> : <>You&apos;ve unlocked free delivery.</>}
             </p>
           </div>
-          <Link href="/checkout/" className="mt-5 block rounded-full bg-ink py-3.5 text-center font-semibold text-paper hover:bg-him-deep">
+          <Link href="/checkout/" className="mt-5 block btn-gold py-3.5 text-center font-semibold">
             Check out
           </Link>
           <Link href="/products/" className="mt-3 block text-center text-[15px] underline underline-offset-4">Keep shopping</Link>

@@ -54,7 +54,7 @@ export default function HelpPage() {
         {sections.map((s) => (
           <section key={s.id} id={s.id} className="scroll-mt-32">
             <h2 className="text-2xl font-bold">{s.title}</h2>
-            <ul className="mt-3 list-disc space-y-2 pl-5 text-[17px] leading-relaxed marker:text-saffron">
+            <ul className="mt-3 list-disc space-y-2 pl-5 text-[17px] leading-relaxed marker:text-gold">
               {s.body.map((b) => <li key={b}>{b}</li>)}
             </ul>
           </section>

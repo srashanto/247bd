@@ -17,7 +17,7 @@ export default function WishlistPage() {
       {list.length === 0 ? (
         <div className="mt-8 max-w-lg">
           <p className="text-muted">Tap the heart on any product to save it here for later.</p>
-          <Link href="/products/" className="mt-5 inline-block rounded-full bg-ink px-6 py-3 font-semibold text-paper">
+          <Link href="/products/" className="mt-5 inline-block btn-gold px-6 py-3 font-semibold">
             Browse products
           </Link>
         </div>

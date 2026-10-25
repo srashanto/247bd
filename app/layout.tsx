@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     "247BD: hair care, skincare, beard care, fragrance and grooming tools for men and women. Cash on delivery all over Bangladesh.",
 };
 
-export const viewport: Viewport = { themeColor: "#1f2a2e" };
+export const viewport: Viewport = { themeColor: "#0a0a0a" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Inter:wght@400;500;600;700&display=swap"
         />
       </head>
       <body className="min-h-screen flex flex-col antialiased">

@@ -22,16 +22,16 @@ export default function OrdersView() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:py-10">
       {isNew && current && (
-        <div className="mb-10 rounded-[24px] bg-uni p-6 text-paper sm:p-8">
+        <div className="mb-10 border border-gold/40 bg-gold-soft p-6 sm:p-8">
           <h1 className="font-display text-3xl font-bold">Order placed, {current.customer.name.split(" ")[0]}</h1>
-          <p className="mt-2 max-w-prose text-paper/90">
+          <p className="mt-2 max-w-prose text-ink/85">
             Your order number is <b>{current.id}</b>. Send it to us on WhatsApp so we can confirm and pack it today.
           </p>
           <a
             href={whatsappLink(current)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-full bg-paper px-5 py-3 font-semibold text-ink hover:bg-white"
+            className="mt-5 btn-gold inline-flex items-center gap-2 px-5 py-3"
           >
             <ChatIcon /> Confirm on WhatsApp
           </a>
@@ -42,23 +42,23 @@ export default function OrdersView() {
       <p className="text-muted">Orders placed from this phone or browser.</p>
 
       {orders.length === 0 ? (
-        <div className="mt-8 rounded-[18px] bg-white p-10 text-center ring-1 ring-line">
+        <div className="mt-8 bg-card p-10 text-center ring-1 ring-line">
           <p className="font-display text-xl font-semibold">No orders yet</p>
           <p className="mt-1 text-muted">When you place an order, you can track it here.</p>
-          <Link href="/products/" className="mt-5 inline-block rounded-full bg-ink px-6 py-3 font-semibold text-paper">
+          <Link href="/products/" className="mt-5 inline-block btn-gold px-6 py-3 font-semibold">
             Start shopping
           </Link>
         </div>
       ) : (
         <ul className="mt-6 space-y-4">
           {orders.map((o) => (
-            <li key={o.id} className={`rounded-[18px] bg-white p-5 ring-1 ${o.id === highlight ? "ring-2 ring-ink" : "ring-line"}`}>
+            <li key={o.id} className={` bg-card p-5 ring-1 ${o.id === highlight ? "ring-1 ring-gold" : "ring-line"}`}>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <div className="font-semibold">{o.id}</div>
                   <div className="text-sm text-muted">{new Date(o.createdAt).toLocaleString("en-GB")}</div>
                 </div>
-                <span className="rounded-full bg-saffron-soft px-3 py-1 text-sm font-semibold">Processing</span>
+                <span className="bg-gold-soft px-3 py-1 text-sm font-semibold">Processing</span>
               </div>
               <ul className="mt-3 space-y-1 text-[15px]">
                 {o.items.map((i) => (

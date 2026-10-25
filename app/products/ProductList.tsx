@@ -25,8 +25,8 @@ function Pill({ on, onClick, children }: { on: boolean; onClick: () => void; chi
     <button
       onClick={onClick}
       aria-pressed={on}
-      className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-[15px] ${
-        on ? "bg-ink text-paper" : "border border-line bg-white hover:border-ink"
+      className={`whitespace-nowrap px-3.5 py-1.5 text-[15px] ${
+        on ? "btn-gold" : "border border-line bg-card hover:border-ink"
       }`}
     >
       {children}
@@ -108,7 +108,7 @@ export default function ProductList() {
             <select
               value={sort}
               onChange={(e) => update("sort", e.target.value === "featured" ? "" : e.target.value)}
-              className="rounded-full border border-line bg-white px-3 py-1.5"
+              className="border border-line bg-card px-3 py-1.5"
             >
               {Object.entries(sorts).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
             </select>
@@ -129,10 +129,10 @@ export default function ProductList() {
       </div>
 
       {list.length === 0 ? (
-        <div className="mt-10 rounded-[18px] bg-white p-10 text-center ring-1 ring-line">
+        <div className="mt-10 bg-card p-10 text-center ring-1 ring-line">
           <p className="font-display text-xl font-semibold">No products match these filters</p>
           <p className="mt-2 text-muted">Remove a filter or try a different word, like &ldquo;shampoo&rdquo; or &ldquo;beard&rdquo;.</p>
-          <button onClick={() => router.push("/products/")} className="mt-5 rounded-full bg-ink px-5 py-2.5 font-semibold text-paper">
+          <button onClick={() => router.push("/products/")} className="mt-5 btn-gold px-5 py-2.5 font-semibold">
             Show all products
           </button>
         </div>

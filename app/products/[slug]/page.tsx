@@ -59,7 +59,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             {product.oldPrice && (
               <>
                 <span className="text-lg text-muted line-through">{formatPrice(product.oldPrice)}</span>
-                <span className="rounded-full bg-saffron px-2.5 py-0.5 text-sm font-bold">
+                <span className="bg-gold text-paper px-2.5 py-0.5 text-sm font-bold">
                   You save {formatPrice(product.oldPrice - product.price)} ({off}%)
                 </span>
               </>
@@ -80,7 +80,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="mt-5 flex flex-wrap items-center gap-2 text-sm">
               <span className="text-muted">Good for</span>
               {product.concerns.map((c) => (
-                <Link key={c} href={`/products/?concern=${c}`} className="rounded-full border border-line bg-white px-3 py-1 hover:border-ink">
+                <Link key={c} href={`/products/?concern=${c}`} className="border border-line bg-card px-3 py-1 hover:border-ink">
                   {getConcern(c)?.name}
                 </Link>
               ))}
@@ -89,10 +89,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
           <AddToCart slug={product.slug} stock={product.stock} />
 
-          <ul className="mt-6 space-y-2.5 rounded-[18px] bg-white p-5 text-[15px] ring-1 ring-line">
-            <li className="flex gap-3"><TruckIcon className="h-5 w-5 shrink-0 text-him" /> Delivery ৳{STORE.deliveryInsideDhaka} inside Dhaka, ৳{STORE.deliveryOutsideDhaka} outside. Free over ৳{STORE.freeDeliveryOver.toLocaleString("en-IN")}.</li>
-            <li className="flex gap-3"><CashIcon className="h-5 w-5 shrink-0 text-him" /> Cash on delivery, bKash or Nagad</li>
-            <li className="flex gap-3"><ReturnIcon className="h-5 w-5 shrink-0 text-him" /> Return unopened products within 7 days</li>
+          <ul className="mt-6 space-y-2.5 bg-card p-5 text-[15px] ring-1 ring-line">
+            <li className="flex gap-3"><TruckIcon className="h-5 w-5 shrink-0 text-gold" /> Delivery ৳{STORE.deliveryInsideDhaka} inside Dhaka, ৳{STORE.deliveryOutsideDhaka} outside. Free over ৳{STORE.freeDeliveryOver.toLocaleString("en-IN")}.</li>
+            <li className="flex gap-3"><CashIcon className="h-5 w-5 shrink-0 text-gold" /> Cash on delivery, bKash or Nagad</li>
+            <li className="flex gap-3"><ReturnIcon className="h-5 w-5 shrink-0 text-gold" /> Return unopened products within 7 days</li>
           </ul>
 
           <div className="mt-8 divide-y divide-line border-y border-line">

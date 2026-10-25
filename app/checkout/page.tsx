@@ -8,7 +8,7 @@ import { newOrderId, Order, PaymentMethod, paymentLabels, saveOrder } from "@/li
 import { formatPrice } from "@/lib/products";
 import { deliveryCharge, districts, STORE } from "@/lib/store";
 
-const input = "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[16px] outline-none focus:border-ink";
+const input = "w-full border border-line bg-card px-3.5 py-2.5 text-[16px] outline-none focus:border-gold";
 
 const paymentHelp: Record<PaymentMethod, string> = {
   cod: "Pay the delivery person in cash",
@@ -34,7 +34,7 @@ export default function CheckoutPage() {
       <div className="mx-auto max-w-xl px-4 py-24 text-center">
         <h1 className="font-display text-3xl font-bold">Your cart is empty</h1>
         <p className="mt-2 text-muted">Add products to your cart before checking out.</p>
-        <Link href="/products/" className="mt-6 inline-block rounded-full bg-ink px-6 py-3 font-semibold text-paper">
+        <Link href="/products/" className="mt-6 inline-block btn-gold px-6 py-3 font-semibold">
           Browse products
         </Link>
       </div>
@@ -128,7 +128,7 @@ export default function CheckoutPage() {
               {(Object.keys(paymentLabels) as PaymentMethod[]).map((m) => (
                 <label
                   key={m}
-                  className={`cursor-pointer rounded-2xl bg-white p-4 ring-2 ${payment === m ? "ring-ink" : "ring-line hover:ring-muted"}`}
+                  className={`cursor-pointer bg-card p-4 ring-2 ${payment === m ? "ring-gold" : "ring-line hover:ring-muted"}`}
                 >
                   <input type="radio" name="payment" className="sr-only" checked={payment === m} onChange={() => setPayment(m)} />
                   <span className="block font-semibold">{paymentLabels[m]}</span>
@@ -137,7 +137,7 @@ export default function CheckoutPage() {
               ))}
             </div>
             {payment !== "cod" && (
-              <div className="mt-4 rounded-2xl bg-saffron-soft p-4 text-[15px]">
+              <div className="mt-4 bg-gold-soft p-4 text-[15px]">
                 <p>
                   Send <b>{formatPrice(total)}</b> to our {paymentLabels[payment]} number <b>{STORE.paymentNumber}</b> using
                   &ldquo;Send Money&rdquo;, then enter the transaction ID below.
@@ -153,7 +153,7 @@ export default function CheckoutPage() {
           </section>
         </div>
 
-        <aside className="h-fit rounded-[18px] bg-white p-5 ring-1 ring-line lg:sticky lg:top-32">
+        <aside className="h-fit bg-card p-5 ring-1 ring-line lg:sticky lg:top-32">
           <h2 className="text-lg font-semibold">Your order</h2>
           <ul className="mt-4 space-y-2 text-[15px]">
             {items.map(({ product, qty }) => (
@@ -173,8 +173,8 @@ export default function CheckoutPage() {
               <span>Total</span><span>{formatPrice(total)}</span>
             </div>
           </div>
-          {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-alert">{error}</p>}
-          <button className="mt-5 w-full rounded-full bg-ink py-3.5 font-semibold text-paper hover:bg-him-deep">
+          {error && <p role="alert" className="mt-4 bg-alert/10 p-3 text-sm text-alert">{error}</p>}
+          <button className="mt-5 w-full btn-gold py-3.5 font-semibold">
             Place order
           </button>
         </aside>

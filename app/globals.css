@@ -1,28 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo", "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-paper: #f3f5f2;
-  --color-ink: #1f2a2e;
-  --color-muted: #5b686d;
-  --color-line: #d8ded9;
+  /* Dark studio palette with a gold accent */
+  --color-paper: #0a0a0a;   /* page background */
+  --color-ink: #ececec;     /* main text */
+  --color-card: #171717;    /* raised surfaces, inputs */
+  --color-card-2: #202020;
+  --color-muted: #a8a8a8;
+  --color-line: #2c2c2c;
 
-  --color-him: #2f4b63;
-  --color-him-deep: #22384b;
-  --color-him-soft: #e1e8ee;
+  --color-gold: #c8ac56;
+  --color-gold-2: #dbb65f;
+  --color-gold-soft: #1d190d;
 
-  --color-her: #7a4775;
-  --color-her-deep: #5e3459;
-  --color-her-soft: #f1e5ef;
-
-  --color-uni: #3f6b57;
-  --color-uni-soft: #e2ebe4;
-
-  --color-saffron: #e0a92e;
-  --color-saffron-soft: #fbf0d4;
-  --color-alert: #b3261e;
+  --color-him: #8fa6b8;
+  --color-her: #d7a7bd;
+  --color-uni: #6fae8c;
+  --color-alert: #e07070;
 }
 
 html {
@@ -37,22 +34,68 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  letter-spacing: -0.015em;
+  font-stretch: 112%;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
 :focus-visible {
-  outline: 2.5px solid var(--color-saffron);
+  outline: 2px solid var(--color-gold-2);
   outline-offset: 2px;
 }
 
-/* The one orchestrated moment: products rise onto the shelf on first load. */
+::selection {
+  background: var(--color-gold);
+  color: #0a0a0a;
+}
+
+/* Gold primary button */
+.btn-gold {
+  background: linear-gradient(90deg, #c8ac56, #dbb65f 55%, #b8994a);
+  color: #0a0a0a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: filter 150ms;
+}
+.btn-gold:hover { filter: brightness(1.08); }
+
+.btn-ghost {
+  border: 1px solid #4b4b4b;
+  color: var(--color-ink);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.btn-ghost:hover { border-color: var(--color-ink); }
+
+/* Studio-lit product tile */
+.studio {
+  background: radial-gradient(110% 85% at 50% 35%, #2f2f2f 0%, #191919 50%, #0c0c0c 100%);
+}
+
+/* Concrete-like hero backdrop */
+.concrete {
+  background:
+    radial-gradient(60% 70% at 72% 45%, rgba(219, 182, 95, 0.12), transparent 70%),
+    radial-gradient(90% 80% at 20% 0%, #1e1e1e, transparent 70%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 140px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 140px),
+    linear-gradient(213deg, #0a0a0a 25%, #181718 95%);
+}
+
+/* Inputs on dark */
+input, select, textarea {
+  color-scheme: dark;
+}
+
+/* The one orchestrated moment: products rise into the spotlight on first load. */
 @keyframes rise {
   from { transform: translateY(28px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 .shelf-item {
-  animation: rise 700ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: rise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
