@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import type { Metadata } from "next";
 import ProductList from "./ProductList";
 
-export const metadata: Metadata = { title: "Shop grooming products | 247BD" };
+export const metadata: Metadata = { title: "Shop PRIDE grooming | 247BD" };
 
 export default function ProductsPage() {
   return (

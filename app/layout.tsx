@@ -1,14 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { CartProvider } from "@/lib/cart";
-import { WishlistProvider } from "@/lib/wishlist";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "247BD | Grooming for him & her",
+  title: "247BD | PRIDE grooming by PahelaPride",
   description:
-    "247BD: hair care, skincare, beard care, fragrance and grooming tools for men and women. Cash on delivery all over Bangladesh.",
+    "247BD: PRIDE hair styling, hair care, curly hair and skin care for men. Cash on delivery all over Bangladesh. A PahelaPride brand.",
 };
 
 export const viewport: Viewport = { themeColor: "#0a0a0a" };
@@ -21,18 +17,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600&display=swap"
         />
       </head>
-      <body className="min-h-screen flex flex-col antialiased">
-        <CartProvider>
-          <WishlistProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </WishlistProvider>
-        </CartProvider>
-      </body>
+      <body className="min-h-screen antialiased">{children}</body>
     </html>
   );
 }

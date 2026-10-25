@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Archivo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo", "Inter", "Hind Siliguri", ui-sans-serif, system-ui, sans-serif;
 
   /* Dark studio palette with a gold accent */
   --color-paper: #0a0a0a;   /* page background */
@@ -102,3 +102,21 @@ input, select, textarea {
   html { scroll-behavior: auto; }
   .shelf-item { animation: none; }
 }
+
+/* Announcement ticker */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker { animation: ticker 40s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .ticker { animation: none; }
+}
+
+/* Print only the invoice in the admin panel */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+}
+.print-only { display: none; }

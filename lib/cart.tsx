@@ -1,26 +1,36 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { getProduct, Product } from "./products";
+import { useCatalog } from "./catalog";
+import { findVariation, hasVariations, Product, Variation } from "./products";
 
-export type CartLine = { slug: string; qty: number };
-export type CartItem = CartLine & { product: Product };
+export type CartLine = { slug: string; variation?: string | null; qty: number };
+export type CartItem = CartLine & {
+  key: string;
+  product: Product;
+  variationInfo?: Variation;
+  unitPrice: number;
+  maxQty: number;
+};
 
 type CartContextValue = {
   items: CartItem[];
   count: number;
   subtotal: number;
   ready: boolean;
-  add: (slug: string, qty?: number) => void;
-  setQty: (slug: string, qty: number) => void;
-  remove: (slug: string) => void;
+  add: (slug: string, variation?: string | null, qty?: number) => void;
+  setQty: (key: string, qty: number) => void;
+  remove: (key: string) => void;
   clear: () => void;
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
-const KEY = "247bd-cart";
+const KEY = "247bd-cart-v2";
+
+export const lineKey = (slug: string, variation?: string | null) => (variation ? `${slug}::${variation}` : slug);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
+  const { get } = useCatalog();
   const [lines, setLines] = useState<CartLine[]>([]);
   const [ready, setReady] = useState(false);
 
@@ -40,28 +50,42 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   }, [lines, ready]);
 
   const value = useMemo<CartContextValue>(() => {
-    const items = lines
-      .map((l) => ({ ...l, product: getProduct(l.slug) }))
-      .filter((i): i is CartItem => Boolean(i.product));
+    const items: CartItem[] = [];
+    for (const l of lines) {
+      const product = get(l.slug);
+      if (!product) continue;
+      const v = hasVariations(product) ? findVariation(product, l.variation) : undefined;
+      if (hasVariations(product) && !v) continue;
+      items.push({
+        ...l,
+        key: lineKey(l.slug, l.variation),
+        product,
+        variationInfo: v,
+        unitPrice: v ? v.price : product.price,
+        maxQty: Math.max(1, Math.min(99, v ? v.stock : product.stock)),
+      });
+    }
+    const update = (key: string, fn: (l: CartLine) => CartLine | null) =>
+      setLines((prev) =>
+        prev.flatMap((l) => (lineKey(l.slug, l.variation) === key ? (fn(l) ? [fn(l)!] : []) : [l]))
+      );
     return {
       items,
       ready,
       count: items.reduce((n, i) => n + i.qty, 0),
-      subtotal: items.reduce((n, i) => n + i.qty * i.product.price, 0),
-      add: (slug, qty = 1) =>
+      subtotal: items.reduce((n, i) => n + i.qty * i.unitPrice, 0),
+      add: (slug, variation = null, qty = 1) =>
         setLines((prev) => {
-          const found = prev.find((l) => l.slug === slug);
-          if (found) return prev.map((l) => (l.slug === slug ? { ...l, qty: l.qty + qty } : l));
-          return [...prev, { slug, qty }];
+          const k = lineKey(slug, variation);
+          if (prev.some((l) => lineKey(l.slug, l.variation) === k))
+            return prev.map((l) => (lineKey(l.slug, l.variation) === k ? { ...l, qty: Math.min(99, l.qty + qty) } : l));
+          return [...prev, { slug, variation, qty }];
         }),
-      setQty: (slug, qty) =>
-        setLines((prev) =>
-          qty <= 0 ? prev.filter((l) => l.slug !== slug) : prev.map((l) => (l.slug === slug ? { ...l, qty } : l))
-        ),
-      remove: (slug) => setLines((prev) => prev.filter((l) => l.slug !== slug)),
+      setQty: (key, qty) => update(key, (l) => (qty <= 0 ? null : { ...l, qty })),
+      remove: (key) => update(key, () => null),
       clear: () => setLines([]),
     };
-  }, [lines, ready]);
+  }, [lines, ready, get]);
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

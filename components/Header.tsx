@@ -4,9 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
+import { useCatalog } from "@/lib/catalog";
 import { useWishlist } from "@/lib/wishlist";
-import { categories, products } from "@/lib/products";
-import { STORE } from "@/lib/store";
+import { categories, productHref } from "@/lib/products";
 import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon } from "./Icons";
 
 export function Logo({ className = "text-[26px]" }: { className?: string }) {
@@ -18,17 +18,33 @@ export function Logo({ className = "text-[26px]" }: { className?: string }) {
 }
 
 const mainNav = [
-  { href: "/products/?for=him", label: "Men" },
-  { href: "/products/?for=her", label: "Women" },
-  { href: "/products/?category=skincare", label: "Skin" },
+  { href: "/products/?category=hair-styling", label: "Hair styling" },
+  { href: "/products/?category=curly-hair", label: "Curly hair" },
+  { href: "/products/?category=skincare", label: "Skin care" },
   { href: "/products/?category=combos", label: "Combos" },
 ];
 
-const megaColumns = ["hair-styling", "hair-care", "skincare", "beard-shave", "body-care", "fragrance"];
+function Ticker({ items }: { items: string[] }) {
+  if (!items.length) return null;
+  const row = [...items, ...items, ...items];
+  return (
+    <div className="overflow-hidden bg-gold text-[12px] font-semibold text-paper">
+      <div className="ticker flex w-max gap-10 whitespace-nowrap px-4 py-2">
+        {[...row, ...row].map((t, i) => (
+          <span key={i} className="flex items-center gap-10">
+            {t}
+            <span aria-hidden>✦</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Header() {
   const { count } = useCart();
   const { slugs } = useWishlist();
+  const { products, settings } = useCatalog();
   const router = useRouter();
   const [q, setQ] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -49,7 +65,7 @@ export default function Header() {
         autoFocus={searchOpen}
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search shampoo, beard oil, sunscreen…"
+        placeholder="Search hair clay, curl cream, shampoo…"
         aria-label="Search products"
         className="w-full border border-line bg-card py-3 pl-10 pr-4 text-[15px] outline-none placeholder:text-muted focus:border-gold"
       />
@@ -58,11 +74,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40" onMouseLeave={() => setMegaOpen(false)}>
-      <div className="bg-[#000] text-center text-[12px] font-medium uppercase tracking-[0.12em] text-ink">
-        <Link href="/products/?category=combos" className="block px-4 py-2 hover:text-gold-2">
-          Save up to 20% on combos · Free delivery over ৳{STORE.freeDeliveryOver.toLocaleString("en-IN")}
-        </Link>
-      </div>
+      <Ticker items={settings.announcements} />
 
       <div className="border-b border-line bg-paper/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center gap-5 px-4 py-4 lg:gap-9">
@@ -91,11 +103,8 @@ export default function Header() {
           </nav>
 
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
-            <Link
-              href="/products/?category=combos"
-              className="mr-2 hidden items-center gap-2 bg-card px-4 py-2.5 text-[13px] font-semibold uppercase tracking-wider hover:bg-card-2 md:flex"
-            >
-              <span className="text-gold">✦</span> Shop combos
+            <Link href="/orders/" className="mr-1 hidden px-3 py-2 text-[13px] font-semibold uppercase tracking-wider hover:text-gold-2 md:block">
+              Track order
             </Link>
             <button aria-label="Search" onClick={() => setSearchOpen((v) => !v)} className="p-2 hover:text-gold-2">
               <SearchIcon />
@@ -122,14 +131,13 @@ export default function Header() {
 
       {megaOpen && (
         <div className="absolute inset-x-0 hidden border-b border-line bg-[#0d0d0d] lg:block">
-          <div className="mx-auto grid max-w-7xl grid-cols-[repeat(6,1fr)_1.3fr] gap-6 px-4 py-8">
-            {megaColumns.map((slug) => {
-              const cat = categories.find((c) => c.slug === slug)!;
-              const list = products.filter((p) => p.category === slug).slice(0, 5);
+          <div className="mx-auto grid max-w-7xl grid-cols-[repeat(4,1fr)_1.2fr] gap-6 px-4 py-8">
+            {categories.filter((c) => c.slug !== "combos").map((cat) => {
+              const list = products.filter((p) => p.category === cat.slug).slice(0, 6);
               return (
-                <div key={slug}>
+                <div key={cat.slug}>
                   <Link
-                    href={`/products/?category=${slug}`}
+                    href={`/products/?category=${cat.slug}`}
                     onClick={() => setMegaOpen(false)}
                     className="text-[12px] font-semibold uppercase tracking-[0.12em] text-gold hover:text-gold-2"
                   >
@@ -138,7 +146,7 @@ export default function Header() {
                   <ul className="mt-3 space-y-2 text-[14px] text-ink/85">
                     {list.map((p) => (
                       <li key={p.slug}>
-                        <Link href={`/products/${p.slug}/`} onClick={() => setMegaOpen(false)} className="hover:text-ink">
+                        <Link href={productHref(p)} onClick={() => setMegaOpen(false)} className="hover:text-ink">
                           {p.name}
                         </Link>
                       </li>
@@ -152,8 +160,8 @@ export default function Header() {
               onClick={() => setMegaOpen(false)}
               className="concrete flex flex-col justify-end border border-line p-5"
             >
-              <span className="font-display text-xl font-semibold leading-tight">Get the full routine</span>
-              <span className="mt-1 text-sm text-muted">Combos cost less than buying each product alone.</span>
+              <span className="font-display text-xl font-semibold leading-tight">Combo কিনলে FREE gift</span>
+              <span className="mt-1 text-sm text-muted">Complete routines that cost less than buying each product alone.</span>
               <span className="btn-gold mt-4 w-fit px-4 py-2.5 text-[12px]">Shop combos</span>
             </Link>
           </div>
@@ -164,27 +172,11 @@ export default function Header() {
         <div className="max-h-[80vh] overflow-y-auto border-b border-line bg-paper px-4 pb-6 pt-4 lg:hidden">
           {searchForm}
           <div className="mt-4 divide-y divide-line border-y border-line">
-            {[...mainNav, { href: "/products/", label: "Shop all" }].map((n) => (
+            {[...mainNav, { href: "/products/", label: "Shop all" }, { href: "/orders/", label: "Track order" }].map((n) => (
               <Link key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="block py-3.5 font-display text-lg font-semibold">
                 {n.label}
               </Link>
             ))}
-          </div>
-          <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.12em] text-gold">Categories</p>
-          <div className="mt-3 flex flex-wrap gap-2 text-sm">
-            {categories.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/products/?category=${c.slug}`}
-                onClick={() => setMenuOpen(false)}
-                className="border border-line px-3 py-2"
-              >
-                {c.name}
-              </Link>
-            ))}
-            <Link href="/orders/" onClick={() => setMenuOpen(false)} className="border border-line px-3 py-2">
-              My orders
-            </Link>
           </div>
         </div>
       )}

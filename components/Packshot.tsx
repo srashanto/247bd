@@ -1,12 +1,12 @@
-import { Gender, includedProducts, Product, PackShape } from "@/lib/products";
+import { Pack, Product, PackShape } from "@/lib/products";
 
-type Theme = { body: string; cap: string; mark: string; label: string; sheen: number };
+type Theme = { body: string; cap: string; mark: string; label: string; sheen: number; brand?: string };
 
-/** One house look for the whole range: black for him, white for her, gold for everyone. */
-const themes: Record<Gender, Theme> = {
-  him: { body: "#131313", cap: "#262626", mark: "#ececec", label: "#dbb65f", sheen: 0.07 },
-  her: { body: "#ebe7e2", cap: "#141414", mark: "#151515", label: "#9a7c2e", sheen: 0.45 },
-  unisex: { body: "#c8ac56", cap: "#141414", mark: "#141414", label: "#3a2f10", sheen: 0.3 },
+/** One house look for the whole range: black, white or gold packs. */
+const themes: Record<NonNullable<Pack["tone"]>, Theme> = {
+  black: { body: "#131313", cap: "#262626", mark: "#ececec", label: "#dbb65f", sheen: 0.07 },
+  white: { body: "#ebe7e2", cap: "#141414", mark: "#151515", label: "#9a7c2e", sheen: 0.45 },
+  gold: { body: "#c8ac56", cap: "#141414", mark: "#141414", label: "#3a2f10", sheen: 0.3 },
 };
 
 const FONT = "Archivo, Inter, sans-serif";
@@ -31,7 +31,7 @@ function Vertical({ x, y, w, h, name, t }: { x: number; y: number; w: number; h:
         letterSpacing="0.5"
         fill={t.mark}
       >
-        247BD
+        {t.brand}
       </text>
       <text
         x={cx + w * 0.3}
@@ -56,7 +56,7 @@ function Horizontal({ cx, y, size, name, t }: { cx: number; y: number; size: num
   return (
     <g>
       <text x={cx} y={y} textAnchor="middle" fontSize={size} fontWeight="800" fontFamily={FONT} fill={t.mark}>
-        247BD
+        {t.brand}
       </text>
       <text x={cx} y={y + size * 0.62} textAnchor="middle" fontSize={Math.min(5.4, 60 / label.length)} fontWeight="700" fontFamily={FONT} fill={t.label}>
         {label}
@@ -153,7 +153,7 @@ function Shape({ shape, label, t }: { shape: PackShape; label: string; t: Theme 
           <Sheen x={36} y={30} h={96} t={t} />
           <circle cx="50" cy="52" r="6" fill={t.label} />
           <text x="50" y="104" transform="rotate(-90 50 104)" textAnchor="middle" dominantBaseline="central" fontSize="12" fontWeight="800" fontFamily={FONT} fill={t.mark}>
-            247BD
+            {t.brand}
           </text>
         </>
       );
@@ -165,7 +165,7 @@ function Shape({ shape, label, t }: { shape: PackShape; label: string; t: Theme 
           <rect x="35" y="14" width="9" height="56" rx="2" fill={t.label} opacity="0.85" />
           <rect x="56" y="14" width="9" height="56" rx="2" fill={t.label} opacity="0.85" />
           <rect x="31" y="102" width="38" height="34" rx="9" fill={t.body} />
-          <text x="50" y="122" textAnchor="middle" fontSize="9" fontWeight="800" fontFamily={FONT} fill={t.mark}>247BD</text>
+          <text x="50" y="122" textAnchor="middle" fontSize="9" fontWeight="800" fontFamily={FONT} fill={t.mark}>{t.brand}</text>
         </>
       );
     case "comb":
@@ -175,48 +175,32 @@ function Shape({ shape, label, t }: { shape: PackShape; label: string; t: Theme 
           {[25, 33, 41, 49, 57, 65].map((x) => (
             <rect key={x} x={x} y="36" width="6" height="96" rx="3" fill="#a47148" />
           ))}
-          <text x="50" y="31" textAnchor="middle" fontSize="9" fontWeight="800" fontFamily={FONT} fill="#3b2614">247BD</text>
+          <text x="50" y="31" textAnchor="middle" fontSize="9" fontWeight="800" fontFamily={FONT} fill="#3b2614">{t.brand}</text>
         </>
       );
   }
 }
 
 function Single({ product }: { product: Product }) {
+  const brand = product.brand || "247BD";
+  const t = { ...themes[product.pack?.tone ?? "black"], brand };
+  const label = product.name.replace(new RegExp(`^${brand}\\s*`, "i"), "").replace(/\s*\(.*?\)/g, "").split(" ").slice(0, 3).join(" ");
   return (
     <svg
       viewBox="0 0 100 142"
       className="h-full w-auto overflow-visible"
-      style={product.gender === "him" ? { filter: "drop-shadow(0 0 0.6px rgba(255,255,255,0.35)) drop-shadow(0 0 14px rgba(219,182,95,0.10))" } : undefined}
+      style={t.body === "#131313" ? { filter: "drop-shadow(0 0 0.6px rgba(255,255,255,0.35)) drop-shadow(0 0 14px rgba(219,182,95,0.10))" } : undefined}
       role="img"
       aria-label={product.name}
     >
       <ellipse cx="50" cy="138.5" rx="34" ry="3.5" fill="#000" opacity="0.55" />
-      <Shape shape={product.pack.shape} label={product.label} t={themes[product.gender]} />
+      <Shape shape={product.pack?.shape ?? "bottle"} label={label} t={t} />
     </svg>
   );
 }
 
-/** Illustrated product pack. Combos show the products inside, standing together. */
+/** Illustrated product pack, used when a product has no photo. */
 export default function Packshot({ product, className = "", style }: { product: Product; className?: string; style?: React.CSSProperties }) {
-  const inside = includedProducts(product);
-  if (inside.length) {
-    return (
-      <div className={`flex items-end justify-center ${className}`} style={style} role="img" aria-label={product.name}>
-        {inside.map((p, i) => (
-          <div
-            key={p.slug}
-            style={{
-              marginLeft: i ? "-4%" : 0,
-              height: inside.length >= 3 ? (i === 1 ? "70%" : "60%") : i === 0 ? "92%" : "80%",
-              zIndex: i === 1 ? 2 : 1,
-            }}
-          >
-            <Single product={p} />
-          </div>
-        ))}
-      </div>
-    );
-  }
   return (
     <div className={`flex min-w-0 items-end justify-center ${className}`} style={style}>
       <Single product={product} />
