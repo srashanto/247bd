@@ -14,9 +14,7 @@ Until this is done the store still works, but orders only reach you through What
 2. In the project, open **SQL Editor → New query**, paste everything from [`supabase/schema.sql`](supabase/schema.sql), and click **Run**.
 3. Open **Authentication → Users → Add user → Create new user**. Use `shantors18@gmail.com` (the admin email in the SQL file), choose a password, and tick **Auto confirm user**.
 4. Open **Project Settings → API** and copy the **Project URL** and the **anon public** key.
-5. In this GitHub repo open **Settings → Secrets and variables → Actions → Variables** and add two repository variables:
-   - `NEXT_PUBLIC_SUPABASE_URL` = the Project URL
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = the anon public key
+5. Put the Project URL and anon key in `.env.production` in this repo (already done for the live project).
 6. Open **Actions → Deploy to GitHub Pages → Run workflow**.
 7. Visit https://247bd.net/admin/, sign in, go to **Products** and click **Import PRIDE catalog**.
 
