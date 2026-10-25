@@ -8,7 +8,13 @@ import { newOrderId, Order, PaymentMethod, paymentLabels, saveOrder } from "@/li
 import { formatPrice } from "@/lib/products";
 import { deliveryCharge, districts, STORE } from "@/lib/store";
 
-const input = "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 outline-none focus:border-brand-600";
+const input = "w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[16px] outline-none focus:border-ink";
+
+const paymentHelp: Record<PaymentMethod, string> = {
+  cod: "Pay the delivery person in cash",
+  bkash: "Send Money, then enter TrxID",
+  nagad: "Send Money, then enter TrxID",
+};
 
 export default function CheckoutPage() {
   const { items, subtotal, clear, ready } = useCart();
@@ -21,14 +27,14 @@ export default function CheckoutPage() {
   const delivery = deliveryCharge(form.district, subtotal);
   const total = subtotal + delivery;
 
-  if (!ready) return <div className="mx-auto max-w-5xl px-4 py-10 text-slate-500">Loading...</div>;
+  if (!ready) return <div className="mx-auto max-w-5xl px-4 py-10 text-muted">Loading…</div>;
 
   if (items.length === 0) {
     return (
-      <div className="mx-auto max-w-xl px-4 py-20 text-center">
-        <div className="text-6xl">🧾</div>
-        <h1 className="mt-4 text-2xl font-bold">Nothing to check out</h1>
-        <Link href="/products/" className="mt-6 inline-block rounded-xl bg-brand-600 px-6 py-3 font-bold text-white">
+      <div className="mx-auto max-w-xl px-4 py-24 text-center">
+        <h1 className="font-display text-3xl font-bold">Your cart is empty</h1>
+        <p className="mt-2 text-muted">Add products to your cart before checking out.</p>
+        <Link href="/products/" className="mt-6 inline-block rounded-full bg-ink px-6 py-3 font-semibold text-paper">
           Browse products
         </Link>
       </div>
@@ -43,11 +49,11 @@ export default function CheckoutPage() {
     e.preventDefault();
     const phone = form.phone.replace(/[\s-]/g, "");
     if (!/^(\+?88)?01[3-9]\d{8}$/.test(phone)) {
-      setError("Please enter a valid Bangladeshi mobile number, for example 01712345678.");
+      setError("Enter an 11-digit Bangladeshi mobile number, for example 01712345678.");
       return;
     }
     if (payment !== "cod" && trx.trim().length < 6) {
-      setError(`Please enter the ${paymentLabels[payment]} transaction ID after sending money.`);
+      setError(`Enter the ${paymentLabels[payment]} transaction ID (TrxID) you got after sending money.`);
       return;
     }
     const order: Order = {
@@ -67,72 +73,74 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8">
-      <h1 className="text-2xl font-bold">Checkout</h1>
-      <form onSubmit={placeOrder} className="mt-6 grid gap-6 lg:grid-cols-[1fr_340px]">
-        <div className="space-y-6">
-          <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-100">
-            <h2 className="font-bold">Delivery information</h2>
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:py-10">
+      <h1 className="font-display text-3xl font-bold">Checkout</h1>
+      <p className="mt-1 text-muted">No account needed. We&apos;ll call or WhatsApp you to confirm.</p>
+      <form onSubmit={placeOrder} className="mt-6 grid gap-8 lg:grid-cols-[1fr_340px]">
+        <div className="space-y-8">
+          <section>
+            <h2 className="text-xl font-semibold">Delivery details</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <label className="text-sm">
-                Full name *
-                <input required className={`${input} mt-1`} value={form.name} onChange={(e) => set("name", e.target.value)} />
+              <label className="text-[15px]">
+                Full name
+                <input required autoComplete="name" className={`${input} mt-1`} value={form.name} onChange={(e) => set("name", e.target.value)} />
               </label>
-              <label className="text-sm">
-                Mobile number *
+              <label className="text-[15px]">
+                Mobile number
                 <input
                   required
                   inputMode="tel"
+                  autoComplete="tel"
                   placeholder="01XXXXXXXXX"
                   className={`${input} mt-1`}
                   value={form.phone}
                   onChange={(e) => set("phone", e.target.value)}
                 />
               </label>
-              <label className="text-sm">
-                District *
+              <label className="text-[15px]">
+                District
                 <select className={`${input} mt-1`} value={form.district} onChange={(e) => set("district", e.target.value)}>
                   {districts.map((d) => <option key={d}>{d}</option>)}
                 </select>
               </label>
-              <label className="text-sm sm:col-span-2">
-                Full address *
+              <label className="text-[15px] sm:col-span-2">
+                Full address
                 <textarea
                   required
                   rows={2}
+                  autoComplete="street-address"
                   placeholder="House, road, area, thana"
                   className={`${input} mt-1`}
                   value={form.address}
                   onChange={(e) => set("address", e.target.value)}
                 />
               </label>
-              <label className="text-sm sm:col-span-2">
-                Order note (optional)
+              <label className="text-[15px] sm:col-span-2">
+                Note for us <span className="text-muted">(optional)</span>
                 <input className={`${input} mt-1`} value={form.note} onChange={(e) => set("note", e.target.value)} />
               </label>
             </div>
           </section>
 
-          <section className="rounded-2xl bg-white p-5 ring-1 ring-slate-100">
-            <h2 className="font-bold">Payment method</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <section>
+            <h2 className="text-xl font-semibold">Payment</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3" role="radiogroup">
               {(Object.keys(paymentLabels) as PaymentMethod[]).map((m) => (
                 <label
                   key={m}
-                  className={`cursor-pointer rounded-xl p-3 text-sm font-semibold ring-2 ${
-                    payment === m ? "bg-brand-50 ring-brand-600" : "ring-slate-200"
-                  }`}
+                  className={`cursor-pointer rounded-2xl bg-white p-4 ring-2 ${payment === m ? "ring-ink" : "ring-line hover:ring-muted"}`}
                 >
                   <input type="radio" name="payment" className="sr-only" checked={payment === m} onChange={() => setPayment(m)} />
-                  {m === "cod" ? "💵" : m === "bkash" ? "🩷" : "🧡"} {paymentLabels[m]}
+                  <span className="block font-semibold">{paymentLabels[m]}</span>
+                  <span className="mt-0.5 block text-sm text-muted">{paymentHelp[m]}</span>
                 </label>
               ))}
             </div>
             {payment !== "cod" && (
-              <div className="mt-4 rounded-xl bg-slate-50 p-4 text-sm">
+              <div className="mt-4 rounded-2xl bg-saffron-soft p-4 text-[15px]">
                 <p>
-                  Send <b>{formatPrice(total)}</b> to our {paymentLabels[payment]} merchant number{" "}
-                  <b>{STORE.phone}</b> using &ldquo;Send Money&rdquo;, then enter the transaction ID below.
+                  Send <b>{formatPrice(total)}</b> to our {paymentLabels[payment]} number <b>{STORE.paymentNumber}</b> using
+                  &ldquo;Send Money&rdquo;, then enter the transaction ID below.
                 </p>
                 <input
                   placeholder="Transaction ID (TrxID)"
@@ -145,28 +153,28 @@ export default function CheckoutPage() {
           </section>
         </div>
 
-        <aside className="h-fit rounded-2xl bg-white p-5 ring-1 ring-slate-100">
-          <h2 className="font-bold">Your order</h2>
-          <ul className="mt-4 space-y-2 text-sm">
+        <aside className="h-fit rounded-[18px] bg-white p-5 ring-1 ring-line lg:sticky lg:top-32">
+          <h2 className="text-lg font-semibold">Your order</h2>
+          <ul className="mt-4 space-y-2 text-[15px]">
             {items.map(({ product, qty }) => (
               <li key={product.slug} className="flex justify-between gap-3">
-                <span>{product.emoji} {product.name} × {qty}</span>
-                <span className="whitespace-nowrap font-medium">{formatPrice(product.price * qty)}</span>
+                <span>{product.name} × {qty}</span>
+                <span className="whitespace-nowrap">{formatPrice(product.price * qty)}</span>
               </li>
             ))}
           </ul>
-          <div className="mt-4 space-y-2 border-t border-slate-100 pt-4 text-sm">
+          <div className="mt-4 space-y-2 border-t border-line pt-4 text-[15px]">
             <div className="flex justify-between"><span>Subtotal</span><span>{formatPrice(subtotal)}</span></div>
             <div className="flex justify-between">
               <span>Delivery ({form.district === "Dhaka" ? "inside" : "outside"} Dhaka)</span>
               <span>{delivery === 0 ? "Free" : formatPrice(delivery)}</span>
             </div>
-            <div className="flex justify-between border-t border-slate-100 pt-2 text-lg font-bold">
-              <span>Total</span><span className="text-brand-700">{formatPrice(total)}</span>
+            <div className="flex justify-between border-t border-line pt-3 text-lg font-bold">
+              <span>Total</span><span>{formatPrice(total)}</span>
             </div>
           </div>
-          {error && <p className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</p>}
-          <button className="mt-5 w-full rounded-xl bg-brand-600 py-3 font-bold text-white hover:bg-brand-700">
+          {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-alert">{error}</p>}
+          <button className="mt-5 w-full rounded-full bg-ink py-3.5 font-semibold text-paper hover:bg-him-deep">
             Place order
           </button>
         </aside>

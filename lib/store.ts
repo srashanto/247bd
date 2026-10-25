@@ -1,14 +1,17 @@
 export const STORE = {
   name: "247BD",
-  tagline: "Shop anything, anytime, anywhere in Bangladesh",
+  tagline: "Grooming essentials for him and her, delivered across Bangladesh",
   phone: "01700-000000",
   // WhatsApp number in international format without "+". Replace with the real shop number.
   whatsapp: "8801700000000",
-  email: "support@247bd.shop",
+  // bKash / Nagad number customers send advance payment to. Replace with the real number.
+  paymentNumber: "01700-000000",
+  email: "support@247bd.net",
   address: "Dhaka, Bangladesh",
+  facebook: "https://facebook.com/",
   deliveryInsideDhaka: 60,
   deliveryOutsideDhaka: 120,
-  freeDeliveryOver: 5000,
+  freeDeliveryOver: 2500,
 };
 
 export const districts = [

@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
+import { CheckIcon } from "@/components/Icons";
 
 export default function AddToCart({ slug, stock }: { slug: string; stock: number }) {
   const { add } = useCart();
@@ -11,36 +12,36 @@ export default function AddToCart({ slug, stock }: { slug: string; stock: number
   const [added, setAdded] = useState(false);
 
   return (
-    <div className="mt-6">
-      <div className="flex items-center gap-3">
-        <span className="text-sm font-medium">Quantity</span>
-        <div className="flex items-center rounded-lg bg-white ring-1 ring-slate-200">
-          <button className="px-3 py-2 text-lg" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease">−</button>
-          <span className="w-10 text-center font-semibold">{qty}</span>
-          <button className="px-3 py-2 text-lg" onClick={() => setQty((q) => Math.min(stock, q + 1))} aria-label="Increase">+</button>
+    <div className="mt-7">
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="flex items-center rounded-full bg-white ring-1 ring-line">
+          <button className="px-4 py-3 text-lg" onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity">−</button>
+          <span className="w-8 text-center font-semibold" aria-live="polite">{qty}</span>
+          <button className="px-4 py-3 text-lg" onClick={() => setQty((q) => Math.min(stock, q + 1))} aria-label="Increase quantity">+</button>
         </div>
-      </div>
-      <div className="mt-4 flex flex-wrap gap-3">
         <button
           onClick={() => {
             add(slug, qty);
             setAdded(true);
-            setTimeout(() => setAdded(false), 1500);
+            setTimeout(() => setAdded(false), 1600);
           }}
-          className="flex-1 rounded-xl border-2 border-brand-600 px-6 py-3 font-bold text-brand-700 hover:bg-brand-50"
+          className={`flex min-w-40 flex-1 items-center justify-center gap-2 rounded-full border-2 px-6 py-3 font-semibold ${
+            added ? "border-uni bg-uni text-white" : "border-ink hover:bg-white"
+          }`}
         >
-          {added ? "✓ Added to cart" : "Add to cart"}
-        </button>
-        <button
-          onClick={() => {
-            add(slug, qty);
-            router.push("/checkout/");
-          }}
-          className="flex-1 rounded-xl bg-brand-600 px-6 py-3 font-bold text-white hover:bg-brand-700"
-        >
-          Buy now
+          {added ? <><CheckIcon /> Added to cart</> : "Add to cart"}
         </button>
       </div>
+      <button
+        onClick={() => {
+          add(slug, qty);
+          router.push("/checkout/");
+        }}
+        className="mt-3 w-full rounded-full bg-ink px-6 py-3.5 font-semibold text-paper hover:bg-him-deep"
+      >
+        Buy now, pay on delivery
+      </button>
+      {stock <= 15 && <p className="mt-3 text-sm text-alert">Only {stock} left in stock</p>}
     </div>
   );
 }

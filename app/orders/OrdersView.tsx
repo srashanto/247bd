@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { ChatIcon } from "@/components/Icons";
 import { loadOrders, Order, paymentLabels, whatsappLink } from "@/lib/orders";
 import { formatPrice } from "@/lib/products";
 
@@ -14,71 +15,67 @@ export default function OrdersView() {
 
   useEffect(() => setOrders(loadOrders()), []);
 
-  if (!orders) return <div className="mx-auto max-w-4xl px-4 py-10 text-slate-500">Loading orders...</div>;
+  if (!orders) return <div className="mx-auto max-w-4xl px-4 py-10 text-muted">Loading orders…</div>;
 
   const current = orders.find((o) => o.id === highlight);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="mx-auto max-w-4xl px-4 py-8 sm:py-10">
       {isNew && current && (
-        <div className="mb-8 rounded-2xl bg-brand-600 p-6 text-white">
-          <div className="text-4xl">🎉</div>
-          <h1 className="mt-2 text-2xl font-bold">Thank you, {current.customer.name}!</h1>
-          <p className="mt-1 text-brand-50">
-            Your order <b>{current.id}</b> has been placed. Please confirm it on WhatsApp so we can start processing it right away.
+        <div className="mb-10 rounded-[24px] bg-uni p-6 text-paper sm:p-8">
+          <h1 className="font-display text-3xl font-bold">Order placed, {current.customer.name.split(" ")[0]}</h1>
+          <p className="mt-2 max-w-prose text-paper/90">
+            Your order number is <b>{current.id}</b>. Send it to us on WhatsApp so we can confirm and pack it today.
           </p>
           <a
             href={whatsappLink(current)}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block rounded-xl bg-white px-5 py-3 font-bold text-brand-700 hover:bg-brand-50"
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-paper px-5 py-3 font-semibold text-ink hover:bg-white"
           >
-            💬 Confirm order on WhatsApp
+            <ChatIcon /> Confirm on WhatsApp
           </a>
         </div>
       )}
 
-      <h2 className="text-2xl font-bold">My orders</h2>
-      <p className="text-sm text-slate-500">Orders placed from this browser.</p>
+      <h2 className="font-display text-2xl font-bold">My orders</h2>
+      <p className="text-muted">Orders placed from this phone or browser.</p>
 
       {orders.length === 0 ? (
-        <div className="mt-8 rounded-2xl bg-white p-10 text-center ring-1 ring-slate-100">
-          <div className="text-5xl">📦</div>
-          <p className="mt-3 text-slate-600">You have not placed any orders yet.</p>
-          <Link href="/products/" className="mt-5 inline-block rounded-xl bg-brand-600 px-6 py-3 font-bold text-white">
+        <div className="mt-8 rounded-[18px] bg-white p-10 text-center ring-1 ring-line">
+          <p className="font-display text-xl font-semibold">No orders yet</p>
+          <p className="mt-1 text-muted">When you place an order, you can track it here.</p>
+          <Link href="/products/" className="mt-5 inline-block rounded-full bg-ink px-6 py-3 font-semibold text-paper">
             Start shopping
           </Link>
         </div>
       ) : (
         <ul className="mt-6 space-y-4">
           {orders.map((o) => (
-            <li
-              key={o.id}
-              className={`rounded-2xl bg-white p-5 ring-1 ${o.id === highlight ? "ring-2 ring-brand-600" : "ring-slate-100"}`}
-            >
+            <li key={o.id} className={`rounded-[18px] bg-white p-5 ring-1 ${o.id === highlight ? "ring-2 ring-ink" : "ring-line"}`}>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
-                  <div className="font-bold">{o.id}</div>
-                  <div className="text-xs text-slate-500">{new Date(o.createdAt).toLocaleString("en-GB")}</div>
+                  <div className="font-semibold">{o.id}</div>
+                  <div className="text-sm text-muted">{new Date(o.createdAt).toLocaleString("en-GB")}</div>
                 </div>
-                <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-800">Processing</span>
+                <span className="rounded-full bg-saffron-soft px-3 py-1 text-sm font-semibold">Processing</span>
               </div>
-              <ul className="mt-3 space-y-1 text-sm">
+              <ul className="mt-3 space-y-1 text-[15px]">
                 {o.items.map((i) => (
-                  <li key={i.slug} className="flex justify-between">
+                  <li key={i.slug} className="flex justify-between gap-3">
                     <span>{i.name} × {i.qty}</span>
                     <span>{formatPrice(i.price * i.qty)}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3 text-sm">
-                <span className="text-slate-600">
-                  {paymentLabels[o.payment]} · Delivery {o.delivery === 0 ? "free" : formatPrice(o.delivery)} · {o.customer.district}
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-3 text-[15px]">
+                <span className="text-muted">
+                  {paymentLabels[o.payment]}, delivery {o.delivery === 0 ? "free" : formatPrice(o.delivery)}, {o.customer.district}
                 </span>
-                <span className="text-lg font-bold text-brand-700">{formatPrice(o.total)}</span>
+                <span className="text-lg font-bold">{formatPrice(o.total)}</span>
               </div>
-              <a href={whatsappLink(o)} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm font-semibold text-brand-600">
-                Send to shop on WhatsApp →
+              <a href={whatsappLink(o)} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-[15px] font-semibold underline underline-offset-4">
+                Send this order on WhatsApp
               </a>
             </li>
           ))}

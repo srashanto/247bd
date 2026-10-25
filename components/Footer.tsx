@@ -1,48 +1,49 @@
 import Link from "next/link";
 import { categories } from "@/lib/products";
 import { STORE } from "@/lib/store";
+import { Logo } from "./Header";
 
 export default function Footer() {
   return (
-    <footer className="mt-16 bg-brand-900 text-brand-100">
-      <div className="mx-auto max-w-7xl px-4 py-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="mt-20 bg-ink text-paper/80">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <div className="flex items-center gap-1">
-            <span className="rounded-lg bg-brand-500 px-2 py-1 text-lg font-black text-white">247</span>
-            <span className="text-xl font-black text-white">BD</span>
-          </div>
-          <p className="mt-3 text-sm text-brand-100/80">{STORE.tagline}.</p>
+          <Logo light />
+          <p className="mt-3 max-w-xs text-[15px] leading-relaxed">{STORE.tagline}.</p>
+          <p className="mt-4 text-sm">Pay with cash on delivery, bKash or Nagad.</p>
         </div>
         <div>
-          <h3 className="font-semibold text-white">Categories</h3>
-          <ul className="mt-3 space-y-2 text-sm">
+          <h3 className="font-semibold text-paper">Shop</h3>
+          <ul className="mt-3 space-y-2 text-[15px]">
+            <li><Link href="/products/?for=him" className="hover:text-paper">For him</Link></li>
+            <li><Link href="/products/?for=her" className="hover:text-paper">For her</Link></li>
             {categories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/products/?category=${c.slug}`} className="hover:text-white">{c.name}</Link>
+                <Link href={`/products/?category=${c.slug}`} className="hover:text-paper">{c.name}</Link>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-white">Help</h3>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li><Link href="/cart/" className="hover:text-white">Cart</Link></li>
-            <li><Link href="/orders/" className="hover:text-white">My orders</Link></li>
-            <li>Delivery inside Dhaka: ৳{STORE.deliveryInsideDhaka}</li>
-            <li>Delivery outside Dhaka: ৳{STORE.deliveryOutsideDhaka}</li>
+          <h3 className="font-semibold text-paper">Help</h3>
+          <ul className="mt-3 space-y-2 text-[15px]">
+            <li><Link href="/help/" className="hover:text-paper">Delivery & returns</Link></li>
+            <li><Link href="/help/#payment" className="hover:text-paper">Payment</Link></li>
+            <li><Link href="/orders/" className="hover:text-paper">My orders</Link></li>
+            <li><Link href="/wishlist/" className="hover:text-paper">Wishlist</Link></li>
           </ul>
         </div>
         <div>
-          <h3 className="font-semibold text-white">Contact</h3>
-          <ul className="mt-3 space-y-2 text-sm">
-            <li>📞 {STORE.phone}</li>
-            <li>✉️ {STORE.email}</li>
-            <li>📍 {STORE.address}</li>
-            <li className="pt-2">We accept: Cash on Delivery · bKash · Nagad</li>
+          <h3 className="font-semibold text-paper">Contact</h3>
+          <ul className="mt-3 space-y-2 text-[15px]">
+            <li><a href={`tel:${STORE.phone.replace(/-/g, "")}`} className="hover:text-paper">{STORE.phone}</a></li>
+            <li><a href={`https://wa.me/${STORE.whatsapp}`} className="hover:text-paper">WhatsApp</a></li>
+            <li><a href={`mailto:${STORE.email}`} className="hover:text-paper">{STORE.email}</a></li>
+            <li>{STORE.address}</li>
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs text-brand-100/70">
+      <div className="border-t border-white/10 py-5 text-center text-sm text-paper/60">
         © {new Date().getFullYear()} {STORE.name}. All rights reserved.
       </div>
     </footer>

@@ -4,11 +4,29 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
+import { useWishlist } from "@/lib/wishlist";
 import { categories } from "@/lib/products";
 import { STORE } from "@/lib/store";
+import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon } from "./Icons";
+
+export function Logo({ light = false }: { light?: boolean }) {
+  return (
+    <span className={`font-display text-2xl font-extrabold tracking-tight ${light ? "text-paper" : "text-ink"}`}>
+      247<span className="text-saffron">BD</span>
+    </span>
+  );
+}
+
+const mainNav = [
+  { href: "/products/?for=him", label: "For him" },
+  { href: "/products/?for=her", label: "For her" },
+  { href: "/products/?category=combos", label: "Combos" },
+  { href: "/products/", label: "Shop all" },
+];
 
 export default function Header() {
   const { count } = useCart();
+  const { slugs } = useWishlist();
   const router = useRouter();
   const [q, setQ] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,90 +37,94 @@ export default function Header() {
     setMenuOpen(false);
   }
 
+  const search = (
+    <form onSubmit={onSearch} role="search" className="relative w-full">
+      <SearchIcon className="pointer-events-none absolute left-3.5 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-muted" />
+      <input
+        value={q}
+        onChange={(e) => setQ(e.target.value)}
+        placeholder="Search shampoo, beard oil, sunscreen…"
+        aria-label="Search products"
+        className="w-full rounded-full border border-line bg-white py-2.5 pl-10 pr-4 text-[15px] outline-none focus:border-ink"
+      />
+    </form>
+  );
+
   return (
-    <header className="sticky top-0 z-40 bg-white shadow-sm">
-      <div className="bg-brand-900 text-brand-100 text-xs">
-        <div className="mx-auto max-w-7xl px-4 py-1.5 flex justify-between gap-4">
-          <span>🚚 Cash on delivery all over Bangladesh</span>
-          <span className="hidden sm:inline">📞 {STORE.phone} · 24/7 support</span>
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
+      <div className="bg-ink text-[13px] text-paper/85">
+        <div className="mx-auto flex max-w-7xl justify-between gap-4 px-4 py-1.5">
+          <span>Cash on delivery all over Bangladesh. Free delivery over ৳{STORE.freeDeliveryOver.toLocaleString("en-IN")}</span>
+          <a href={`tel:${STORE.phone.replace(/-/g, "")}`} className="hidden hover:text-paper sm:inline">
+            Call {STORE.phone}
+          </a>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center gap-3 sm:gap-6">
-        <button
-          className="md:hidden text-2xl"
-          aria-label="Open menu"
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          ☰
+      <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 lg:gap-8">
+        <button className="-ml-1 p-1 lg:hidden" aria-label="Open menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((v) => !v)}>
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
         </button>
 
-        <Link href="/" className="flex items-center gap-1 shrink-0">
-          <span className="rounded-lg bg-brand-600 px-2 py-1 text-lg font-black text-white">247</span>
-          <span className="text-xl font-black text-brand-900">BD</span>
+        <Link href="/" aria-label="247BD home" className="shrink-0">
+          <Logo />
         </Link>
 
-        <form onSubmit={onSearch} className="hidden md:flex flex-1">
-          <input
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Search products..."
-            className="w-full rounded-l-lg border border-slate-300 px-4 py-2 outline-none focus:border-brand-600"
-          />
-          <button className="rounded-r-lg bg-brand-600 px-5 text-white font-semibold hover:bg-brand-700">
-            Search
-          </button>
-        </form>
+        <nav className="hidden items-center gap-6 text-[15px] font-medium lg:flex">
+          {mainNav.map((n) => (
+            <Link key={n.href} href={n.href} className="whitespace-nowrap hover:text-him">
+              {n.label}
+            </Link>
+          ))}
+        </nav>
 
-        <nav className="ml-auto flex items-center gap-4 text-sm font-medium">
-          <Link href="/products/" className="hidden sm:inline hover:text-brand-600">Shop</Link>
-          <Link href="/orders/" className="hidden sm:inline hover:text-brand-600">My Orders</Link>
-          <Link href="/cart/" className="relative flex items-center gap-1 rounded-lg bg-brand-50 px-3 py-2 hover:bg-brand-100">
-            <span className="text-lg">🛒</span>
-            <span className="hidden sm:inline">Cart</span>
-            {count > 0 && (
-              <span className="absolute -right-2 -top-2 grid h-5 min-w-5 place-items-center rounded-full bg-accent-500 px-1 text-xs font-bold text-white">
-                {count}
+        <div className="ml-auto hidden max-w-sm flex-1 md:block">{search}</div>
+
+        <div className="ml-auto flex items-center gap-1 md:ml-0">
+          <Link href="/wishlist/" aria-label="Wishlist" className="relative rounded-full p-2.5 hover:bg-white">
+            <HeartIcon />
+            {slugs.length > 0 && (
+              <span className="absolute right-0.5 top-0.5 grid h-4.5 min-w-4.5 place-items-center rounded-full bg-her px-1 text-[11px] font-bold text-white">
+                {slugs.length}
               </span>
             )}
           </Link>
-        </nav>
-      </div>
-
-      <div className="hidden md:block border-t border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 flex gap-6 overflow-x-auto py-2 text-sm text-slate-600">
-          {categories.map((c) => (
-            <Link key={c.slug} href={`/products/?category=${c.slug}`} className="whitespace-nowrap hover:text-brand-600">
-              {c.emoji} {c.name}
-            </Link>
-          ))}
+          <Link href="/cart/" aria-label={`Cart, ${count} items`} className="relative flex items-center gap-2 rounded-full bg-ink py-2.5 pl-3.5 pr-4 text-paper hover:bg-him-deep">
+            <BagIcon />
+            <span className="text-sm font-semibold">{count}</span>
+          </Link>
         </div>
       </div>
 
       {menuOpen && (
-        <div className="md:hidden border-t border-slate-100 px-4 py-3 space-y-3">
-          <form onSubmit={onSearch} className="flex">
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Search products..."
-              className="w-full rounded-l-lg border border-slate-300 px-3 py-2 outline-none focus:border-brand-600"
-            />
-            <button className="rounded-r-lg bg-brand-600 px-4 text-white">Go</button>
-          </form>
-          <div className="grid grid-cols-2 gap-2 text-sm">
-            <Link href="/products/" onClick={() => setMenuOpen(false)} className="rounded bg-slate-50 p-2">🛍️ All products</Link>
-            <Link href="/orders/" onClick={() => setMenuOpen(false)} className="rounded bg-slate-50 p-2">📦 My orders</Link>
-            {categories.map((c) => (
+        <div className="border-t border-line px-4 pb-5 pt-4 lg:hidden">
+          <div className="md:hidden">{search}</div>
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            {mainNav.map((n) => (
+              <Link
+                key={n.href}
+                href={n.href}
+                onClick={() => setMenuOpen(false)}
+                className="rounded-xl bg-white px-4 py-3 font-display font-semibold ring-1 ring-line"
+              >
+                {n.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2 text-sm">
+            {categories.filter((c) => c.slug !== "combos").map((c) => (
               <Link
                 key={c.slug}
                 href={`/products/?category=${c.slug}`}
                 onClick={() => setMenuOpen(false)}
-                className="rounded bg-slate-50 p-2"
+                className="rounded-full border border-line px-3 py-1.5"
               >
-                {c.emoji} {c.name}
+                {c.name}
               </Link>
             ))}
+            <Link href="/orders/" onClick={() => setMenuOpen(false)} className="rounded-full border border-line px-3 py-1.5">
+              My orders
+            </Link>
           </div>
         </div>
       )}
