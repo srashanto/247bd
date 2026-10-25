@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useCatalog } from "@/lib/catalog";
 import { categories } from "@/lib/products";
-import { Logo } from "./Header";
 import { FacebookIcon, GroupIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsappIcon, YoutubeIcon } from "./Icons";
 
 export default function Footer() {
@@ -20,9 +19,14 @@ export default function Footer() {
     <footer className="mt-24 overflow-hidden border-t border-line bg-[#060606] text-ink/80">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
         <div>
-          <Logo />
-          <p className="mt-4 max-w-xs text-[15px] leading-relaxed">{s.tagline}.</p>
-          <p className="mt-3 text-sm text-muted">A grooming brand of PahelaPride.</p>
+          <a href="https://pahelapride.com" target="_blank" rel="noopener noreferrer" className="font-display text-[24px] font-extrabold uppercase leading-none tracking-[0.04em] text-ink [font-stretch:118%] hover:text-gold-2">
+            Pahela<span className="text-gold">Pride</span>
+          </a>
+          <p className="mt-4 max-w-xs text-[15px] leading-relaxed">Imported hair styling, hair care, skincare &amp; perfume, delivered all over Bangladesh.</p>
+          <p className="mt-3 text-sm text-muted">
+            247BD is the PRIDE grooming store of PahelaPride.{" "}
+            <a href="https://pahelapride.com" target="_blank" rel="noopener noreferrer" className="text-ink underline underline-offset-4 hover:text-gold-2">Visit pahelapride.com</a>
+          </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {socials.map(({ href, label, Icon }) => (
               <a
@@ -86,12 +90,12 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-4" aria-hidden>
-        <div className="select-none font-display text-[27vw] font-extrabold leading-[0.78] tracking-[-0.02em] text-ink/[0.05] [font-stretch:125%] lg:text-[21rem]">
-          247BD
+        <div className="select-none whitespace-nowrap font-display text-[13.4vw] font-extrabold uppercase leading-[0.8] tracking-[-0.02em] text-ink/[0.05] [font-stretch:112%] lg:text-[10.6rem]">
+          PahelaPride
         </div>
       </div>
       <div className="border-t border-line py-5 text-center text-sm text-muted">
-        © {new Date().getFullYear()} {s.storeName} · PahelaPride. All rights reserved.
+        © {new Date().getFullYear()} PahelaPride. All rights reserved.
       </div>
     </footer>
   );
