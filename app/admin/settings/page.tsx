@@ -102,6 +102,9 @@ export default function SettingsPage() {
             <label className={L}>WhatsApp (with 880, no +)<input value={s.whatsapp} onChange={(e) => set("whatsapp", e.target.value.replace(/\D/g, ""))} className={`${field} mt-1`} /></label>
             <label className={L}>Email<input value={s.email} onChange={(e) => set("email", e.target.value)} className={`${field} mt-1`} /></label>
             <label className={L}>Facebook page link<input value={s.facebook} onChange={(e) => set("facebook", e.target.value)} className={`${field} mt-1`} /></label>
+            <label className={L}>Instagram link<input value={s.instagram} onChange={(e) => set("instagram", e.target.value)} className={`${field} mt-1`} /></label>
+            <label className={L}>YouTube link<input value={s.youtube} onChange={(e) => set("youtube", e.target.value)} className={`${field} mt-1`} /></label>
+            <label className={L}>Facebook group (community) link<input value={s.community} onChange={(e) => set("community", e.target.value)} className={`${field} mt-1`} /></label>
             <label className={`${L} sm:col-span-2`}>Address<input value={s.address} onChange={(e) => set("address", e.target.value)} className={`${field} mt-1`} /></label>
           </div>
         </section>

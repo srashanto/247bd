@@ -21,6 +21,9 @@ export type Settings = {
   email: string;
   address: string;
   facebook: string;
+  instagram: string;
+  youtube: string;
+  community: string;
   deliveryInsideDhaka: number;
   deliveryOutsideDhaka: number;
   /** 0 turns free delivery off. */
@@ -35,11 +38,14 @@ export type Settings = {
 export const defaultSettings: Settings = {
   storeName: "247BD",
   tagline: "PRIDE grooming by PahelaPride, delivered all over Bangladesh",
-  phone: "01683075333",
-  whatsapp: "8801683075333",
-  email: "support@247bd.net",
-  address: "Dhaka, Bangladesh",
-  facebook: "https://www.facebook.com/pahelapride",
+  phone: "01748047444",
+  whatsapp: "8801748047444",
+  email: "pahelapride.official@gmail.com",
+  address: "Narayanganj, Bangladesh",
+  facebook: "https://www.facebook.com/pahela.pride",
+  instagram: "https://www.instagram.com/pahela.pride/",
+  youtube: "https://www.youtube.com/@pahelapride",
+  community: "https://www.facebook.com/share/g/1EiPYJT8C5/",
   deliveryInsideDhaka: 80,
   deliveryOutsideDhaka: 120,
   freeDeliveryOver: 0,
