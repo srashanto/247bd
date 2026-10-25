@@ -102,14 +102,14 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 sm:py-8">
-      <nav className="text-[14px] text-muted" aria-label="Breadcrumb">
+    <div className="mx-auto max-w-7xl px-4 pb-24 pt-4 sm:py-8 md:pb-8">
+      <nav className="text-[13px] text-muted sm:text-[14px]" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span className="mx-2">/</span>
         <Link href={`/products/?category=${product.category}`} className="hover:text-ink">{category?.name ?? "Shop"}</Link>
       </nav>
 
-      <div className="mt-5 grid gap-8 md:grid-cols-2 lg:gap-14">
+      <div className="mt-3 grid gap-6 sm:mt-5 md:grid-cols-2 md:gap-8 lg:gap-14">
         <div className="md:sticky md:top-28 md:self-start">
           <Gallery product={product} />
         </div>
@@ -119,9 +119,15 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             {off > 0 && <span className="bg-alert px-2 py-1 text-white">-{off}%</span>}
             {product.badge && <span className="bg-gold px-2 py-1 text-paper">{product.badge}</span>}
           </div>
-          <h1 className="mt-3 text-[1.6rem] font-bold uppercase leading-[1.12] sm:text-[2rem]">{product.title || product.name}</h1>
+          <h1 className="mt-3 text-[1.35rem] font-bold leading-tight sm:text-[1.6rem] md:text-[2rem] md:uppercase md:leading-[1.12]">
+            <span className="md:hidden">{product.name}</span>
+            <span className="hidden md:inline">{product.title || product.name}</span>
+          </h1>
+          {product.title && product.title !== product.name && (
+            <p className="mt-1.5 text-[13px] leading-snug text-muted md:hidden">{product.title.replace(product.name, "").replace(/^\s*Bangladesh\b/, "").replace(/^[\s–|-]+/, "")}</p>
+          )}
 
-          <div className="mt-4 text-2xl font-semibold">
+          <div className="mt-3 text-[1.4rem] font-semibold sm:mt-4 sm:text-2xl">
             {v || !hasVariations(product) ? (
               <span className="flex flex-wrap items-baseline gap-3">
                 {formatPrice(unit.price)}
@@ -135,20 +141,20 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           </div>
 
           {product.gift && (
-            <div className="mt-5 flex items-center gap-3 border border-gold/40 bg-gold-soft px-4 py-3 text-[15px]">
+            <div className="mt-4 flex items-center gap-3 border border-gold/40 bg-gold-soft px-3.5 py-2.5 text-[14px] sm:mt-5 sm:px-4 sm:py-3 sm:text-[15px]">
               <span aria-hidden>🎁</span>
               <span><b>Free gift:</b> {product.gift}</span>
             </div>
           )}
           {settings.couponNotice && (
-            <div className="mt-2 flex items-center gap-3 border border-line bg-card px-4 py-3 text-[14px] text-ink/85">
+            <div className="mt-2 flex items-center gap-3 border border-line bg-card px-3.5 py-2.5 text-[13px] text-ink/85 sm:px-4 sm:py-3 sm:text-[14px]">
               <span className="text-gold" aria-hidden>✦</span>
               {settings.couponNotice}
             </div>
           )}
 
           {hasVariations(product) && (
-            <div className="mt-6">
+            <div className="mt-5 sm:mt-6">
               <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">Size: <span className="text-ink">{v?.label}</span></p>
               <div className="mt-2.5 flex flex-wrap gap-2">
                 {product.variations.map((x) => (
@@ -275,11 +281,41 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
       {related.length > 0 && (
         <section className="mt-12">
           <h2 className="text-2xl font-semibold sm:text-3xl">You may also like</h2>
-          <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-4">
             {related.map((p) => <ProductCard key={p.slug} product={p} />)}
           </div>
         </section>
       )}
+      {/* Phone: price and buttons stay at the bottom while scrolling */}
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-[#0b0b0b]/95 px-3 pb-[calc(env(safe-area-inset-bottom)+0.6rem)] pt-2.5 backdrop-blur md:hidden">
+        <div className="flex items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <p className="truncate text-[12px] text-muted">{v?.label ?? product.name}</p>
+            <p className="text-[16px] font-semibold leading-tight">{formatPrice(unit.price * qty)}</p>
+          </div>
+          <button
+            disabled={stock <= 0}
+            onClick={() => {
+              addToCart();
+              setAdded(true);
+              setTimeout(() => setAdded(false), 1600);
+            }}
+            className={`border px-3 py-3 text-[12px] font-semibold uppercase tracking-wider disabled:opacity-40 ${added ? "border-gold text-gold-2" : "border-ink"}`}
+          >
+            {stock <= 0 ? "Sold out" : added ? "Added ✓" : "Add to cart"}
+          </button>
+          <button
+            disabled={stock <= 0}
+            onClick={() => {
+              addToCart();
+              router.push("/checkout/");
+            }}
+            className="btn-gold px-4 py-3 text-[12px] disabled:opacity-40"
+          >
+            Buy now
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

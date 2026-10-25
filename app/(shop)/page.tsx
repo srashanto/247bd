@@ -35,26 +35,26 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="concrete relative overflow-hidden border-b border-line">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 md:grid-cols-[1.05fr_1fr] md:py-16">
+        <div className="mx-auto grid max-w-7xl items-center gap-7 px-4 py-8 md:grid-cols-[1.05fr_1fr] md:gap-10 md:py-16">
           <div>
             <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">PRIDE grooming by PahelaPride</p>
-            <h1 className="mt-5 text-[clamp(2.7rem,6.4vw,5.2rem)] font-bold uppercase leading-[0.92] [font-stretch:118%]">
+            <h1 className="mt-3 text-[clamp(2.4rem,6.4vw,5.2rem)] sm:mt-5 font-bold uppercase leading-[0.92] [font-stretch:118%]">
               Style it.
               <br />
               Own it.
             </h1>
-            <p className="mt-6 max-w-md text-[17px] leading-relaxed text-ink/80">
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-ink/80 sm:mt-6 sm:text-[17px]">
               Hair clay, sea salt spray, curl care and skin care made for Bangladesh&apos;s heat and humidity. Cash on delivery all over the country.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/products/" className="btn-gold px-7 py-4 text-[14px]">Shop now</Link>
-              <Link href="/products/?category=combos" className="btn-ghost px-7 py-4 text-[14px]">Shop combos</Link>
+            <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-8 sm:flex sm:flex-wrap sm:gap-3">
+              <Link href="/products/" className="btn-gold px-4 py-3.5 text-center text-[13px] sm:px-7 sm:py-4 sm:text-[14px]">Shop now</Link>
+              <Link href="/products/?category=combos" className="btn-ghost px-4 py-3.5 text-center text-[13px] sm:px-7 sm:py-4 sm:text-[14px]">Shop combos</Link>
             </div>
-            <p className="mt-6 text-sm text-muted">{settings.couponNotice}</p>
+            <p className="mt-6 hidden text-sm text-muted sm:block">{settings.couponNotice}</p>
           </div>
 
           {hero && (
-            <Link href={productHref(hero)} className="group relative block aspect-square overflow-hidden border border-line">
+            <Link href={productHref(hero)} className="group relative block aspect-[4/3] overflow-hidden border border-line md:aspect-square">
               <ProductPhoto product={hero} src={hero.images?.[0]?.src} eager className="transition-transform duration-700 group-hover:scale-[1.03]" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-black/85 to-transparent p-5 pt-16">
                 <div>
@@ -72,13 +72,13 @@ export default function Home() {
 
       {/* Category doors */}
       {doors.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 pt-20">
-          <div className="grid gap-4 md:grid-cols-3">
+        <section className="mx-auto max-w-7xl px-4 pt-12 sm:pt-20">
+          <div className="grid gap-3 md:grid-cols-3 md:gap-4">
             {doors.map((d) => (
-              <Link key={d.href} href={d.href} className="group relative block aspect-[4/4.3] overflow-hidden border border-line">
+              <Link key={d.href} href={d.href} className="group relative block aspect-[16/9] overflow-hidden border border-line md:aspect-[4/4.3]">
                 <ProductPhoto product={d.product!} className="opacity-80 transition duration-500 group-hover:scale-[1.03] group-hover:opacity-100" />
                 <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/85 to-transparent p-5 pt-16">
-                  <span className="font-display text-2xl font-semibold">Shop {d.label.toLowerCase()}</span>
+                  <span className="font-display text-xl font-semibold sm:text-2xl">Shop {d.label.toLowerCase()}</span>
                   <span className="text-xl text-gold transition-transform group-hover:translate-x-1">→</span>
                 </div>
               </Link>
@@ -88,9 +88,9 @@ export default function Home() {
       )}
 
       {/* Why */}
-      <section className="mx-auto max-w-7xl px-4 pt-24">
-        <div className="grid gap-10 border-y border-line py-14 lg:grid-cols-[1fr_1.3fr] lg:items-center">
-          <h2 className="text-3xl font-semibold leading-tight sm:text-[2.6rem]">Here&apos;s why shopping with 247BD is easy.</h2>
+      <section className="mx-auto max-w-7xl px-4 pt-14 sm:pt-24">
+        <div className="grid gap-8 border-y border-line py-10 sm:gap-10 sm:py-14 lg:grid-cols-[1fr_1.3fr] lg:items-center">
+          <h2 className="text-[1.7rem] font-semibold leading-tight sm:text-[2.6rem]">Here&apos;s why shopping with 247BD is easy.</h2>
           <ul className="grid gap-x-10 gap-y-8 sm:grid-cols-2">
             {[
               [TruckIcon, "Delivery all over Bangladesh", `৳${settings.deliveryInsideDhaka} inside Dhaka, ৳${settings.deliveryOutsideDhaka} outside Dhaka.`],
@@ -113,10 +113,10 @@ export default function Home() {
 
       {/* Statement */}
       {combos.length > 0 && (
-        <section className="concrete mt-24 border-y border-line">
-          <div className="mx-auto max-w-7xl px-4 py-20 text-center">
+        <section className="concrete mt-14 border-y sm:mt-24 border-line">
+          <div className="mx-auto max-w-7xl px-4 py-14 text-center sm:py-20">
             <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">Simple. Effective. PRIDE.</p>
-            <h2 className="mx-auto mt-5 max-w-3xl text-[clamp(2rem,4.6vw,3.6rem)] font-semibold leading-[1.02]">
+            <h2 className="mx-auto mt-4 max-w-3xl text-[clamp(1.8rem,4.6vw,3.6rem)] font-semibold leading-[1.02]">
               Build your routine and get a free gift.
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-[17px] text-ink/80">
@@ -129,12 +129,12 @@ export default function Home() {
 
       {/* Combos */}
       {combos.length > 0 && (
-        <section className="mx-auto max-w-7xl px-4 pt-20">
+        <section className="mx-auto max-w-7xl px-4 pt-12 sm:pt-20">
           <div className="flex items-end justify-between gap-4">
-            <h2 className="text-3xl font-semibold sm:text-4xl">Featured combos</h2>
+            <h2 className="text-[1.7rem] font-semibold sm:text-4xl">Featured combos</h2>
             <Link href="/products/?category=combos" className="text-[15px] underline underline-offset-4 hover:text-gold-2">Shop combos</Link>
           </div>
-          <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+          <div className="mt-7 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-4">
             {combos.slice(0, 8).map((p) => <ProductCard key={p.slug} product={p} />)}
           </div>
         </section>

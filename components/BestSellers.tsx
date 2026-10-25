@@ -14,9 +14,9 @@ export default function BestSellers({ tabs, title = "Best sellers" }: { tabs: Ta
   if (!tab) return null;
 
   return (
-    <section className="mx-auto max-w-7xl px-4 pt-20">
+    <section className="mx-auto max-w-7xl px-4 pt-12 sm:pt-20">
       <div className="flex items-end justify-between gap-4">
-        <h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2>
+        <h2 className="text-[1.7rem] font-semibold sm:text-4xl">{title}</h2>
         <Link href={tab.href} className="text-[15px] underline underline-offset-4 hover:text-gold-2">
           Shop all
         </Link>
@@ -36,7 +36,7 @@ export default function BestSellers({ tabs, title = "Best sellers" }: { tabs: Ta
           </button>
         ))}
       </div>
-      <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+      <div className="mt-7 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-4">
         {tab.items.slice(0, 4).map((p) => <ProductCard key={p.slug} product={p} />)}
       </div>
     </section>

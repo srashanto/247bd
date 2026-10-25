@@ -104,7 +104,7 @@ export default function ProductList() {
           <button onClick={() => router.push("/products/")} className="btn-gold mt-5 px-5 py-3">Show all products</button>
         </div>
       ) : (
-        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-4">
           {list.map((p, i) => <ProductCard key={p.slug} product={p} eager={i < 4} />)}
         </div>
       )}

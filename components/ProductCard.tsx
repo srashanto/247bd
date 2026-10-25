@@ -69,16 +69,16 @@ export function AddButton({ product, className = "" }: { product: Product; class
 
   if (soldOut)
     return (
-      <span className={`flex items-center justify-center border border-line px-3.5 py-3 text-[13px] font-semibold uppercase tracking-wider text-muted ${className}`}>
+      <span className={`flex items-center justify-center border border-line px-2 py-2.5 text-[11.5px] font-semibold uppercase tracking-wider text-muted sm:py-3 sm:text-[13px] ${className}`}>
         Out of stock
       </span>
     );
 
   if (hasVariations(product))
     return (
-      <Link href={productHref(product)} className={`btn-gold flex items-center justify-between gap-2 px-3.5 py-3 text-[13px] ${className}`}>
+      <Link href={productHref(product)} className={`btn-gold flex items-center justify-center gap-2 whitespace-nowrap px-2 py-2.5 text-[11.5px] sm:justify-between sm:px-3.5 sm:py-3 sm:text-[13px] ${className}`}>
         <span>Select options</span>
-        <span aria-hidden>→</span>
+        <span aria-hidden className="hidden sm:inline">→</span>
       </Link>
     );
 
@@ -90,10 +90,10 @@ export function AddButton({ product, className = "" }: { product: Product; class
         setTimeout(() => setAdded(false), 1400);
       }}
       aria-label={`Add ${product.name} to cart`}
-      className={`btn-gold flex items-center justify-between gap-2 px-3.5 py-3 text-[13px] ${className}`}
+      className={`btn-gold flex items-center justify-center gap-2 whitespace-nowrap px-2 py-2.5 text-[11.5px] sm:justify-between sm:px-3.5 sm:py-3 sm:text-[13px] ${className}`}
     >
       {added ? <span className="flex items-center gap-1.5"><CheckIcon /> Added</span> : <span>Add to cart</span>}
-      <BagIcon className="h-4.5 w-4.5" />
+      <BagIcon className="hidden h-4.5 w-4.5 sm:block" />
     </button>
   );
 }
@@ -105,22 +105,22 @@ export default function ProductCard({ product, eager = false }: { product: Produ
     <div className="group relative flex flex-col">
       <Link href={href} className="relative block aspect-square overflow-hidden bg-card">
         <ProductPhoto product={product} eager={eager} className="transition-transform duration-500 group-hover:scale-[1.03]" />
-        <div className="absolute left-2.5 top-2.5 flex flex-wrap gap-1.5 text-[11px] font-semibold uppercase tracking-wider">
-          {off > 0 && <span className="bg-gold px-2 py-1 text-paper">-{off}%</span>}
-          {product.badge && <span className="bg-black/60 px-2 py-1 text-ink backdrop-blur">{product.badge}</span>}
+        <div className="absolute left-2 top-2 flex flex-wrap gap-1 text-[10px] font-semibold uppercase tracking-wider sm:left-2.5 sm:top-2.5 sm:gap-1.5 sm:text-[11px]">
+          {off > 0 && <span className="bg-gold px-1.5 py-0.5 text-paper sm:px-2 sm:py-1">-{off}%</span>}
+          {product.badge && <span className="hidden bg-black/60 px-2 py-1 text-ink backdrop-blur sm:inline">{product.badge}</span>}
         </div>
       </Link>
-      <WishButton slug={product.slug} className="absolute right-2 top-2" />
-      <div className="mt-3 flex flex-1 flex-col">
-        <Link href={href} className="text-[15px] font-medium leading-snug group-hover:text-gold-2 sm:text-[16px]">
+      <WishButton slug={product.slug} className="absolute right-1.5 top-1.5 h-8 w-8 sm:right-2 sm:top-2 sm:h-9 sm:w-9" />
+      <div className="mt-2.5 flex flex-1 flex-col sm:mt-3">
+        <Link href={href} className="line-clamp-2 text-[14px] font-medium leading-snug group-hover:text-gold-2 sm:text-[16px]">
           {product.name}
         </Link>
         {product.gift ? (
-          <span className="mt-1 text-[12.5px] text-gold">🎁 {product.gift}</span>
+          <span className="mt-1 line-clamp-1 text-[12px] text-gold sm:text-[12.5px]">🎁 {product.gift}</span>
         ) : (
-          product.benefits?.[0] && <span className="mt-1 line-clamp-1 text-[13px] text-muted">{product.benefits[0]}</span>
+          product.benefits?.[0] && <span className="mt-1 line-clamp-1 text-[12px] text-muted sm:text-[13px]">{product.benefits[0]}</span>
         )}
-        <PriceLine product={product} className="mt-2 pb-3 font-semibold" />
+        <PriceLine product={product} className="mt-1.5 pb-2.5 text-[14px] font-semibold sm:mt-2 sm:pb-3 sm:text-[16px]" />
         <AddButton product={product} className="mt-auto w-full" />
       </div>
     </div>
