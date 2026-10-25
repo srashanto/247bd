@@ -58,7 +58,22 @@ create table if not exists public.orders (
   courier text,
   tracking text
 );
+alter table public.orders add column if not exists user_id uuid references auth.users (id) on delete set null;
 create index if not exists orders_created_at on public.orders (created_at desc);
+create index if not exists orders_user on public.orders (user_id);
+
+-- Customer accounts: one profile per signed-in customer.
+create table if not exists public.profiles (
+  id uuid primary key references auth.users (id) on delete cascade,
+  name text,
+  phone text,
+  district text,
+  area text,
+  address text,
+  wishlist text[] not null default '{}',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
 create index if not exists orders_status on public.orders (status);
 
 -- ─────────────────────────── Admin check ───────────────────────────
@@ -76,6 +91,13 @@ alter table public.settings enable row level security;
 alter table public.products enable row level security;
 alter table public.coupons enable row level security;
 alter table public.orders enable row level security;
+alter table public.profiles enable row level security;
+
+drop policy if exists "customers manage own profile" on public.profiles;
+create policy "customers manage own profile" on public.profiles for all to authenticated
+  using (id = auth.uid()) with check (id = auth.uid());
+drop policy if exists "admins read profiles" on public.profiles;
+create policy "admins read profiles" on public.profiles for select to authenticated using (public.is_admin());
 
 drop policy if exists "admins read admins" on public.admins;
 create policy "admins read admins" on public.admins for select to authenticated using (public.is_admin());
@@ -229,9 +251,10 @@ begin
   end if;
 
   oid := '247BD-' || nextval('order_number')::text;
-  insert into orders (id, customer, items, subtotal, discount, coupon, delivery, total, payment, note)
+  insert into orders (id, user_id, customer, items, subtotal, discount, coupon, delivery, total, payment, note)
   values (
     oid,
+    auth.uid(),
     jsonb_build_object('name', trim(cust ->> 'name'), 'phone', phone, 'district', cust ->> 'district',
       'area', trim(cust ->> 'area'), 'address', trim(cust ->> 'address'), 'email', nullif(trim(coalesce(cust ->> 'email', '')), '')),
     items, subtotal, discount, v_code, delivery, total, pay, nullif(trim(coalesce(payload ->> 'note', '')), '')
@@ -296,6 +319,15 @@ begin
   return result;
 end $$;
 grant execute on function public.set_order_status(text, text) to authenticated;
+
+-- A signed-in customer's own orders (without the admin's private note).
+create or replace function public.my_orders() returns jsonb
+language sql stable security definer set search_path = public as $$
+  select coalesce(jsonb_agg(to_jsonb(o) - 'admin_note' order by o.created_at desc), '[]'::jsonb)
+  from orders o
+  where auth.uid() is not null and o.user_id = auth.uid();
+$$;
+grant execute on function public.my_orders() to authenticated;
 
 -- ─────────────────────────── Storage for photos ───────────────────────────
 

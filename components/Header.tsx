@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
 import { useCatalog } from "@/lib/catalog";
 import { useWishlist } from "@/lib/wishlist";
 import { categories, productHref } from "@/lib/products";
-import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon } from "./Icons";
+import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, UserIcon } from "./Icons";
 
 export function Logo({ className = "text-[26px]" }: { className?: string }) {
   return (
@@ -45,6 +46,7 @@ export default function Header() {
   const { count } = useCart();
   const { slugs } = useWishlist();
   const { products, settings } = useCatalog();
+  const auth = useAuth();
   const router = useRouter();
   const [q, setQ] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -109,7 +111,12 @@ export default function Header() {
             <button aria-label="Search" onClick={() => setSearchOpen((v) => !v)} className="p-2 hover:text-gold-2">
               <SearchIcon />
             </button>
-            <Link href="/wishlist/" aria-label="Wishlist" className="relative p-2 hover:text-gold-2">
+            {auth.enabled && (
+              <Link href="/account/" aria-label={auth.user ? "My account" : "Sign in"} className={`p-2 hover:text-gold-2 ${auth.user ? "text-gold-2" : ""}`}>
+                <UserIcon />
+              </Link>
+            )}
+            <Link href="/wishlist/" aria-label="Wishlist" className="relative hidden p-2 hover:text-gold-2 sm:block">
               <HeartIcon />
               {slugs.length > 0 && (
                 <span className="absolute right-0 top-0 grid h-4 min-w-4 place-items-center bg-gold px-1 text-[10px] font-bold text-paper">
@@ -172,7 +179,13 @@ export default function Header() {
         <div className="max-h-[80vh] overflow-y-auto border-b border-line bg-paper px-4 pb-6 pt-4 lg:hidden">
           {searchForm}
           <div className="mt-4 divide-y divide-line border-y border-line">
-            {[...mainNav, { href: "/products/", label: "Shop all" }, { href: "/orders/", label: "Track order" }].map((n) => (
+            {[
+              ...mainNav,
+              { href: "/products/", label: "Shop all" },
+              { href: "/wishlist/", label: "Wishlist" },
+              { href: "/orders/", label: "Track order" },
+              ...(auth.enabled ? [{ href: "/account/", label: auth.user ? "My account" : "Sign in / Create account" }] : []),
+            ].map((n) => (
               <Link key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="block py-3.5 font-display text-lg font-semibold">
                 {n.label}
               </Link>

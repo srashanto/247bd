@@ -10,7 +10,7 @@ export const backendEnabled = Boolean(url && key);
 
 export function supabase(): SupabaseClient | null {
   if (!backendEnabled) return null;
-  if (!client) client = createClient(url!, key!, { auth: { persistSession: true, storageKey: "247bd-admin" } });
+  if (!client) client = createClient(url!, key!, { auth: { persistSession: true, storageKey: "247bd-auth", detectSessionInUrl: true, flowType: "pkce" } });
   return client;
 }
 

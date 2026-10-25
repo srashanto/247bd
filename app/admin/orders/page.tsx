@@ -182,7 +182,10 @@ function OrderDetail({ id, onChanged }: { id: string; onChanged: () => void }) {
           <div className="space-y-6">
             <section className="bg-card p-5 ring-1 ring-line">
               <h2 className="font-semibold">Customer</h2>
-              <p className="mt-2">{o.customer.name}</p>
+              <p className="mt-2">
+                {o.customer.name}
+                <span className="ml-2 text-[12px] text-muted">{(o as Order & { user_id?: string | null }).user_id ? "has an account" : "guest"}</span>
+              </p>
               <p className="text-[15px]">{o.customer.phone}</p>
               <p className="mt-1 text-[15px] text-ink/85">{o.customer.address}, {o.customer.area}, {o.customer.district}</p>
               {o.customer.email && <p className="text-[14px] text-muted">{o.customer.email}</p>}

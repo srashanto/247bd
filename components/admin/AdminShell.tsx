@@ -20,6 +20,7 @@ const nav = [
   { href: "/admin/", label: "Dashboard" },
   { href: "/admin/orders/", label: "Orders" },
   { href: "/admin/products/", label: "Products" },
+  { href: "/admin/customers/", label: "Customers" },
   { href: "/admin/coupons/", label: "Coupons" },
   { href: "/admin/settings/", label: "Settings" },
 ];

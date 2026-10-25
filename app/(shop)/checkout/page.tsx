@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ProductPhoto } from "@/components/ProductCard";
 import { TrashIcon } from "@/components/Icons";
+import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
 import { useCatalog } from "@/lib/catalog";
 import { NewOrder, Order, PayMethod, payLabels, rememberOrder, uploadScreenshot } from "@/lib/orders";
@@ -63,6 +64,25 @@ export default function CheckoutPage() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+  const auth = useAuth();
+  const [saveAddr, setSaveAddr] = useState(true);
+  const filled = useRef(false);
+
+  // Fill in the saved address for signed-in customers.
+  useEffect(() => {
+    const p = auth.profile;
+    if (!p || filled.current) return;
+    filled.current = true;
+    setForm((f) => ({
+      ...f,
+      name: f.name || p.name || "",
+      phone: f.phone || p.phone || "",
+      district: p.district || f.district,
+      area: f.area || p.area || "",
+      address: f.address || p.address || "",
+      email: f.email || auth.user?.email || "",
+    }));
+  }, [auth.profile, auth.user]);
 
   const delivery = deliveryCharge(settings, form.district, subtotal);
   const discount = coupon?.discount ?? 0;
@@ -173,6 +193,9 @@ export default function CheckoutPage() {
           note: payload.note,
         };
       }
+      if (auth.user && saveAddr) {
+        await auth.saveProfile({ name: payload.customer.name, phone, district: form.district, area: payload.customer.area, address: payload.customer.address });
+      }
       rememberOrder(order);
       clear();
       router.push(`/orders/?id=${encodeURIComponent(order.id)}&new=1`);
@@ -186,7 +209,14 @@ export default function CheckoutPage() {
     <div className="mx-auto max-w-3xl px-4 py-8 sm:py-10">
       <h1 className="text-4xl font-bold uppercase [font-stretch:118%]">Checkout</h1>
 
-      <div className="mt-6 border border-line bg-card px-4 py-3 text-[15px]">
+      {auth.enabled && auth.ready && !auth.user && (
+        <div className="mt-6 border border-line bg-card px-4 py-3 text-[15px]">
+          <span className="text-muted">Have an account? </span>
+          <Link href="/account/" className="font-semibold underline underline-offset-4">Sign in</Link>
+          <span className="text-muted"> to fill in your address and see this order in your account.</span>
+        </div>
+      )}
+      <div className="mt-3 border border-line bg-card px-4 py-3 text-[15px]">
         <span className="text-muted">Have a coupon? </span>
         <button type="button" onClick={() => setCouponOpen((v) => !v)} className="font-semibold underline underline-offset-4">
           Click here to enter your code
@@ -278,6 +308,12 @@ export default function CheckoutPage() {
               <input type="email" autoComplete="email" className={`${input} mt-1.5`} value={form.email} onChange={(e) => set("email", e.target.value)} />
             </label>
           </div>
+          {auth.user && (
+            <label className="mt-4 flex items-center gap-3 text-[15px]">
+              <input type="checkbox" checked={saveAddr} onChange={(e) => setSaveAddr(e.target.checked)} className="h-4 w-4 accent-[#c8ac56]" />
+              Save this address to my account
+            </label>
+          )}
           <h3 className="mt-8 text-[13px] font-semibold uppercase tracking-wider">Additional information</h3>
           <label className={`${label} mt-3`}>
             Order notes (optional)

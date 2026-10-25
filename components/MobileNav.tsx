@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
-import { BagIcon, SearchIcon } from "./Icons";
+import { BagIcon, SearchIcon, UserIcon } from "./Icons";
 
 const HomeIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5" aria-hidden>
@@ -29,13 +30,16 @@ function hidden(path: string) {
 export default function MobileNav() {
   const path = usePathname() || "/";
   const { count } = useCart();
+  const auth = useAuth();
   if (hidden(path)) return null;
 
   const items = [
     { href: "/", label: "Home", icon: <HomeIcon />, on: path === "/" },
     { href: "/products/", label: "Shop", icon: <GridIcon />, on: path.startsWith("/products") },
     { href: "/products/?category=combos", label: "Combos", icon: <GiftIcon />, on: false },
-    { href: "/orders/", label: "Track", icon: <SearchIcon className="h-5.5 w-5.5" />, on: path.startsWith("/orders") },
+    auth.enabled
+      ? { href: "/account/", label: auth.user ? "Account" : "Sign in", icon: <UserIcon className="h-5.5 w-5.5" />, on: path.startsWith("/account") }
+      : { href: "/orders/", label: "Track", icon: <SearchIcon className="h-5.5 w-5.5" />, on: path.startsWith("/orders") },
     {
       href: "/cart/",
       label: "Cart",

@@ -3,6 +3,7 @@
 PRIDE grooming store by PahelaPride, live at https://247bd.net.
 
 - Store: home, shop, product pages with sizes, cart, PahelaPride-style checkout, order tracking, wishlist.
+- Customer accounts at https://247bd.net/account/: sign in with Google or email, order history, saved address, wishlist on every device.
 - Admin panel: https://247bd.net/admin/ for orders, products, stock, coupons and settings.
 
 ## Turn on the admin panel (one time, about 5 minutes)
@@ -18,6 +19,17 @@ Until this is done the store still works, but orders only reach you through What
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = the anon public key
 6. Open **Actions → Deploy to GitHub Pages → Run workflow**.
 7. Visit https://247bd.net/admin/, sign in, go to **Products** and click **Import PRIDE catalog**.
+
+## Turn on customer login
+
+In Supabase open **Authentication → URL Configuration**:
+- **Site URL**: `https://247bd.net`
+- **Redirect URLs**: add `https://247bd.net/account/` and `https://247bd.net/admin/`
+
+Email + password works after this. For **Continue with Google**:
+1. In Google Cloud Console (console.cloud.google.com) create a project, then **APIs & Services → OAuth consent screen** (External, app name 247BD).
+2. **Credentials → Create credentials → OAuth client ID → Web application**. Under Authorized redirect URIs paste the callback URL shown in Supabase **Authentication → Providers → Google** (it looks like `https://<project>.supabase.co/auth/v1/callback`).
+3. Copy the Client ID and Client secret back into Supabase **Providers → Google**, turn it on, and save.
 
 The anon key is meant to be public. Everything private (orders, coupons, payment screenshots) is protected by the rules in `schema.sql`, and only emails in the `admins` table can open the admin panel.
 

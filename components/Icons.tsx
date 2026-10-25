@@ -73,3 +73,6 @@ export const PhoneIcon = ({ className = "h-5 w-5" }: P) => (
 export const PinIcon = ({ className = "h-5 w-5" }: P) => (
   <svg {...base} className={className}><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" /><circle cx="12" cy="10" r="2.5" /></svg>
 );
+export const UserIcon = ({ className = "h-5 w-5" }: P) => (
+  <svg {...base} className={className}><circle cx="12" cy="8" r="4" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+);

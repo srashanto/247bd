@@ -1,3 +1,4 @@
+import { AuthProvider } from "@/lib/auth";
 import { CatalogProvider } from "@/lib/catalog";
 import { CartProvider } from "@/lib/cart";
 import { WishlistProvider } from "@/lib/wishlist";
@@ -8,6 +9,7 @@ import MobileNav from "@/components/MobileNav";
 export default function ShopLayout({ children }: { children: React.ReactNode }) {
   return (
     <CatalogProvider>
+      <AuthProvider>
       <CartProvider>
         <WishlistProvider>
           <div className="flex min-h-screen flex-col">
@@ -18,6 +20,7 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
           </div>
         </WishlistProvider>
       </CartProvider>
+      </AuthProvider>
     </CatalogProvider>
   );
 }
