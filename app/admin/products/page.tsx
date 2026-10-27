@@ -256,6 +256,22 @@ function ProductsAdmin() {
     load();
   }
 
+  /** Copies newer descriptions from the bundled catalog, keeping prices, stock and everything else. */
+  async function syncDescriptions() {
+    if (!list) return;
+    const changed = list.flatMap((p) => {
+      const s = staticProducts.find((x) => x.slug === p.slug);
+      return s && s.description && s.description !== p.description ? [{ ...p, description: s.description }] : [];
+    });
+    if (!changed.length) return;
+    setBusy(true);
+    const { error } = await db.from("products").upsert(changed.map(toRow));
+    setBusy(false);
+    if (error) return setToast(errorMessage(error));
+    setToast(`Updated ${changed.length} descriptions.`);
+    load();
+  }
+
   async function quick(p: Product, patch: Partial<Product>) {
     const next = { ...p, ...patch };
     setList((l) => l?.map((x) => (x.id === p.id ? next : x)) ?? null);
@@ -280,6 +296,10 @@ function ProductsAdmin() {
     (p) => (!cat || p.category === cat) && (!q || `${p.name} ${p.title ?? ""}`.toLowerCase().includes(q.toLowerCase()))
   );
   const missing = staticProducts.filter((s) => !list.some((p) => p.slug === s.slug)).length;
+  const outdated = list.filter((p) => {
+    const s = staticProducts.find((x) => x.slug === p.slug);
+    return s?.description && s.description !== p.description;
+  }).length;
 
   return (
     <div>
@@ -291,6 +311,13 @@ function ProductsAdmin() {
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
           <span>{list.length === 0 ? "No products in the database yet." : `${missing} PRIDE products aren't in the database yet.`} Import them to start taking orders.</span>
           <button disabled={busy} onClick={importCatalog} className={btn}>{busy ? "Importing…" : "Import PRIDE catalog"}</button>
+        </div>
+      )}
+
+      {outdated > 0 && (
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
+          <span>{outdated} PRIDE product description{outdated === 1 ? " has" : "s have"} an update. Prices, stock and photos stay as they are.</span>
+          <button disabled={busy} onClick={syncDescriptions} className={btn}>{busy ? "Updating…" : "Update descriptions"}</button>
         </div>
       )}
 
