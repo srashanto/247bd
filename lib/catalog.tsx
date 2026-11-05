@@ -17,8 +17,12 @@ const CatalogContext = createContext<CatalogValue | null>(null);
 
 export type ProductRow = { id: string; slug: string; data: Product; published: boolean; sort: number };
 
+/** Imported product names can still carry HTML entities such as &#038;. */
+const cleanName = (s = "") =>
+  s.replace(/&#0?38;|&amp;/g, "&").replace(/&#8211;/g, "–").replace(/&#8217;/g, "’").replace(/&#8216;/g, "‘").replace(/&#822[01];/g, '"');
+
 export function rowToProduct(r: ProductRow): Product {
-  return { ...r.data, id: r.id, slug: r.slug, published: r.published, sort: r.sort };
+  return { ...r.data, name: cleanName(r.data.name), id: r.id, slug: r.slug, published: r.published, sort: r.sort };
 }
 
 export function CatalogProvider({ children }: { children: React.ReactNode }) {

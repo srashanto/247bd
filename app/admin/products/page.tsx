@@ -266,11 +266,28 @@ function ProductsAdmin() {
       const all = (await res.json()) as Product[];
       const missing = all.filter((s) => !list.some((p) => p.id === s.id || p.slug === s.slug));
       if (!missing.length) return setToast("Every PahelaPride product is already in the database.");
-      for (let i = 0; i < missing.length; i += 100) {
-        const { error } = await db.from("products").upsert(missing.slice(i, i + 100).map(toRow));
-        if (error) throw new Error(errorMessage(error));
+      let added = 0;
+      let failed = 0;
+      let firstError = "";
+      for (let i = 0; i < missing.length; i += 25) {
+        const batch = missing.slice(i, i + 25);
+        const { error } = await db.from("products").upsert(batch.map(toRow));
+        if (!error) {
+          added += batch.length;
+          continue;
+        }
+        // One bad row shouldn't stop the rest, so retry this group one product at a time.
+        for (const row of batch) {
+          const { error: rowError } = await db.from("products").upsert(toRow(row));
+          if (rowError) {
+            failed += 1;
+            firstError ||= `${row.name}: ${errorMessage(rowError)}`;
+          } else {
+            added += 1;
+          }
+        }
       }
-      setToast(`Imported ${missing.length} products.`);
+      setToast(failed ? `Imported ${added}. ${failed} failed. ${firstError}` : `Imported ${added} products.`);
       load();
     } catch (e) {
       setToast(e instanceof Error ? e.message : "Import failed.");

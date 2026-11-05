@@ -68,7 +68,7 @@ for (const p of all) {
   products.push({
     id: String(p.id),
     slug: `pp-${p.slug}`.slice(0, 120),
-    name: shortName(p.name.replace(/&#8211;/g, "–").replace(/&#8217;/g, "’").replace(/&amp;/g, "&")),
+    name: shortName(p.name.replace(/&#8211;/g, "–").replace(/&#8217;/g, "’").replace(/&#0?38;|&amp;/g, "&")),
     title: rebrand(clean(p.name)),
     brand: rebrand(p.brands?.[0]?.name || "") || undefined,
     gender: "unisex",
