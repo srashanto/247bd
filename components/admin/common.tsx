@@ -7,7 +7,7 @@ import { OrderStatus, statusLabels } from "@/lib/orders";
 export const statusTone: Record<OrderStatus, string> = {
   pending: "bg-gold/20 text-gold-2",
   confirmed: "bg-him/20 text-him",
-  shipped: "bg-[#7c6cd6]/25 text-[#b6abf5]",
+  shipped: "bg-gold-soft text-gold",
   delivered: "bg-uni/20 text-uni",
   cancelled: "bg-alert/20 text-alert",
   returned: "bg-alert/20 text-alert",

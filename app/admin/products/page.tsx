@@ -256,6 +256,29 @@ function ProductsAdmin() {
     load();
   }
 
+  /** Loads the products collected from pahelapride.com. Products already here are left untouched. */
+  async function importPahelaPride() {
+    if (!list) return;
+    setBusy(true);
+    try {
+      const res = await fetch("/imports/pahelapride.json", { cache: "no-store" });
+      if (!res.ok) throw new Error("The product file isn't ready yet.");
+      const all = (await res.json()) as Product[];
+      const missing = all.filter((s) => !list.some((p) => p.id === s.id || p.slug === s.slug));
+      if (!missing.length) return setToast("Every PahelaPride product is already in the database.");
+      for (let i = 0; i < missing.length; i += 100) {
+        const { error } = await db.from("products").upsert(missing.slice(i, i + 100).map(toRow));
+        if (error) throw new Error(errorMessage(error));
+      }
+      setToast(`Imported ${missing.length} products.`);
+      load();
+    } catch (e) {
+      setToast(e instanceof Error ? e.message : "Import failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
   /** Copies newer descriptions from the bundled catalog, keeping prices, stock and everything else. */
   async function syncDescriptions() {
     if (!list) return;
@@ -320,6 +343,11 @@ function ProductsAdmin() {
           <button disabled={busy} onClick={syncDescriptions} className={btn}>{busy ? "Updating…" : "Update descriptions"}</button>
         </div>
       )}
+
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
+        <span>Bring in skin care, hair care, hair style and perfume products from pahelapride.com. Existing products stay as they are.</span>
+        <button disabled={busy} onClick={importPahelaPride} className={btn}>{busy ? "Importing…" : "Import PahelaPride products"}</button>
+      </div>
 
       <div className="mb-5 flex flex-wrap gap-2">
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search products" className={`${field} w-60`} aria-label="Search products" />

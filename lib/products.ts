@@ -47,10 +47,11 @@ export type Product = {
 export type Category = { slug: string; name: string };
 
 export const categories: Category[] = [
-  { slug: "hair-styling", name: "Hair styling" },
+  { slug: "hair-styling", name: "Hair style" },
   { slug: "hair-care", name: "Hair care" },
   { slug: "curly-hair", name: "Curly hair" },
   { slug: "skincare", name: "Skin care" },
+  { slug: "perfume", name: "Perfume" },
   { slug: "combos", name: "Combos" },
 ];
 

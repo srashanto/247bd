@@ -285,7 +285,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
         </section>
       )}
       {/* Phone: price and buttons stay at the bottom while scrolling */}
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-[#0b0b0b]/95 px-3 pb-[calc(env(safe-area-inset-bottom)+0.6rem)] pt-2.5 backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-3 pb-[calc(env(safe-area-inset-bottom)+0.6rem)] pt-2.5 backdrop-blur md:hidden">
         <div className="flex items-center gap-2">
           <div className="min-w-0 flex-1">
             <p className="truncate text-[12px] text-muted">{v?.label ?? product.name}</p>
