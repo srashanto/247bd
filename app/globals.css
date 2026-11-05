@@ -97,9 +97,9 @@ input, select, textarea {
 
 /* Print only the invoice in the admin panel */
 /* ---- Storefront, same layout as pahelapride.com ---- */
-.pp-container { width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 16px; }
-@media (min-width: 768px) { .pp-container { padding: 0 28px; } }
-.pp-section { padding: clamp(48px, 7vw, 96px) 0 0; }
+.pp-container { width: 100%; max-width: 1320px; margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 768px) { .pp-container { padding-inline: 28px; } }
+.pp-section { padding-top: clamp(48px, 7vw, 96px); }
 .pp-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
 .pp-h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; margin: 0; }
 .pp-more { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; border-bottom: 2px solid currentColor; padding-bottom: 3px; }
@@ -141,7 +141,8 @@ input, select, textarea {
   .pp-slide--flip .pp-slide__copy { margin-left: 4%; }
   .pp-slide__text { font-size: 18px; }
 }
-.pp-hero__arrow { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; margin-top: -22px; border-radius: 50%; background: var(--color-paper); color: var(--color-ink); }
+.pp-hero__arrow { position: absolute; top: 50%; z-index: 2; display: none; place-items: center; width: 44px; height: 44px; margin-top: -22px; border-radius: 50%; background: var(--color-paper); color: var(--color-ink); }
+@media (min-width: 768px) { .pp-hero__arrow { display: grid; } }
 .pp-hero__arrow:hover { background: var(--color-punk); }
 .pp-hero__dots { position: absolute; left: 0; right: 0; bottom: 14px; z-index: 2; display: flex; justify-content: center; gap: 8px; }
 .pp-hero__dots button { width: 26px; height: 5px; border-radius: 9px; background: rgba(255,255,255,.5); }
@@ -167,8 +168,8 @@ input, select, textarea {
 .pp-rail__track > * { scroll-snap-align: start; min-width: 0; }
 @media (min-width: 640px) { .pp-rail__track { grid-auto-columns: 44%; } }
 @media (min-width: 1024px) { .pp-rail__track { grid-auto-columns: calc((100% - 60px) / 4); gap: 20px; } }
-.pp-rail__next { position: absolute; right: -10px; top: 30%; z-index: 2; display: none; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-gold); color: var(--color-paper); }
-.pp-rail__next--prev { right: auto; left: -10px; }
+.pp-rail__next { position: absolute; right: -16px; top: 30%; z-index: 2; display: none; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-gold); color: var(--color-paper); }
+.pp-rail__next--prev { right: auto; left: -16px; }
 @media (min-width: 1024px) { .pp-rail__next { display: grid; } }
 
 /* Product card */

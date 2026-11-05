@@ -74,8 +74,8 @@ export default function HeroSlider() {
           </div>
         ))}
       </div>
-      <button aria-label="Previous slide" onClick={() => go(at - 1)} className="pp-hero__arrow hidden md:grid" style={{ left: 16 }}>←</button>
-      <button aria-label="Next slide" onClick={() => go(at + 1)} className="pp-hero__arrow hidden md:grid" style={{ right: 16 }}>→</button>
+      <button aria-label="Previous slide" onClick={() => go(at - 1)} className="pp-hero__arrow" style={{ left: 16 }}>←</button>
+      <button aria-label="Next slide" onClick={() => go(at + 1)} className="pp-hero__arrow" style={{ right: 16 }}>→</button>
       <div className="pp-hero__dots">
         {slides.map((s, i) => <button key={s.key} aria-label={`Slide ${i + 1}`} aria-current={i === at} onClick={() => go(i)} />)}
       </div>
