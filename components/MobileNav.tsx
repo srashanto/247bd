@@ -48,7 +48,7 @@ export default function MobileNav() {
         <span className="relative">
           <BagIcon className="h-5.5 w-5.5" />
           {count > 0 && (
-            <span className="absolute -right-2 -top-1.5 grid h-4 min-w-4 place-items-center bg-gold px-1 text-[10px] font-bold text-paper">{count}</span>
+            <span className="absolute -right-2 -top-1.5 grid h-4 min-w-4 place-items-center rounded-full bg-gold px-1 text-[10px] font-bold text-paper">{count}</span>
           )}
         </span>
       ),
@@ -60,13 +60,13 @@ export default function MobileNav() {
       <div className="h-16 md:hidden" aria-hidden />
       <nav
         aria-label="Quick links"
-        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-[#0b0b0b]/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
+        className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden"
       >
         {items.map((it) => (
           <Link
             key={it.label}
             href={it.href}
-            className={`flex flex-col items-center gap-0.5 py-2 text-[10.5px] font-medium ${it.on ? "text-gold-2" : "text-ink/75"}`}
+            className={`flex flex-col items-center gap-0.5 py-2 text-[10.5px] font-medium ${it.on ? "text-gold-2" : "text-muted"}`}
           >
             {it.icon}
             {it.label}

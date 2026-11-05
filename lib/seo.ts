@@ -151,6 +151,18 @@ export const landings: Landing[] = [
     ],
   },
   {
+    slug: "perfume",
+    label: "Perfume",
+    category: "perfume",
+    title: "Imported Perfume in Bangladesh",
+    description: "Shop imported perfume in Bangladesh, including long-lasting attar and Eau de Parfum scents. Cash on delivery all over Bangladesh.",
+    h1: "Imported perfume in Bangladesh",
+    lead: "Long-lasting signature scents, delivered anywhere in Bangladesh with cash on delivery.",
+    body: ["Find a scent for every day or a special occasion. Every perfume is imported and delivered all over Bangladesh with cash on delivery."],
+    keywords: ["perfume Bangladesh", "imported perfume BD", "perfume price in Bangladesh", "long lasting perfume Bangladesh"],
+    faq: [deliveryFaq, codFaq],
+  },
+  {
     slug: "combos",
     label: "Combos",
     category: "combos",

@@ -160,7 +160,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
   return (
     <AdminContext.Provider value={{ db, email: session.user.email ?? "" }}>
       <div className="min-h-screen lg:grid lg:grid-cols-[220px_1fr]">
-        <aside className="no-print border-b border-line bg-[#070707] lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
+        <aside className="no-print border-b border-line bg-card lg:sticky lg:top-0 lg:h-screen lg:border-b-0 lg:border-r">
           <div className="flex items-center justify-between px-5 py-4 lg:block lg:py-6">
             <Link href="/admin/" className="flex items-baseline gap-2">
               <Logo className="text-[22px]" />
