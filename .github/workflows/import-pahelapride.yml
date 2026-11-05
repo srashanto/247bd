@@ -1,0 +1,29 @@
+name: Import PahelaPride products
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/import-pahelapride.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: mkdir -p public/imports && node scripts/import-pahelapride.mjs
+      - name: Save the product file
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add public/imports/pahelapride.json
+          git diff --cached --quiet || git commit -m "Update imported PahelaPride products"
+          git pull --rebase origin main
+          git push
