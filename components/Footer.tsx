@@ -63,7 +63,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="pp-container" aria-hidden><div className="pp-footer__word">PAHELAPRIDE</div></div>
+      <div className="pp-footer__word" aria-hidden>PahelaPride</div>
       <div className="pp-container flex flex-wrap justify-between gap-2 py-5 text-sm font-medium">
         <span>© {new Date().getFullYear()} PahelaPride. All rights reserved.</span>
         <Link href="/help/#terms">Privacy &amp; terms</Link>

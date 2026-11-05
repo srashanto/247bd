@@ -236,8 +236,7 @@ input, select, textarea {
 .pp-footer { margin-top: clamp(56px, 8vw, 96px); overflow: hidden; background: var(--color-gold); color: var(--color-paper); }
 .pp-footer h3 { font-size: 12px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--color-punk); }
 .pp-footer a:hover { color: var(--color-punk); }
-.pp-footer__word { font-size: 11vw; font-weight: 900; line-height: .85; letter-spacing: -.03em; color: rgba(255,255,255,.14); user-select: none; white-space: nowrap; }
-@media (min-width: 1320px) { .pp-footer__word { font-size: 9.6rem; } }
+.pp-footer__word { font-size: calc(140vw / 11); font-weight: 900; line-height: .78; letter-spacing: -.05em; text-align: center; text-transform: uppercase; white-space: nowrap; user-select: none; margin: 10px 0 -3.2vw; opacity: .22; background: linear-gradient(180deg, var(--color-paper) 0, rgba(253, 253, 255, 0) 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .pp-social { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; }
 .pp-chip { padding: 5px 10px; border: 1px solid rgba(255,255,255,.55); border-radius: 8px; font-size: 11px; font-weight: 800; text-transform: uppercase; }
 
