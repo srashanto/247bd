@@ -2,40 +2,24 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { useCatalog } from "@/lib/catalog";
-import { productHref } from "@/lib/products";
 import { Art } from "./Packshot";
 
 type Slide = { key: string; big: [string, string]; text: string; img?: string; href: string; cta: string; links: [string, string][] };
 
 export default function HeroSlider() {
-  const { products } = useCatalog();
   const [at, setAt] = useState(0);
   const [paused, setPaused] = useState(false);
 
   const slides = useMemo<Slide[]>(() => {
-    const p = products.find((x) => x.colors?.length && x.images?.length) ?? products[0];
-    const first: Slide = {
+    return [{
       key: "all",
       big: ["Everything", "football. 24/7."],
-      text: "Boots, balls and kit for every player. Pick your colour and size, pay cash on delivery anywhere in Bangladesh.",
-      img: p?.images?.[p.colors?.[0]?.images?.[0] ?? 0]?.src,
+      text: "Boots, balls, kit and gear for every player. Pay cash on delivery anywhere in Bangladesh.",
       href: "/products/",
       cta: "Shop all gear",
       links: [],
-    };
-    if (!p?.colors || p.colors.length < 2) return [first];
-    const rest = p.colors.slice(1, 4).map((c): Slide => ({
-      key: c.key,
-      big: [c.name.split(" / ")[0], "on the pitch."],
-      text: `${p.name}, in ${c.name}. Long studs for grip on natural grass.`,
-      img: p.images?.[c.images?.[0] ?? 0]?.src,
-      href: `${productHref(p)}?c=${c.key}`,
-      cta: `Get the ${c.name.split(" / ")[0].toLowerCase()} pair`,
-      links: [],
-    }));
-    return [{ ...first, links: [] }, ...rest];
-  }, [products]);
+    }];
+  }, []);
 
   const go = (n: number) => setAt((n + slides.length) % slides.length);
   const cur = Math.min(at, slides.length - 1);

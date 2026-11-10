@@ -8,19 +8,18 @@ import { Art, shapeFor } from "@/components/Packshot";
 import { CashIcon, CheckIcon, ChatIcon, ReturnIcon, TruckIcon } from "@/components/Icons";
 import JsonLd from "@/components/JsonLd";
 import { useCatalog } from "@/lib/catalog";
-import { categories, productHref } from "@/lib/products";
+import { categories } from "@/lib/products";
 import { categoryHref } from "@/lib/seo";
 
 const compare = [
   "Cash on Delivery all over Bangladesh",
-  "Colour and size picked before you order",
+  "Size help before you order",
   "Track your order with its order number",
   "Quick help on WhatsApp",
 ];
 
 export default function HomeView() {
   const { products, settings } = useCatalog();
-  const featured = products.find((p) => p.colors && p.colors.length > 1 && p.images?.length);
   const withProducts = categories
     .map((c) => ({ ...c, items: products.filter((p) => p.category === c.slug) }))
     .filter((c) => c.items.length > 0);
@@ -62,7 +61,7 @@ export default function HomeView() {
         <li><CheckIcon />Boots, balls &amp; kit</li>
         <li><CashIcon />Cash on Delivery</li>
         <li><TruckIcon />Delivery all over Bangladesh</li>
-        <li><ReturnIcon />Colour &amp; size of your choice</li>
+        <li><ReturnIcon />Easy size help on WhatsApp</li>
       </ul>
 
       <section className="pp-section pp-container">
@@ -95,38 +94,6 @@ export default function HomeView() {
                 </Link>
               );
             })}
-          </div>
-        </section>
-      )}
-
-      {featured && featured.colors && (
-        <section className="pp-section pp-container">
-          <p className="pp-eyebrow">{featured.brand ? `${featured.brand} ${featured.name.replace(new RegExp(`^${featured.brand}\\s*`, "i"), "")}` : featured.name}</p>
-          <div className="pp-head"><h2 className="pp-h2">Pick your colour</h2></div>
-          <div className="pp-tiles">
-            {featured.colors.map((c) => (
-              <Link key={c.key} href={`${productHref(featured)}?c=${c.key}`} className="pp-tile" style={{ aspectRatio: "1 / 1" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={featured.images?.[c.images?.[0] ?? 0]?.thumb} alt={`${featured.name} in ${c.name}`} loading="lazy" />
-                <span className="pp-swatch" style={{ background: c.hex }} />
-                <span className="pp-tile__label"><b>{c.name}</b></span>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {featured?.details && featured.details.length >= 3 && (
-        <section className="pp-section pp-container">
-          <div className="pp-head">
-            <h2 className="pp-h2">Built for the pitch</h2>
-            <Link href={productHref(featured)} className="pp-more">See the boots →</Link>
-          </div>
-          <div className="pp-details">
-            {featured.details.slice(0, 3).map((i) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img key={i} src={featured.images?.[i]?.src} alt="" loading="lazy" />
-            ))}
           </div>
         </section>
       )}
