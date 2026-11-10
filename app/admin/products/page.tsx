@@ -6,7 +6,7 @@ import { Suspense, useCallback, useEffect, useState } from "react";
 import { btn, btnGhost, field, useAdmin } from "@/components/admin/AdminShell";
 import { Empty, PageTitle, Toast } from "@/components/admin/common";
 import { ProductRow, rowToProduct } from "@/lib/catalog";
-import { categories, formatPrice, priceRange, Product, productHref, staticProducts, totalStock, Variation } from "@/lib/products";
+import { categories, categorySlugs, formatPrice, priceRange, Product, productHref, staticProducts, totalStock, Variation } from "@/lib/products";
 import { compressImage } from "@/lib/orders";
 import { errorMessage } from "@/lib/supabase";
 
@@ -233,6 +233,7 @@ function ProductsAdmin() {
   const [cat, setCat] = useState("");
   const [busy, setBusy] = useState(false);
   const [toast, setToast] = useState("");
+  const [sure, setSure] = useState(false);
 
   const load = useCallback(async () => {
     const { data, error } = await db.from("products").select("id, slug, data, published, sort").order("sort");
@@ -272,6 +273,20 @@ function ProductsAdmin() {
     load();
   }
 
+  /** Deletes products that are not in a football category (the old grooming catalog). */
+  async function removeOld() {
+    if (!list) return;
+    const ids = list.filter((p) => !categorySlugs.has(p.category)).map((p) => p.id);
+    if (!ids.length) return;
+    setBusy(true);
+    const { error } = await db.from("products").delete().in("id", ids);
+    setBusy(false);
+    setSure(false);
+    if (error) return setToast(errorMessage(error));
+    setToast(`Deleted ${ids.length} old products.`);
+    load();
+  }
+
   async function quick(p: Product, patch: Partial<Product>) {
     const next = { ...p, ...patch };
     setList((l) => l?.map((x) => (x.id === p.id ? next : x)) ?? null);
@@ -296,6 +311,7 @@ function ProductsAdmin() {
     (p) => (!cat || p.category === cat) && (!q || `${p.name} ${p.title ?? ""}`.toLowerCase().includes(q.toLowerCase()))
   );
   const missing = staticProducts.filter((s) => !list.some((p) => p.slug === s.slug)).length;
+  const oldCount = list.filter((p) => !categorySlugs.has(p.category)).length;
   const outdated = list.filter((p) => {
     const s = staticProducts.find((x) => x.slug === p.slug);
     return s?.description && s.description !== p.description;
@@ -306,6 +322,16 @@ function ProductsAdmin() {
       <PageTitle title="Products">
         <button onClick={() => router.push("/admin/products/?new=1")} className={btn}>Add product</button>
       </PageTitle>
+
+      {oldCount > 0 && (
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-red-300 bg-red-50 p-4 text-[15px]">
+          <span>{oldCount} old non-football products are still in the database. {sure ? "This cannot be undone. Past orders are not affected." : "They do not show on the store."}</span>
+          <span className="flex gap-2">
+            {sure && <button disabled={busy} onClick={() => setSure(false)} className={btn}>Cancel</button>}
+            <button disabled={busy} onClick={() => (sure ? removeOld() : setSure(true))} className={btn}>{busy ? "Deleting…" : sure ? `Yes, delete ${oldCount}` : "Delete old products"}</button>
+          </span>
+        </div>
+      )}
 
       {missing > 0 && (
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
