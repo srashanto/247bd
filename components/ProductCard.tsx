@@ -113,7 +113,11 @@ export default function ProductCard({ product, eager = false }: { product: Produ
       </Link>
       <WishButton slug={product.slug} className="pp-card__wish" />
       <Link href={href} className="pp-card__title">{product.name}</Link>
-      {product.benefits?.[0] && <span className="pp-card__note line-clamp-1">{product.benefits[0]}</span>}
+      {product.colors && product.colors.length > 1 && (
+        <div className="pp-dots" aria-label={`${product.colors.length} colours`}>
+          {product.colors.map((c) => <i key={c.key} title={c.name} style={{ background: c.hex }} />)}
+        </div>
+      )}
       <PriceLine product={product} className="pp-card__price" />
       <AddButton product={product} className="pp-card__action w-full" />
     </div>

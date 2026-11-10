@@ -19,7 +19,7 @@ function Pill({ on, onClick, children }: { on: boolean; onClick: () => void; chi
     <button
       onClick={onClick}
       aria-pressed={on}
-      className={`whitespace-nowrap px-3.5 py-2 text-[13px] font-semibold uppercase tracking-wider ${
+      className={`whitespace-nowrap rounded px-3.5 py-2 font-display text-[16px] font-extrabold uppercase italic tracking-wider ${
         on ? "btn-gold" : "border border-line hover:border-ink"
       }`}
     >
@@ -30,6 +30,7 @@ function Pill({ on, onClick, children }: { on: boolean; onClick: () => void; chi
 
 export default function ProductList() {
   const { products } = useCatalog();
+  const live = new Set(products.map((p) => p.category));
   const params = useSearchParams();
   const router = useRouter();
   const category = params.get("category") || "";
@@ -64,8 +65,8 @@ export default function ProductList() {
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10">
-      <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-gold">PRIDE by PahelaPride</p>
-      <h1 className="mt-2 text-3xl font-semibold sm:text-4xl">{title}</h1>
+      <p className="pp-eyebrow">247BD football store</p>
+      <h1 className="pp-h2 mt-2">{title}</h1>
       <p className="mt-1 text-muted">
         {list.length} product{list.length === 1 ? "" : "s"}
         {q && <> matching &ldquo;{q}&rdquo;</>}
@@ -79,7 +80,7 @@ export default function ProductList() {
       <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-y border-line py-4">
         <div className="-mx-4 flex flex-1 gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0">
           <Pill on={!category} onClick={() => update("category", "")}>All</Pill>
-          {categories.map((c) => (
+          {categories.filter((c) => live.has(c.slug)).map((c) => (
             <Pill key={c.slug} on={category === c.slug} onClick={() => update("category", category === c.slug ? "" : c.slug)}>
               {c.name}
             </Pill>
@@ -100,7 +101,7 @@ export default function ProductList() {
       {list.length === 0 ? (
         <div className="mt-10 bg-card p-10 text-center ring-1 ring-line">
           <p className="text-xl font-semibold">No products match</p>
-          <p className="mt-2 text-muted">Try another word, like &ldquo;clay&rdquo;, &ldquo;curl&rdquo; or &ldquo;shampoo&rdquo;.</p>
+          <p className="mt-2 text-muted">Try another word, like &ldquo;boots&rdquo;, &ldquo;ball&rdquo; or &ldquo;jersey&rdquo;.</p>
           <button onClick={() => router.push("/products/")} className="btn-gold mt-5 px-5 py-3">Show all products</button>
         </div>
       ) : (

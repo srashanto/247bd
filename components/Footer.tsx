@@ -8,7 +8,8 @@ import { Logo } from "./Header";
 import { FacebookIcon, GroupIcon, InstagramIcon, MailIcon, PhoneIcon, PinIcon, WhatsappIcon, YoutubeIcon } from "./Icons";
 
 export default function Footer() {
-  const { settings: s } = useCatalog();
+  const { settings: s, products } = useCatalog();
+  const live = new Set(products.map((p) => p.category));
   const socials = [
     { href: s.facebook, label: "Facebook", Icon: FacebookIcon },
     { href: s.instagram, label: "Instagram", Icon: InstagramIcon },
@@ -22,7 +23,7 @@ export default function Footer() {
       <div className="pp-container grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.2fr]">
         <div>
           <Link href="/" aria-label="247BD home"><Logo light /></Link>
-          <p className="mt-4 max-w-xs text-[15px] font-medium leading-relaxed">Imported hair styling, hair care, skincare &amp; perfume, delivered all over Bangladesh.</p>
+          <p className="mt-4 max-w-xs text-[15px] font-medium leading-relaxed">Football boots, balls and kit, delivered all over Bangladesh.</p>
           <div className="mt-5 flex flex-wrap gap-2">
             {socials.map(({ href, label, Icon }) => (
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} title={label} className="pp-social">
@@ -44,7 +45,7 @@ export default function Footer() {
           <h3>Quick links</h3>
           <ul className="mt-4 space-y-2.5 text-[15px] font-medium">
             <li><Link href="/products/">All products</Link></li>
-            {categories.map((c) => (
+            {categories.filter((c) => live.has(c.slug)).map((c) => (
               <li key={c.slug}><Link href={categoryHref(c.slug)}>{c.name}</Link></li>
             ))}
             <li><Link href="/orders/">Track your order</Link></li>
@@ -63,9 +64,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="pp-footer__word" aria-hidden>PahelaPride</div>
+      <div className="pp-footer__word" aria-hidden>247BD</div>
       <div className="pp-container flex flex-wrap justify-between gap-2 py-5 text-sm font-medium">
-        <span>© {new Date().getFullYear()} PahelaPride. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} 247BD. All rights reserved.</span>
         <Link href="/help/#terms">Privacy &amp; terms</Link>
       </div>
     </footer>

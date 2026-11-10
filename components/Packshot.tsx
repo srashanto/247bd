@@ -1,209 +1,144 @@
-import { Pack, Product, PackShape } from "@/lib/products";
+import { PackShape, Product } from "@/lib/products";
 
-type Theme = { body: string; cap: string; mark: string; label: string; sheen: number; brand?: string };
+/** Lighten (amt > 0) or darken (amt < 0) a #rrggbb colour. */
+function shade(hex: string, amt: number) {
+  const n = parseInt(hex.slice(1), 16);
+  let r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+  const target = amt < 0 ? 0 : 255;
+  const k = Math.abs(amt);
+  r = Math.round((target - r) * k + r);
+  g = Math.round((target - g) * k + g);
+  b = Math.round((target - b) * k + b);
+  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
 
-/** One house look for the whole range: black, white or gold packs. */
-const themes: Record<NonNullable<Pack["tone"]>, Theme> = {
-  black: { body: "#131313", cap: "#262626", mark: "#ececec", label: "#dbb65f", sheen: 0.07 },
-  white: { body: "#ebe7e2", cap: "#141414", mark: "#151515", label: "#9a7c2e", sheen: 0.45 },
-  gold: { body: "#c8ac56", cap: "#141414", mark: "#141414", label: "#3a2f10", sheen: 0.3 },
+const byCategory: Record<string, PackShape> = {
+  boots: "boot",
+  footballs: "ball",
+  jerseys: "jersey",
+  socks: "sock",
+  "shin-guards": "shin",
+  gloves: "glove",
+  bags: "bag",
+  training: "cone",
 };
 
-const FONT = "Archivo, Inter, sans-serif";
-
-/** Big wordmark running up the pack, with the product name beside it. */
-function Vertical({ x, y, w, h, name, t }: { x: number; y: number; w: number; h: number; name: string; t: Theme }) {
-  const cx = x + w / 2;
-  const cy = y + h / 2;
-  const size = Math.min(w * 0.46, h / 3.3);
-  const label = name.replace("|", " ");
-  return (
-    <g>
-      <text
-        x={cx - w * 0.07}
-        y={cy}
-        transform={`rotate(-90 ${cx - w * 0.07} ${cy})`}
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize={size}
-        fontWeight="800"
-        fontFamily={FONT}
-        letterSpacing="0.5"
-        fill={t.mark}
-      >
-        {t.brand}
-      </text>
-      <text
-        x={cx + w * 0.3}
-        y={cy}
-        transform={`rotate(-90 ${cx + w * 0.3} ${cy})`}
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize={Math.max(4.2, Math.min(5.6, (h * 0.9) / label.length / 0.62))}
-        fontWeight="700"
-        fontFamily={FONT}
-        fill={t.label}
-      >
-        {label.toUpperCase()}
-      </text>
-    </g>
-  );
+export function shapeFor(product: Pick<Product, "category" | "pack">): PackShape {
+  return product.pack?.shape ?? byCategory[product.category] ?? "ball";
 }
 
-/** Horizontal wordmark for short, wide packs (jars, perfume). */
-function Horizontal({ cx, y, size, name, t }: { cx: number; y: number; size: number; name: string; t: Theme }) {
-  const label = name.replace("|", " ").toUpperCase();
-  return (
-    <g>
-      <text x={cx} y={y} textAnchor="middle" fontSize={size} fontWeight="800" fontFamily={FONT} fill={t.mark}>
-        {t.brand}
-      </text>
-      <text x={cx} y={y + size * 0.62} textAnchor="middle" fontSize={Math.min(5.4, 60 / label.length)} fontWeight="700" fontFamily={FONT} fill={t.label}>
-        {label}
-      </text>
-    </g>
-  );
-}
+const INK = "#0b1410";
 
-function Sheen({ x, y, h, t }: { x: number; y: number; h: number; t: Theme }) {
-  return <rect x={x} y={y} width="4" height={h} rx="2" fill="#fff" opacity={t.sheen} />;
-}
-
-function Shape({ shape, label, t }: { shape: PackShape; label: string; t: Theme }) {
+export function Art({ shape, color }: { shape: PackShape; color: string }) {
+  const c = color;
+  const d = shade(c, -0.28);
+  const l = shade(c, 0.35);
   switch (shape) {
-    case "bottle":
+    case "boot":
       return (
         <>
-          <rect x="38" y="12" width="24" height="16" rx="3" fill={t.cap} />
-          <rect x="42" y="26" width="16" height="10" fill={t.body} />
-          <rect x="24" y="34" width="52" height="102" rx="12" fill={t.body} />
-          <Sheen x={28} y={42} h={86} t={t} />
-          <Vertical x={24} y={40} w={52} h={92} name={label} t={t} />
+          <ellipse cx="100" cy="142" rx="80" ry="6" fill="#000" opacity=".35" />
+          <path d="M22 62c10-4 22-6 30-4l34 34c14 10 44 12 74 18 12 3 18 9 18 16v4H30c-8 0-12-5-12-12V74c0-6 1-10 4-12z" fill={c} />
+          <path d="M18 104h160c0 6 0 10 0 14v4c0 4-3 6-7 6H30c-8 0-12-5-12-12z" fill={d} />
+          <path d="M58 64l34 32M70 60l30 30M48 76l32 26" stroke={l} strokeWidth="4" strokeLinecap="round" />
+          <path d="M118 98c18 4 36 6 52 12" stroke={l} strokeWidth="5" strokeLinecap="round" fill="none" />
+          <g fill="#e9efe9"><rect x="34" y="128" width="10" height="10" rx="2" /><rect x="62" y="128" width="10" height="10" rx="2" /><rect x="104" y="128" width="10" height="10" rx="2" /><rect x="132" y="128" width="10" height="10" rx="2" /><rect x="158" y="128" width="10" height="10" rx="2" /></g>
+        </>
+      );
+    case "ball":
+      return (
+        <>
+          <ellipse cx="100" cy="146" rx="52" ry="6" fill="#000" opacity=".35" />
+          <circle cx="100" cy="78" r="62" fill="#f4f6f3" stroke={d} strokeWidth="3" />
+          <path d="M100 52l25 18-10 29H85L75 70z" fill={INK} />
+          <path d="M100 52V18M125 70l32-12M115 99l20 28M85 99l-20 28M75 70L43 58" stroke={INK} strokeWidth="4" />
+          <path d="M100 18l22 6M100 18l-22 6M157 58l4 24M157 58l-12-18M135 127l-24 12M135 127l20-16M65 127l24 12M65 127l-20-16M43 58l-4 24M43 58l12-18" stroke={INK} strokeWidth="4" strokeLinecap="round" />
+        </>
+      );
+    case "jersey":
+      return (
+        <>
+          <path d="M70 16l-44 20-14 36 26 12 8-16v76h108V68l8 16 26-12-14-36-44-20c-6 12-16 18-30 18s-24-6-30-18z" fill={c} stroke={d} strokeWidth="3" strokeLinejoin="round" />
+          <path d="M70 16c6 12 16 18 30 18s24-6 30-18" fill="none" stroke={l} strokeWidth="6" />
+          <rect x="86" y="62" width="28" height="34" rx="3" fill={l} opacity=".85" />
+        </>
+      );
+    case "shorts":
+      return (
+        <>
+          <path d="M40 30h120l14 100h-62l-12-52-12 52H26z" fill={c} stroke={d} strokeWidth="3" strokeLinejoin="round" />
+          <rect x="40" y="30" width="120" height="16" fill={d} />
+          <path d="M160 46l10 84" stroke={l} strokeWidth="5" />
+        </>
+      );
+    case "sock":
+      return (
+        <>
+          <path d="M70 10h46v84c0 8 4 14 12 18l28 12c10 4 12 16 4 22-4 3-10 4-16 2l-56-20c-12-4-18-12-18-24z" fill={c} stroke={d} strokeWidth="3" strokeLinejoin="round" />
+          <rect x="70" y="10" width="46" height="14" fill={d} />
+          <rect x="70" y="34" width="46" height="8" fill={l} />
+          <rect x="70" y="50" width="46" height="8" fill={l} />
+        </>
+      );
+    case "shin":
+      return (
+        <>
+          <path d="M72 14h56c10 0 16 6 16 16v70c0 26-18 42-44 46-26-4-44-20-44-46V30c0-10 6-16 16-16z" fill={c} stroke={d} strokeWidth="3" />
+          <path d="M72 46h56M70 76h60M74 106h52" stroke={l} strokeWidth="6" strokeLinecap="round" />
+        </>
+      );
+    case "glove":
+      return (
+        <>
+          <path d="M58 150V96l-16-24c-4-8 6-16 12-10l12 14V34c0-10 14-10 14 0V22c0-10 14-10 14 0v4c0-10 14-10 14 0v10c0-10 14-10 14 0v70l-8 44z" fill={c} stroke={d} strokeWidth="3" strokeLinejoin="round" />
+          <rect x="56" y="130" width="72" height="20" rx="4" fill={d} />
+          <path d="M80 44v40M94 36v48M108 40v44" stroke={l} strokeWidth="5" strokeLinecap="round" />
+        </>
+      );
+    case "bag":
+      return (
+        <>
+          <path d="M72 34c0-16 12-24 28-24s28 8 28 24" fill="none" stroke={d} strokeWidth="7" />
+          <rect x="44" y="32" width="112" height="116" rx="20" fill={c} stroke={d} strokeWidth="3" />
+          <rect x="62" y="82" width="76" height="46" rx="8" fill={d} />
+          <path d="M60 58h80" stroke={l} strokeWidth="5" strokeLinecap="round" />
+        </>
+      );
+    case "cone":
+      return (
+        <>
+          <ellipse cx="100" cy="134" rx="78" ry="14" fill={d} />
+          <path d="M78 28h44l40 104H38z" fill={c} stroke={d} strokeWidth="3" strokeLinejoin="round" />
+          <path d="M66 64h68M54 98h92" stroke={l} strokeWidth="10" />
+        </>
+      );
+    case "band":
+      return (
+        <>
+          <path d="M26 60c50-16 98-16 148 0v44c-50-16-98-16-148 0z" fill={c} stroke={d} strokeWidth="3" strokeLinejoin="round" />
+          <text x="100" y="92" textAnchor="middle" fontFamily="Barlow Condensed, sans-serif" fontWeight="800" fontSize="34" fill={INK}>C</text>
         </>
       );
     case "pump":
       return (
         <>
-          <rect x="40" y="13" width="32" height="7" rx="2" fill={t.cap} />
-          <rect x="47" y="19" width="6" height="19" fill={t.cap} />
-          <rect x="39" y="36" width="22" height="12" rx="2" fill={t.cap} />
-          <rect x="26" y="46" width="48" height="90" rx="10" fill={t.body} />
-          <Sheen x={30} y={54} h={74} t={t} />
-          <Vertical x={26} y={50} w={48} h={82} name={label} t={t} />
-        </>
-      );
-    case "spray":
-      return (
-        <>
-          <rect x="40" y="6" width="20" height="9" rx="2" fill={t.cap} />
-          <path d="M34 22 Q50 10 66 22 L66 36 L34 36 Z" fill={t.body} />
-          <rect x="29" y="34" width="42" height="102" rx="6" fill={t.body} />
-          <Sheen x={33} y={42} h={88} t={t} />
-          <Vertical x={29} y={40} w={42} h={92} name={label} t={t} />
-        </>
-      );
-    case "jar":
-      return (
-        <>
-          <rect x="16" y="68" width="68" height="20" rx="4" fill={t.cap} />
-          <rect x="19" y="86" width="62" height="50" rx="9" fill={t.body} />
-          <Sheen x={23} y={92} h={38} t={t} />
-          <Horizontal cx={50} y={114} size={17} name={label} t={t} />
-        </>
-      );
-    case "tube":
-      return (
-        <>
-          <rect x="21" y="8" width="58" height="8" rx="1.5" fill={t.body} />
-          <path d="M23 15 H77 L67 114 H33 Z" fill={t.body} />
-          <path d="M28 20 L32 20 L37 108 L34 108 Z" fill="#fff" opacity={t.sheen} />
-          <rect x="34" y="112" width="32" height="24" rx="3" fill={t.cap} />
-          <Vertical x={28} y={22} w={44} h={86} name={label} t={t} />
-        </>
-      );
-    case "dropper":
-      return (
-        <>
-          <ellipse cx="50" cy="20" rx="9" ry="12" fill={t.cap} />
-          <rect x="37" y="30" width="26" height="18" rx="3" fill={t.cap} />
-          <rect x="27" y="46" width="46" height="90" rx="11" fill={t.body} />
-          <Sheen x={31} y={54} h={74} t={t} />
-          <Vertical x={27} y={50} w={46} h={82} name={label} t={t} />
-        </>
-      );
-    case "perfume":
-      return (
-        <>
-          <rect x="35" y="14" width="30" height="28" rx="3" fill={t.cap} />
-          <rect x="43" y="40" width="14" height="10" fill={t.cap} opacity="0.75" />
-          <rect x="16" y="48" width="68" height="88" rx="10" fill={t.body} />
-          <rect x="22" y="54" width="56" height="76" rx="7" fill="#fff" opacity={t.sheen * 0.35} />
-          <Sheen x={21} y={56} h={72} t={t} />
-          <Horizontal cx={50} y={98} size={17} name={label} t={t} />
-        </>
-      );
-    case "trimmer":
-      return (
-        <>
-          <rect x="33" y="8" width="34" height="16" rx="2" fill="#8a8a8a" />
-          {[37, 42, 47, 52, 57, 62].map((x) => (
-            <rect key={x} x={x} y="4" width="2" height="6" fill="#8a8a8a" />
-          ))}
-          <rect x="31" y="22" width="38" height="114" rx="19" fill={t.body} />
-          <Sheen x={36} y={30} h={96} t={t} />
-          <circle cx="50" cy="52" r="6" fill={t.label} />
-          <text x="50" y="104" transform="rotate(-90 50 104)" textAnchor="middle" dominantBaseline="central" fontSize="12" fontWeight="800" fontFamily={FONT} fill={t.mark}>
-            {t.brand}
-          </text>
-        </>
-      );
-    case "straightener":
-      return (
-        <>
-          <rect x="31" y="8" width="17" height="112" rx="8" fill={t.body} />
-          <rect x="52" y="8" width="17" height="112" rx="8" fill={t.body} />
-          <rect x="35" y="14" width="9" height="56" rx="2" fill={t.label} opacity="0.85" />
-          <rect x="56" y="14" width="9" height="56" rx="2" fill={t.label} opacity="0.85" />
-          <rect x="31" y="102" width="38" height="34" rx="9" fill={t.body} />
-          <text x="50" y="122" textAnchor="middle" fontSize="9" fontWeight="800" fontFamily={FONT} fill={t.mark}>{t.brand}</text>
-        </>
-      );
-    case "comb":
-      return (
-        <>
-          <rect x="22" y="14" width="56" height="26" rx="6" fill="#a47148" />
-          {[25, 33, 41, 49, 57, 65].map((x) => (
-            <rect key={x} x={x} y="36" width="6" height="96" rx="3" fill="#a47148" />
-          ))}
-          <text x="50" y="31" textAnchor="middle" fontSize="9" fontWeight="800" fontFamily={FONT} fill="#3b2614">{t.brand}</text>
+          <rect x="88" y="52" width="24" height="88" rx="6" fill={c} stroke={d} strokeWidth="3" />
+          <rect x="96" y="22" width="8" height="34" fill="#e9efe9" />
+          <rect x="66" y="12" width="68" height="14" rx="7" fill={d} />
+          <path d="M112 120c24 0 34-10 40-26" fill="none" stroke="#e9efe9" strokeWidth="4" strokeLinecap="round" />
         </>
       );
   }
 }
 
-function Single({ product }: { product: Product }) {
-  const brand = product.brand || "247BD";
-  const t = { ...themes[product.pack?.tone ?? "black"], brand };
-  const label = product.name.replace(new RegExp(`^${brand}\\s*`, "i"), "").replace(/\s*\(.*?\)/g, "").split(" ").slice(0, 3).join(" ");
-  return (
-    <svg
-      viewBox="0 0 100 142"
-      className="h-full w-auto overflow-visible"
-      style={t.body === "#131313" ? { filter: "drop-shadow(0 0 0.6px rgba(255,255,255,0.35)) drop-shadow(0 0 14px rgba(219,182,95,0.10))" } : undefined}
-      role="img"
-      aria-label={product.name}
-    >
-      <ellipse cx="50" cy="138.5" rx="34" ry="3.5" fill="#000" opacity="0.55" />
-      <Shape shape={product.pack?.shape ?? "bottle"} label={label} t={t} />
-    </svg>
-  );
-}
-
-/** Illustrated product pack, used when a product has no photo. */
+/** Drawn product art, used when a product has no photo yet. */
 export default function Packshot({ product, className = "", style }: { product: Product; className?: string; style?: React.CSSProperties }) {
+  const color = product.pack?.color ?? product.colors?.[0]?.hex ?? "#c6ff00";
   return (
-    <div className={`flex min-w-0 items-end justify-center ${className}`} style={style}>
-      <Single product={product} />
+    <div className={`flex min-w-0 items-center justify-center ${className}`} style={style}>
+      <svg viewBox="0 0 200 160" className="h-full w-full" role="img" aria-label={product.name}>
+        <Art shape={shapeFor(product)} color={color} />
+      </svg>
     </div>
   );
 }

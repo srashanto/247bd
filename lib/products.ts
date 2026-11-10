@@ -2,20 +2,26 @@ import catalog from "./catalog.json";
 
 export type Gender = "him" | "her" | "unisex";
 
-export type PackShape =
-  | "bottle" | "pump" | "spray" | "jar" | "tube" | "dropper" | "perfume" | "trimmer" | "straightener" | "comb";
+export type PackShape = "boot" | "ball" | "jersey" | "shorts" | "sock" | "shin" | "glove" | "bag" | "cone" | "band" | "pump";
 
-export type Pack = { shape: PackShape; tone?: "black" | "white" | "gold" };
+/** Drawn product art, used when a product has no photo yet. */
+export type Pack = { shape: PackShape; color?: string };
 
 export type Variation = {
   id: string;
   label: string;
+  /** Colour key (matches Product.colors) and size, when the product has both. */
+  color?: string;
+  size?: string;
   price: number;
   regularPrice?: number | null;
   stock: number;
 };
 
 export type ProductImage = { src: string; thumb: string };
+
+/** A colour option. `images` are positions in Product.images shown for this colour. */
+export type ProductColor = { key: string; name: string; hex: string; images?: number[] };
 
 export type Product = {
   id: string;
@@ -32,6 +38,9 @@ export type Product = {
   variations: Variation[];
   stock: number;
   images?: ProductImage[];
+  colors?: ProductColor[];
+  /** Positions in `images` shown in the "Built for the pitch" strip on the product page. */
+  details?: number[];
   pack?: Pack;
   badge?: string | null;
   gift?: string | null;
@@ -47,17 +56,20 @@ export type Product = {
 export type Category = { slug: string; name: string };
 
 export const categories: Category[] = [
-  { slug: "hair-styling", name: "Hair style" },
-  { slug: "hair-care", name: "Hair care" },
-  { slug: "curly-hair", name: "Curly hair" },
-  { slug: "skincare", name: "Skin care" },
-  { slug: "perfume", name: "Perfume" },
-  { slug: "combos", name: "Combos" },
+  { slug: "boots", name: "Boots" },
+  { slug: "footballs", name: "Footballs" },
+  { slug: "jerseys", name: "Jerseys & shorts" },
+  { slug: "socks", name: "Socks" },
+  { slug: "shin-guards", name: "Shin guards" },
+  { slug: "gloves", name: "Keeper gloves" },
+  { slug: "bags", name: "Bags" },
+  { slug: "training", name: "Training gear" },
 ];
+export const categorySlugs = new Set(categories.map((c) => c.slug));
 
 export const genders: Record<Gender, { name: string }> = {
-  him: { name: "For him" },
-  her: { name: "For her" },
+  him: { name: "For men" },
+  her: { name: "For women" },
   unisex: { name: "For everyone" },
 };
 
@@ -99,6 +111,11 @@ export function discountPercent(p: { price: number; regularPrice?: number | null
 export function bestDiscount(p: Product) {
   if (!hasVariations(p)) return discountPercent(p);
   return Math.max(0, ...p.variations.map(discountPercent));
+}
+
+/** Variation for a colour + size, for products that have both. */
+export function variationFor(p: Product, color: string | null, size: string | null) {
+  return p.variations?.find((v) => (!p.colors?.length || v.color === color) && v.size === size);
 }
 
 export function findVariation(p: Product, id?: string | null) {

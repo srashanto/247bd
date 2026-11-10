@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${p.name} | 247BD`,
       description,
       url: `/products/${p.slug}/`,
-      images: p.images?.slice(0, 1).map((i) => ({ url: i.src, width: 1024, height: 1024, alt: p.name })),
+      images: p.images?.slice(0, 1).map((i) => ({ url: i.src, width: 1000, height: 1000, alt: p.name })),
     },
   };
 }
@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const url = `${SITE_URL}/products/${p.slug}/`;
   const [lo, hi] = priceRange(p);
   const availability = totalStock(p) > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock";
-  const seller = { "@type": "Organization", name: "247BD by PahelaPride" };
+  const seller = { "@type": "Organization", name: "247BD" };
   const category = getCategory(p.category);
 
   const schema = [
@@ -55,7 +55,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       description: (p.description ?? "").replace(/\s+/g, " ").slice(0, 5000),
       image: p.images?.map((i) => i.src),
       sku: p.id,
-      brand: { "@type": "Brand", name: p.brand ?? "PRIDE" },
+      brand: { "@type": "Brand", name: p.brand ?? "247BD" },
       category: category?.name,
       url,
       offers: hasVariations(p)

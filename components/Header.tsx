@@ -6,24 +6,28 @@ import { useState } from "react";
 import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
 import { useCatalog } from "@/lib/catalog";
+import { categories } from "@/lib/products";
+import { categoryHref } from "@/lib/seo";
 import { useWishlist } from "@/lib/wishlist";
 import { BagIcon, CloseIcon, HeartIcon, MenuIcon, SearchIcon, UserIcon } from "./Icons";
 
-export function Logo({ className = "text-[26px]", light = false }: { className?: string; light?: boolean }) {
+export function Logo({ className = "text-[34px]", light = false }: { className?: string; light?: boolean }) {
   return (
-    <span className={`font-display font-black leading-none tracking-[0.02em] [font-stretch:125%] ${light ? "text-paper" : "text-ink"} ${className}`}>
+    <span className={`font-display font-extrabold italic leading-none tracking-[0.01em] ${light ? "text-paper" : "text-ink"} ${className}`}>
       247<span className={light ? "text-punk" : "text-gold"}>BD</span>
     </span>
   );
 }
 
-const mainNav = [
-  { href: "/products/", label: "All Product" },
-  { href: "/perfume/", label: "Perfume" },
-  { href: "/skin-care/", label: "Skin Care" },
-  { href: "/hair-care/", label: "Hair Care" },
-  { href: "/hair-styling/", label: "Hair Style" },
-];
+/** Shop link first, then one link per category that has products. */
+function useMainNav() {
+  const { products } = useCatalog();
+  const live = new Set(products.map((p) => p.category));
+  return [
+    { href: "/products/", label: "All gear" },
+    ...categories.filter((c) => live.has(c.slug)).map((c) => ({ href: categoryHref(c.slug), label: c.name })),
+  ];
+}
 
 function Ticker({ items }: { items: string[] }) {
   if (!items.length) return null;
@@ -47,6 +51,7 @@ export default function Header() {
   const { slugs } = useWishlist();
   const { settings } = useCatalog();
   const auth = useAuth();
+  const mainNav = useMainNav();
   const router = useRouter();
   const [q, setQ] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -66,7 +71,7 @@ export default function Header() {
         autoFocus={searchOpen}
         value={q}
         onChange={(e) => setQ(e.target.value)}
-        placeholder="Search perfume, skin care, hair clay…"
+        placeholder="Search boots, balls, jerseys…"
         aria-label="Search products"
         className="w-full border border-line bg-paper py-3 pl-10 pr-4 text-[15px] text-ink outline-none placeholder:text-muted focus:border-gold"
       />
@@ -123,12 +128,11 @@ export default function Header() {
           <div className="mt-4 divide-y divide-line border-y border-line">
             {[
               ...mainNav,
-              { href: "/combos/", label: "Combos" },
               { href: "/wishlist/", label: "Wishlist" },
               { href: "/orders/", label: "Track order" },
               ...(auth.enabled ? [{ href: "/account/", label: auth.user ? "My account" : "Sign in / Create account" }] : []),
             ].map((n) => (
-              <Link key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="block py-3.5 font-display text-lg font-bold">
+              <Link key={n.href} href={n.href} onClick={() => setMenuOpen(false)} className="block py-3.5 font-display text-2xl font-extrabold uppercase italic">
                 {n.label}
               </Link>
             ))}

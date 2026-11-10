@@ -19,7 +19,7 @@ function Invoice({ o, s }: { o: Order; s: Settings }) {
       <div className="flex justify-between">
         <div>
           <p className="text-3xl font-extrabold">247BD</p>
-          <p className="text-sm">A PahelaPride brand · {s.phone} · {s.email}</p>
+          <p className="text-sm">{s.storeName} · {s.phone} · {s.email}</p>
         </div>
         <div className="text-right text-sm">
           <p className="text-lg font-bold">Invoice {o.id}</p>

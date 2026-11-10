@@ -37,7 +37,7 @@ export type Settings = {
 
 export const defaultSettings: Settings = {
   storeName: "247BD",
-  tagline: "PRIDE grooming by PahelaPride, delivered all over Bangladesh",
+  tagline: "Football boots, balls and kit, delivered all over Bangladesh",
   phone: "01748047444",
   whatsapp: "8801748047444",
   email: "pahelapride.official@gmail.com",
@@ -52,11 +52,11 @@ export const defaultSettings: Settings = {
   advancePayment: true,
   paymentNumbers: { bkash: "01683075333", nagad: "01683075333", rocket: "01683075333" },
   announcements: [
-    "Use [PAHELA] coupon code to get up to 30% discount",
-    "Combo কিনলে FREE gift",
+    "Football boots, balls and kit, 24/7",
     "Cash on Delivery সারা বাংলাদেশে",
+    "Pick your colour and size before you order",
   ],
-  couponNotice: "Use [PAHELA] coupon code to get up to 30% discount",
+  couponNotice: "",
 };
 
 /** Used to preview coupons when the admin backend is not connected. */

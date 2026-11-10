@@ -1,8 +1,8 @@
 # 247BD
 
-PRIDE grooming store by PahelaPride, live at https://247bd.net.
+Football store (boots, balls, kit and gear), live at https://247bd.net.
 
-- Store: home, shop, product pages with sizes, cart, PahelaPride-style checkout, order tracking, wishlist.
+- Store: home, shop, product pages with colour and size pickers, cart, checkout, order tracking, wishlist.
 - Customer accounts at https://247bd.net/account/: sign in with Google or email, order history, saved address, wishlist on every device.
 - Admin panel: https://247bd.net/admin/ for orders, products, stock, coupons and settings.
 
@@ -16,7 +16,15 @@ Until this is done the store still works, but orders only reach you through What
 4. Open **Project Settings → API** and copy the **Project URL** and the **anon public** key.
 5. Put the Project URL and anon key in `.env.production` in this repo (already done for the live project).
 6. Open **Actions → Deploy to GitHub Pages → Run workflow**.
-7. Visit https://247bd.net/admin/, sign in, go to **Products** and click **Import PRIDE catalog**.
+7. Visit https://247bd.net/admin/, sign in, go to **Products** and click **Import starter catalog** (adds the Meike boots). Then set the real price and stock for each size and colour.
+
+### Switching an existing database to the football store
+
+The storefront only shows football categories (boots, footballs, jerseys, socks, shin-guards, gloves, bags, training), so older grooming products in the database stay hidden. To tidy the database too, run [`supabase/football-store.sql`](supabase/football-store.sql) once in the SQL Editor, or untick **Show on store** / delete them in **Admin → Products**.
+
+### Adding products
+
+Admin → Products → **Add product**. Pick a category, add photos, and add one size row per size. For colours, use the starter boots as the example: each size row has a `color` and `size`, and the product has a `colors` list.
 
 ## Turn on customer login
 

@@ -78,7 +78,7 @@ export default function Dashboard() {
       {productCount === 0 && (
         <div className="mb-6 border border-gold/50 bg-gold-soft p-4 text-[15px]">
           Your product list is empty, so customers can&apos;t order yet.{" "}
-          <Link href="/admin/products/" className="font-semibold underline underline-offset-4">Import the PRIDE catalog</Link> to start.
+          <Link href="/admin/products/" className="font-semibold underline underline-offset-4">Import the football catalog</Link> to start.
         </div>
       )}
 

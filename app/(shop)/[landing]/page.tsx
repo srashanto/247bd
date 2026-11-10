@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import CategoryGrid from "@/components/CategoryGrid";
+import LandingPills from "@/components/LandingPills";
 import JsonLd from "@/components/JsonLd";
 import { staticProducts } from "@/lib/products";
 import { landings, SITE_URL } from "@/lib/seo";
@@ -65,23 +66,10 @@ export default async function LandingPage({ params }: { params: Promise<{ landin
         <span className="text-ink/80">{l.h1}</span>
       </nav>
 
-      <h1 className="mt-4 max-w-3xl text-[1.9rem] font-semibold leading-tight sm:text-[2.6rem]">{l.h1}</h1>
+      <h1 className="pp-h2 mt-5 max-w-3xl">{l.h1}</h1>
       <p className="mt-3 max-w-2xl text-[16px] leading-relaxed text-ink/80 sm:text-[17px]">{l.lead}</p>
 
-      <div className="-mx-4 mt-6 flex gap-2 overflow-x-auto border-y border-line px-4 py-4">
-        {landings.map((x) => (
-          <Link
-            key={x.slug}
-            href={`/${x.slug}/`}
-            aria-current={x.slug === l.slug ? "page" : undefined}
-            className={`whitespace-nowrap px-3.5 py-2 text-[13px] font-semibold uppercase tracking-wider ${
-              x.slug === l.slug ? "btn-gold" : "border border-line hover:border-ink"
-            }`}
-          >
-            {x.label}
-          </Link>
-        ))}
-      </div>
+      <LandingPills current={l.slug} />
 
       <div className="mt-8">
         <CategoryGrid category={l.category} />
@@ -89,11 +77,11 @@ export default async function LandingPage({ params }: { params: Promise<{ landin
 
       <section className="mt-16 grid gap-10 border-t border-line pt-10 lg:grid-cols-[1.2fr_1fr]">
         <div className="max-w-prose space-y-4 text-[16px] leading-relaxed text-ink/85">
-          <h2 className="text-2xl font-semibold text-ink">About {l.h1.charAt(0).toLowerCase() + l.h1.slice(1)}</h2>
+          <h2 className="text-3xl font-extrabold uppercase italic text-ink">About {l.h1.charAt(0).toLowerCase() + l.h1.slice(1)}</h2>
           {l.body.map((b) => <p key={b}>{b}</p>)}
         </div>
         <div>
-          <h2 className="text-2xl font-semibold">Questions</h2>
+          <h2 className="text-3xl font-extrabold uppercase italic">Questions</h2>
           <div className="mt-4 divide-y divide-line border-y border-line">
             {l.faq.map((f) => (
               <details key={f.q} className="group py-4">

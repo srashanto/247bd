@@ -35,7 +35,7 @@ export default function HelpPage() {
       body: [
         "You can return unopened, unused products within 7 days of delivery.",
         "If a product arrives damaged or wrong, message us on WhatsApp with a photo within 48 hours and we'll replace it.",
-        "For hygiene reasons, opened hair care and skin care can't be returned unless faulty.",
+        "Boots that have been worn outside, or socks and gloves that have been used, can't be returned unless faulty.",
       ],
     },
     {
@@ -45,7 +45,7 @@ export default function HelpPage() {
         "Prices and offers can change without notice. The price at checkout is the price you pay.",
         "Free gifts are given with eligible products while stock lasts.",
         "Coupon codes can't be combined, and one coupon applies per order.",
-        "Patch test new skin care on your inner arm for 24 hours before using it on your face.",
+        "Check the size and colour you picked on the order page before you confirm.",
       ],
     },
   ];

@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import ProductList from "./ProductList";
 
 export const metadata: Metadata = {
-  title: "Shop All Men's Grooming Products",
-  description: "All PRIDE grooming products: hair clay, pomade, sea salt spray, shampoo, conditioner, curl cream and men's skin care. Cash on delivery all over Bangladesh.",
+  title: "Shop All Football Gear",
+  description: "All football gear from 247BD: boots, footballs, jerseys, socks, shin guards and gloves. Pick your colour and size. Cash on delivery all over Bangladesh.",
   alternates: { canonical: "/products/" },
 };
 

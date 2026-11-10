@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
-import { BagIcon, SearchIcon, UserIcon } from "./Icons";
+import { BagIcon, HeartIcon, SearchIcon, UserIcon } from "./Icons";
 
 const HomeIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5" aria-hidden>
@@ -14,11 +14,6 @@ const HomeIcon = () => (
 const GridIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} className="h-5.5 w-5.5" aria-hidden>
     <rect x="4" y="4" width="7" height="7" /><rect x="13" y="4" width="7" height="7" /><rect x="4" y="13" width="7" height="7" /><rect x="13" y="13" width="7" height="7" />
-  </svg>
-);
-const GiftIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" className="h-5.5 w-5.5" aria-hidden>
-    <rect x="3" y="8" width="18" height="4" /><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 4 8 4.5 7.5 8 12 8Zm0 0s1.5-4 4-3.5S16.5 8 12 8Z" />
   </svg>
 );
 
@@ -36,7 +31,7 @@ export default function MobileNav() {
   const items = [
     { href: "/", label: "Home", icon: <HomeIcon />, on: path === "/" },
     { href: "/products/", label: "Shop", icon: <GridIcon />, on: path.startsWith("/products") },
-    { href: "/combos/", label: "Combos", icon: <GiftIcon />, on: path.startsWith("/combos") },
+    { href: "/wishlist/", label: "Wishlist", icon: <HeartIcon className="h-5.5 w-5.5" />, on: path.startsWith("/wishlist") },
     auth.enabled
       ? { href: "/account/", label: auth.user ? "Account" : "Sign in", icon: <UserIcon className="h-5.5 w-5.5" />, on: path.startsWith("/account") }
       : { href: "/orders/", label: "Track", icon: <SearchIcon className="h-5.5 w-5.5" />, on: path.startsWith("/orders") },

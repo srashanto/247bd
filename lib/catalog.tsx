@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { Product, staticProducts } from "./products";
+import { categorySlugs, Product, staticProducts } from "./products";
 import { defaultSettings, Settings } from "./settings";
 import { supabase } from "./supabase";
 
@@ -43,8 +43,10 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
         db.from("settings").select("data").eq("id", 1).maybeSingle(),
       ]);
       if (!alive) return;
-      // An empty table means the catalog hasn't been imported yet, so keep the bundled one.
-      if (!p.error && p.data && p.data.length > 0) setProducts((p.data as ProductRow[]).map(rowToProduct));
+      // Only football categories are shown. Older grooming rows in the database stay hidden, and an
+      // empty result means the football catalog hasn't been imported yet, so keep the bundled one.
+      const live = ((p.data ?? []) as ProductRow[]).filter((r) => categorySlugs.has(r.data?.category));
+      if (!p.error && live.length > 0) setProducts(live.map(rowToProduct));
       if (!s.error && s.data?.data) setSettings({ ...defaultSettings, ...(s.data.data as Partial<Settings>) });
       setReady(true);
     })();

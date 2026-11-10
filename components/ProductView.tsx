@@ -5,24 +5,23 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useCart } from "@/lib/cart";
 import { useCatalog } from "@/lib/catalog";
-import { discountPercent, formatPrice, getCategory, hasVariations, Product, productHref, totalStock } from "@/lib/products";
+import { discountPercent, formatPrice, getCategory, hasVariations, Product, productHref, totalStock, variationFor } from "@/lib/products";
 import { categoryHref } from "@/lib/seo";
 import ProductCard, { PriceLine, ProductPhoto, WishButton } from "./ProductCard";
 import { CashIcon, CheckIcon, TruckIcon } from "./Icons";
 
 const tabs = [
   { key: "description", label: "Description" },
-  { key: "ingredients", label: "Ingredients" },
-  { key: "benefits", label: "Benefits" },
-  { key: "howToUse", label: "How to use" },
+  { key: "ingredients", label: "Specifications" },
+  { key: "benefits", label: "Features" },
+  { key: "howToUse", label: "Size & care" },
 ] as const;
 
-function Gallery({ product }: { product: Product }) {
+function Gallery({ product, imgs }: { product: Product; imgs: NonNullable<Product["images"]> }) {
   const [i, setI] = useState(0);
-  const imgs = product.images ?? [];
   return (
     <div>
-      <div className="relative aspect-square overflow-hidden bg-card">
+      <div className="relative aspect-square overflow-hidden rounded-md bg-night">
         <ProductPhoto product={product} src={imgs[i]?.src} eager />
         <WishButton slug={product.slug} className="absolute right-3 top-3 h-11 w-11" />
       </div>
@@ -33,7 +32,7 @@ function Gallery({ product }: { product: Product }) {
               key={im.thumb + n}
               onClick={() => setI(n)}
               aria-label={`Show photo ${n + 1}`}
-              className={`h-16 w-16 shrink-0 overflow-hidden border-2 sm:h-20 sm:w-20 ${n === i ? "border-gold" : "border-transparent opacity-70 hover:opacity-100"}`}
+              className={`h-16 w-16 shrink-0 overflow-hidden rounded border-2 sm:h-20 sm:w-20 ${n === i ? "border-ink" : "border-transparent opacity-70 hover:opacity-100"}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={im.thumb} alt="" loading="lazy" className="h-full w-full object-cover" />
@@ -51,15 +50,29 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
   const { add } = useCart();
   const router = useRouter();
   const [variation, setVariation] = useState<string | null>(null);
+  const [color, setColor] = useState<string | null>(null);
+  const [size, setSize] = useState<string | null>(null);
+  const [pickSize, setPickSize] = useState(false);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const [tab, setTab] = useState<(typeof tabs)[number]["key"]>("description");
 
+  const twoStep = Boolean(product?.colors?.length && product.variations.some((x) => x.color && x.size));
+
   useEffect(() => {
-    if (product && hasVariations(product) && !variation) {
-      setVariation((product.variations.find((v) => v.stock > 0) ?? product.variations[0]).id);
+    if (!product || !hasVariations(product)) return;
+    if (twoStep) {
+      // Colour comes from ?c= (links on the home page) or the first colour with stock. Size is the customer's choice.
+      if (!color) {
+        const wanted = new URLSearchParams(window.location.search).get("c");
+        const keys = product.colors!.map((c) => c.key);
+        const inStock = (k: string) => product.variations.some((x) => x.color === k && x.stock > 0);
+        setColor(wanted && keys.includes(wanted) ? wanted : keys.find(inStock) ?? keys[0]);
+      }
+      return;
     }
-  }, [product, variation]);
+    if (!variation) setVariation((product.variations.find((v) => v.stock > 0) ?? product.variations[0]).id);
+  }, [product, variation, color, twoStep]);
 
   const inside = useMemo(
     () => (product?.includes ?? []).map((s) => get(s)).filter((p): p is Product => Boolean(p)),
@@ -82,9 +95,16 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
     );
   }
 
-  const v = product.variations.find((x) => x.id === variation);
+  const v = twoStep ? variationFor(product, color, size) : product.variations.find((x) => x.id === variation);
+  const colorInfo = product.colors?.find((c) => c.key === color);
+  const sizes = twoStep ? Array.from(new Set(product.variations.filter((x) => x.color === color).map((x) => x.size!))) : [];
+  const galleryImgs = colorInfo?.images?.length
+    ? colorInfo.images.map((n) => product.images?.[n]).filter((x): x is NonNullable<typeof x> => Boolean(x))
+    : product.images ?? [];
+  const detailImgs = (product.details ?? []).map((n) => product.images?.[n]).filter((x): x is NonNullable<typeof x> => Boolean(x));
+  const needSize = twoStep && !v;
   const unit = v ?? { price: product.price, regularPrice: product.regularPrice, stock: product.stock };
-  const stock = v ? v.stock : hasVariations(product) ? totalStock(product) : product.stock;
+  const stock = v ? v.stock : hasVariations(product) ? (twoStep ? 99 : totalStock(product)) : product.stock;
   const off = discountPercent(unit);
   const category = getCategory(product.category);
   const related = products
@@ -98,8 +118,15 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
   };
   const visibleTabs = tabs.filter((t) => tabContent[t.key]?.length);
 
+  /** Adds to the cart. Returns false and asks for a size when none is chosen yet. */
   function addToCart() {
+    if (needSize) {
+      setPickSize(true);
+      document.getElementById("size-picker")?.scrollIntoView({ block: "center", behavior: "smooth" });
+      return false;
+    }
     add(product!.slug, v?.id ?? null, qty);
+    return true;
   }
 
   return (
@@ -112,7 +139,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
 
       <div className="mt-3 grid gap-6 sm:mt-5 md:grid-cols-2 md:gap-8 lg:gap-14">
         <div className="md:sticky md:top-28 md:self-start">
-          <Gallery product={product} />
+          <Gallery key={color ?? "all"} product={product} imgs={galleryImgs} />
         </div>
 
         <div>
@@ -120,12 +147,12 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             {off > 0 && <span className="bg-alert px-2 py-1 text-white">-{off}%</span>}
             {product.badge && <span className="bg-gold px-2 py-1 text-paper">{product.badge}</span>}
           </div>
-          <h1 className="mt-3 text-[1.35rem] font-bold leading-tight sm:text-[1.6rem] md:text-[2rem] md:uppercase md:leading-[1.12]">{product.name}</h1>
+          <h1 className="mt-3 text-[2.1rem] font-extrabold uppercase italic leading-[0.95] sm:text-[2.6rem] md:text-[3.2rem]">{product.name}</h1>
           {product.title && product.title !== product.name && (
             <p className="mt-1.5 text-[13px] leading-snug text-muted md:text-[15px]">{product.title.replace(product.name, "").replace(/^\s*Bangladesh\b/, "").replace(/^[\s–|-]+/, "")}</p>
           )}
 
-          <div className="mt-3 text-[1.4rem] font-semibold sm:mt-4 sm:text-2xl">
+          <div className="mt-3 font-display text-[1.9rem] font-bold sm:mt-4 sm:text-[2.2rem]">
             {v || !hasVariations(product) ? (
               <span className="flex flex-wrap items-baseline gap-3">
                 {formatPrice(unit.price)}
@@ -139,7 +166,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           </div>
 
           {product.gift && (
-            <div className="mt-4 flex items-center gap-3 border border-gold/40 bg-gold-soft px-3.5 py-2.5 text-[14px] sm:mt-5 sm:px-4 sm:py-3 sm:text-[15px]">
+            <div className="mt-4 flex items-center gap-3 rounded border border-gold/40 bg-gold-soft px-3.5 py-2.5 text-[14px] sm:mt-5 sm:px-4 sm:py-3 sm:text-[15px]">
               <span aria-hidden>🎁</span>
               <span><b>Free gift:</b> {product.gift}</span>
             </div>
@@ -151,7 +178,55 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             </div>
           )}
 
-          {hasVariations(product) && (
+          {twoStep && (
+            <div className="mt-5 sm:mt-6">
+              <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">Colour: <span className="text-ink">{colorInfo?.name}</span></p>
+              <div className="pp-swatches mt-2.5">
+                {product.colors!.map((c) => (
+                  <button
+                    key={c.key}
+                    onClick={() => {
+                      setColor(c.key);
+                      setSize(null);
+                      setQty(1);
+                    }}
+                    aria-pressed={c.key === color}
+                    aria-label={c.name}
+                    title={c.name}
+                    style={{ background: c.hex }}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {twoStep && (
+            <div className="mt-5" id="size-picker">
+              <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">
+                Size (EU): <span className={pickSize && needSize ? "text-alert" : "text-ink"}>{size ?? (pickSize ? "choose a size" : "choose")}</span>
+              </p>
+              <div className="pp-sizes mt-2.5">
+                {sizes.map((z) => {
+                  const x = variationFor(product, color, z);
+                  return (
+                    <button
+                      key={z}
+                      disabled={!x || x.stock <= 0}
+                      aria-pressed={z === size}
+                      onClick={() => {
+                        setSize(z);
+                        setQty(1);
+                      }}
+                    >
+                      {z}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {!twoStep && hasVariations(product) && (
             <div className="mt-5 sm:mt-6">
               <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">Size: <span className="text-ink">{v?.label}</span></p>
               <div className="mt-2.5 flex flex-wrap gap-2">
@@ -183,7 +258,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             <button
               disabled={stock <= 0}
               onClick={() => {
-                addToCart();
+                if (!addToCart()) return;
                 setAdded(true);
                 setTimeout(() => setAdded(false), 1600);
               }}
@@ -197,7 +272,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           <button
             disabled={stock <= 0}
             onClick={() => {
-              addToCart();
+              if (!addToCart()) return;
               router.push("/checkout/");
             }}
             className="btn-gold mt-3 w-full px-6 py-4 text-[14px] disabled:opacity-40"
@@ -207,7 +282,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           {stock > 0 && stock <= 5 && <p className="mt-3 text-sm text-alert">Only {stock} left in stock</p>}
 
           <ul className="mt-6 space-y-2.5 text-[15px]">
-            <li className="flex gap-3"><CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-gold" /> 100% imported product</li>
+            <li className="flex gap-3"><CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-gold" /> Pick your colour and size before you order</li>
             <li className="flex gap-3"><CashIcon className="h-5 w-5 shrink-0 text-gold" /> Cash on Delivery available</li>
             <li className="flex gap-3"><TruckIcon className="h-5 w-5 shrink-0 text-gold" /> Delivery all over Bangladesh: ৳{settings.deliveryInsideDhaka} inside Dhaka, ৳{settings.deliveryOutsideDhaka} outside</li>
           </ul>
@@ -222,7 +297,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
 
           {inside.length > 0 && (
             <div className="mt-6 border-t border-line pt-5">
-              <h2 className="text-lg font-semibold">What&apos;s in this combo</h2>
+              <h2 className="text-2xl font-extrabold uppercase italic">What&apos;s in this set</h2>
               <ul className="mt-3 space-y-2">
                 {inside.map((p) => (
                   <li key={p.slug}>
@@ -276,9 +351,21 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
         </section>
       )}
 
+      {detailImgs.length > 0 && (
+        <section className="mt-12">
+          <h2 className="pp-h2">Built for the pitch</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {detailImgs.map((im, n) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img key={im.src + n} src={im.src} alt="" loading="lazy" className="w-full rounded-md bg-night" />
+            ))}
+          </div>
+        </section>
+      )}
+
       {related.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-2xl font-semibold sm:text-3xl">You may also like</h2>
+          <h2 className="pp-h2">You may also like</h2>
           <div className="mt-6 grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-4">
             {related.map((p) => <ProductCard key={p.slug} product={p} />)}
           </div>
@@ -288,13 +375,13 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-paper/95 px-3 pb-[calc(env(safe-area-inset-bottom)+0.6rem)] pt-2.5 backdrop-blur md:hidden">
         <div className="flex items-center gap-2">
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[12px] text-muted">{v?.label ?? product.name}</p>
+            <p className="truncate text-[12px] text-muted">{v?.label ?? (colorInfo ? `${colorInfo.name}, pick a size` : product.name)}</p>
             <p className="text-[16px] font-semibold leading-tight">{formatPrice(unit.price * qty)}</p>
           </div>
           <button
             disabled={stock <= 0}
             onClick={() => {
-              addToCart();
+              if (!addToCart()) return;
               setAdded(true);
               setTimeout(() => setAdded(false), 1600);
             }}
@@ -305,7 +392,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           <button
             disabled={stock <= 0}
             onClick={() => {
-              addToCart();
+              if (!addToCart()) return;
               router.push("/checkout/");
             }}
             className="btn-gold px-4 py-3 text-[12px] disabled:opacity-40"

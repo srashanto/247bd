@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { Children, useRef } from "react";
 
 /** Sideways-scrolling row of cards with next and previous buttons on desktop. */
 export default function ProductRail({ children }: { children: React.ReactNode }) {
@@ -9,8 +9,12 @@ export default function ProductRail({ children }: { children: React.ReactNode })
   return (
     <div className="pp-rail">
       <div ref={track} className="pp-rail__track">{children}</div>
+      {Children.count(children) > 4 && (
+        <>
       <button aria-label="Previous" onClick={() => move(-1)} className="pp-rail__next pp-rail__next--prev">←</button>
       <button aria-label="Next" onClick={() => move(1)} className="pp-rail__next">→</button>
+        </>
+      )}
     </div>
   );
 }

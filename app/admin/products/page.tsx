@@ -137,7 +137,7 @@ function Editor({ initial, all, onSaved, onClose }: { initial: Product; all: Pro
                 </div>
                 {p.variations.map((v, i) => (
                   <div key={i} className="grid grid-cols-2 gap-2 sm:grid-cols-[1.5fr_1fr_1fr_0.8fr_auto]">
-                    <input value={v.label} onChange={(e) => setVar(i, { label: e.target.value })} placeholder="e.g. 50ml Budget Pack" className={`${field} col-span-2 sm:col-span-1`} aria-label="Size" />
+                    <input value={v.label} onChange={(e) => setVar(i, { label: e.target.value })} placeholder="e.g. White / Red, EU 42" className={`${field} col-span-2 sm:col-span-1`} aria-label="Size" />
                     <input type="number" min={0} value={v.price} onChange={(e) => setVar(i, { price: Number(e.target.value) })} className={field} aria-label="Price" />
                     <input type="number" min={0} value={v.regularPrice ?? ""} onChange={(e) => setVar(i, { regularPrice: e.target.value ? Number(e.target.value) : null })} className={field} aria-label="Regular price" />
                     <input type="number" min={0} value={v.stock} onChange={(e) => setVar(i, { stock: Number(e.target.value) })} className={field} aria-label="Stock" />
@@ -150,9 +150,9 @@ function Editor({ initial, all, onSaved, onClose }: { initial: Product; all: Pro
 
           <section className="space-y-4 bg-card p-5 ring-1 ring-line">
             <label className={L}>Description<textarea rows={8} value={p.description ?? ""} onChange={(e) => set("description", e.target.value)} className={`${field} mt-1`} /></label>
-            <label className={L}>Ingredients (one per line)<textarea rows={5} value={lines(p.ingredients)} onChange={(e) => set("ingredients", unlines(e.target.value))} className={`${field} mt-1`} /></label>
-            <label className={L}>Benefits (one per line)<textarea rows={5} value={lines(p.benefits)} onChange={(e) => set("benefits", unlines(e.target.value))} className={`${field} mt-1`} /></label>
-            <label className={L}>How to use (one step per line)<textarea rows={5} value={lines(p.howToUse)} onChange={(e) => set("howToUse", unlines(e.target.value))} className={`${field} mt-1`} /></label>
+            <label className={L}>Specifications (one per line)<textarea rows={5} value={lines(p.ingredients)} onChange={(e) => set("ingredients", unlines(e.target.value))} className={`${field} mt-1`} /></label>
+            <label className={L}>Features (one per line)<textarea rows={5} value={lines(p.benefits)} onChange={(e) => set("benefits", unlines(e.target.value))} className={`${field} mt-1`} /></label>
+            <label className={L}>Size & care (one tip per line)<textarea rows={5} value={lines(p.howToUse)} onChange={(e) => set("howToUse", unlines(e.target.value))} className={`${field} mt-1`} /></label>
           </section>
         </div>
 
@@ -247,53 +247,13 @@ function ProductsAdmin() {
   async function importCatalog() {
     if (!list) return;
     const missing = staticProducts.filter((s) => !list.some((p) => p.slug === s.slug));
-    if (!missing.length) return setToast("Every PRIDE product is already in the database.");
+    if (!missing.length) return setToast("Every starter product is already in the database.");
     setBusy(true);
     const { error } = await db.from("products").upsert(missing.map(toRow));
     setBusy(false);
     if (error) return setToast(errorMessage(error));
     setToast(`Imported ${missing.length} products.`);
     load();
-  }
-
-  /** Loads the products collected from pahelapride.com. Products already here are left untouched. */
-  async function importPahelaPride() {
-    if (!list) return;
-    setBusy(true);
-    try {
-      const res = await fetch("/imports/pahelapride.json", { cache: "no-store" });
-      if (!res.ok) throw new Error("The product file isn't ready yet.");
-      const all = (await res.json()) as Product[];
-      const missing = all.filter((s) => !list.some((p) => p.id === s.id || p.slug === s.slug));
-      if (!missing.length) return setToast("Every PahelaPride product is already in the database.");
-      let added = 0;
-      let failed = 0;
-      let firstError = "";
-      for (let i = 0; i < missing.length; i += 25) {
-        const batch = missing.slice(i, i + 25);
-        const { error } = await db.from("products").upsert(batch.map(toRow));
-        if (!error) {
-          added += batch.length;
-          continue;
-        }
-        // One bad row shouldn't stop the rest, so retry this group one product at a time.
-        for (const row of batch) {
-          const { error: rowError } = await db.from("products").upsert(toRow(row));
-          if (rowError) {
-            failed += 1;
-            firstError ||= `${row.name}: ${errorMessage(rowError)}`;
-          } else {
-            added += 1;
-          }
-        }
-      }
-      setToast(failed ? `Imported ${added}. ${failed} failed. ${firstError}` : `Imported ${added} products.`);
-      load();
-    } catch (e) {
-      setToast(e instanceof Error ? e.message : "Import failed.");
-    } finally {
-      setBusy(false);
-    }
   }
 
   /** Copies newer descriptions from the bundled catalog, keeping prices, stock and everything else. */
@@ -326,7 +286,7 @@ function ProductsAdmin() {
     const found = list.find((p) => p.slug === edit);
     if (edit && !found) return <p className="text-muted">Product not found. <Link href="/admin/products/" className="underline">Back</Link></p>;
     const blank: Product = {
-      id: crypto.randomUUID().slice(0, 8), slug: "", name: "", brand: "PRIDE", gender: "him", category: "hair-styling",
+      id: crypto.randomUUID().slice(0, 8), slug: "", name: "", brand: "", gender: "unisex", category: "boots",
       price: 0, regularPrice: null, variations: [], stock: 0, images: [], published: true, sort: (list.at(-1)?.sort ?? 0) + 1,
     };
     return <Editor key={edit ?? "new"} initial={found ?? blank} all={list} onSaved={load} onClose={close} />;
@@ -349,22 +309,17 @@ function ProductsAdmin() {
 
       {missing > 0 && (
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
-          <span>{list.length === 0 ? "No products in the database yet." : `${missing} PRIDE products aren't in the database yet.`} Import them to start taking orders.</span>
-          <button disabled={busy} onClick={importCatalog} className={btn}>{busy ? "Importing…" : "Import PRIDE catalog"}</button>
+          <span>{list.length === 0 ? "No products in the database yet." : `${missing} starter products aren't in the database yet.`} Import them to start taking orders.</span>
+          <button disabled={busy} onClick={importCatalog} className={btn}>{busy ? "Importing…" : "Import starter catalog"}</button>
         </div>
       )}
 
       {outdated > 0 && (
         <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
-          <span>{outdated} PRIDE product description{outdated === 1 ? " has" : "s have"} an update. Prices, stock and photos stay as they are.</span>
+          <span>{outdated} starter product description{outdated === 1 ? " has" : "s have"} an update. Prices, stock and photos stay as they are.</span>
           <button disabled={busy} onClick={syncDescriptions} className={btn}>{busy ? "Updating…" : "Update descriptions"}</button>
         </div>
       )}
-
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border border-gold/50 bg-gold-soft p-4 text-[15px]">
-        <span>Bring in skin care, hair care, hair style and perfume products from pahelapride.com. Existing products stay as they are.</span>
-        <button disabled={busy} onClick={importPahelaPride} className={btn}>{busy ? "Importing…" : "Import PahelaPride products"}</button>
-      </div>
 
       <div className="mb-5 flex flex-wrap gap-2">
         <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search products" className={`${field} w-60`} aria-label="Search products" />

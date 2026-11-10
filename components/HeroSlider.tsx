@@ -1,84 +1,95 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useCatalog } from "@/lib/catalog";
+import { productHref } from "@/lib/products";
+import { Art } from "./Packshot";
 
-const IMG = "https://pahelapride.com/wp-content/themes/pahelapride/assets/img/hero";
-
-const slides = [
-  {
-    key: "men",
-    flip: false,
-    img: `${IMG}/hero-men-780.webp`,
-    big: [["LOOK", "sharp"], ["STAY", "confident"]],
-    text: "Hair styling, hair care & skincare. 100% imported, delivered all over Bangladesh.",
-    links: [
-      ["Hair Care", "/hair-care/"],
-      ["Skin Care", "/skin-care/"],
-      ["Perfume", "/perfume/"],
-    ],
-  },
-  {
-    key: "women",
-    flip: true,
-    img: `${IMG}/hero-women-780.webp`,
-    big: [["GLOW", "every day"], ["SHINE", "your way"]],
-    text: "Hair care, skincare & perfume. 100% imported, delivered all over Bangladesh.",
-    links: [
-      ["Hair Care", "/hair-care/"],
-      ["Skin Care", "/skin-care/"],
-      ["Hair Style", "/hair-styling/"],
-    ],
-  },
-];
+type Slide = { key: string; big: [string, string]; text: string; img?: string; href: string; cta: string; links: [string, string][] };
 
 export default function HeroSlider() {
+  const { products } = useCatalog();
   const [at, setAt] = useState(0);
   const [paused, setPaused] = useState(false);
+
+  const slides = useMemo<Slide[]>(() => {
+    const p = products.find((x) => x.colors?.length && x.images?.length) ?? products[0];
+    const first: Slide = {
+      key: "all",
+      big: ["Everything", "football. 24/7."],
+      text: "Boots, balls and kit for every player. Pick your colour and size, pay cash on delivery anywhere in Bangladesh.",
+      img: p?.images?.[p.colors?.[0]?.images?.[0] ?? 0]?.src,
+      href: "/products/",
+      cta: "Shop all gear",
+      links: [],
+    };
+    if (!p?.colors || p.colors.length < 2) return [first];
+    const rest = p.colors.slice(1, 4).map((c): Slide => ({
+      key: c.key,
+      big: [c.name.split(" / ")[0], "on the pitch."],
+      text: `${p.name}, in ${c.name}. Long studs for grip on natural grass.`,
+      img: p.images?.[c.images?.[0] ?? 0]?.src,
+      href: `${productHref(p)}?c=${c.key}`,
+      cta: `Get the ${c.name.split(" / ")[0].toLowerCase()} pair`,
+      links: [],
+    }));
+    return [{ ...first, links: [] }, ...rest];
+  }, [products]);
+
   const go = (n: number) => setAt((n + slides.length) % slides.length);
+  const cur = Math.min(at, slides.length - 1);
 
   useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = setInterval(() => setAt((n) => (n + 1) % slides.length), 6000);
+    if (paused || slides.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => setAt((n) => (n + 1) % slides.length), 6500);
     return () => clearInterval(t);
-  }, [paused]);
+  }, [paused, slides.length]);
 
   return (
     <section className="pp-hero" aria-roledescription="carousel" aria-label="Featured" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="pp-hero__track" style={{ transform: `translateX(-${at * 100}%)` }}>
+      <div className="pp-hero__track" style={{ transform: `translateX(-${cur * 100}%)` }}>
         {slides.map((s, i) => (
-          <div key={s.key} className={`pp-slide ${s.flip ? "pp-slide--flip" : ""}`} aria-hidden={i !== at}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={s.img} alt="" className="pp-slide__model" loading={i === 0 ? "eager" : "lazy"} />
-            <div className="pp-container">
+          <div key={s.key} className="pp-slide" aria-hidden={i !== cur}>
+            <div className="pp-container pp-slide__grid">
               <div className="pp-slide__copy">
                 {i === 0 ? (
-                  <h1 className="pp-slide__h">
-                    {s.big.map(([a, b]) => <span key={a}>{a} <em>{b}</em></span>)}
-                  </h1>
+                  <h1 className="pp-slide__h">{s.big.map((b) => <span key={b}>{b}</span>)}</h1>
                 ) : (
-                  <p className="pp-slide__h">
-                    {s.big.map(([a, b]) => <span key={a}>{a} <em>{b}</em></span>)}
-                  </p>
+                  <p className="pp-slide__h">{s.big.map((b) => <span key={b}>{b}</span>)}</p>
                 )}
                 <p className="pp-slide__text">{s.text}</p>
                 <div className="pp-slide__btns">
-                  <Link href="/products/" className="pp-pill pp-pill--punk" tabIndex={i === at ? 0 : -1}>Shop now</Link>
-                  <Link href="/combos/" className="pp-pill pp-pill--ghost" tabIndex={i === at ? 0 : -1}>Shop combos</Link>
+                  <Link href={s.href} className="pp-pill pp-pill--punk" tabIndex={i === cur ? 0 : -1}>{s.cta}</Link>
+                  <Link href="/products/" className="pp-pill pp-pill--ghost" tabIndex={i === cur ? 0 : -1}>All products</Link>
                 </div>
-                <div className="pp-slide__links">
-                  {s.links.map(([label, href]) => <Link key={href} href={href} tabIndex={i === at ? 0 : -1}>{label}</Link>)}
-                </div>
+                {s.links.length > 0 && (
+                  <div className="pp-slide__links">
+                    {s.links.map(([label, href]) => <Link key={href} href={href} tabIndex={i === cur ? 0 : -1}>{label}</Link>)}
+                  </div>
+                )}
+              </div>
+              <div className="pp-slide__art">
+                {s.img ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={s.img} alt="" loading={i === 0 ? "eager" : "lazy"} />
+                ) : (
+                  <svg viewBox="0 0 200 160" className="h-full w-full p-10" aria-hidden><Art shape="ball" color="#c6ff00" /></svg>
+                )}
               </div>
             </div>
           </div>
         ))}
       </div>
-      <button aria-label="Previous slide" onClick={() => go(at - 1)} className="pp-hero__arrow" style={{ left: 16 }}>←</button>
-      <button aria-label="Next slide" onClick={() => go(at + 1)} className="pp-hero__arrow" style={{ right: 16 }}>→</button>
-      <div className="pp-hero__dots">
-        {slides.map((s, i) => <button key={s.key} aria-label={`Slide ${i + 1}`} aria-current={i === at} onClick={() => go(i)} />)}
-      </div>
+      {slides.length > 1 && (
+        <>
+          <button aria-label="Previous slide" onClick={() => go(cur - 1)} className="pp-hero__arrow" style={{ right: 70 }}>←</button>
+          <button aria-label="Next slide" onClick={() => go(cur + 1)} className="pp-hero__arrow" style={{ right: 16 }}>→</button>
+          <div className="pp-hero__dots">
+            {slides.map((s, i) => <button key={s.key} aria-label={`Slide ${i + 1}`} aria-current={i === cur} onClick={() => go(i)} />)}
+          </div>
+        </>
+      )}
     </section>
   );
 }
