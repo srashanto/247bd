@@ -2,9 +2,8 @@
 -- Run in Supabase: SQL Editor -> New query -> paste -> Run. Safe to run again.
 -- The same product can also be added with Admin -> Products -> "Import starter catalog".
 
--- 1) Hide the old grooming products (reversible: tick "Show on store" again in the admin panel).
-update public.products
-set published = false, updated_at = now()
+-- 1) Delete every old (non-football) product. Orders keep their own copy of what was bought, so history is safe.
+delete from public.products
 where coalesce(data ->> 'category', '') not in
   ('boots', 'footballs', 'jerseys', 'socks', 'shin-guards', 'gloves', 'bags', 'training');
 
