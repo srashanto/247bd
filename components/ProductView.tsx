@@ -139,7 +139,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
         <Link href={categoryHref(product.category)} className="hover:text-ink">{category?.name ?? "Shop"}</Link>
       </nav>
 
-      <div className="mt-3 grid gap-6 sm:mt-5 md:grid-cols-2 md:gap-8 lg:gap-14">
+      <div className="mt-3 grid grid-cols-[minmax(0,1fr)] gap-6 sm:mt-5 md:grid-cols-2 md:gap-8 lg:gap-14">
         <div className="md:sticky md:top-28 md:self-start">
           <Gallery key={color ?? "all"} product={product} imgs={galleryImgs} />
         </div>
