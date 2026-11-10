@@ -98,9 +98,11 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
   const v = twoStep ? variationFor(product, color, size) : product.variations.find((x) => x.id === variation);
   const colorInfo = product.colors?.find((c) => c.key === color);
   const sizes = twoStep ? Array.from(new Set(product.variations.filter((x) => x.color === color).map((x) => x.size!))) : [];
-  const galleryImgs = colorInfo?.images?.length
-    ? colorInfo.images.map((n) => product.images?.[n]).filter((x): x is NonNullable<typeof x> => Boolean(x))
-    : product.images ?? [];
+  // Every photo is in the gallery; the chosen colour's photos come first.
+  const allImgs = product.images ?? [];
+  const firstIdx = colorInfo?.images ?? [];
+  const order = [...firstIdx, ...allImgs.map((_, n) => n).filter((n) => !firstIdx.includes(n))];
+  const galleryImgs = order.map((n) => allImgs[n]).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const detailImgs = (product.details ?? []).map((n) => product.images?.[n]).filter((x): x is NonNullable<typeof x> => Boolean(x));
   const needSize = twoStep && !v;
   const unit = v ?? { price: product.price, regularPrice: product.regularPrice, stock: product.stock };
