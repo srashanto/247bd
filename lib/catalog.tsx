@@ -47,7 +47,18 @@ export function CatalogProvider({ children }: { children: React.ReactNode }) {
       // empty result means the football catalog hasn't been imported yet, so keep the bundled one.
       const live = ((p.data ?? []) as ProductRow[]).filter((r) => categorySlugs.has(r.data?.category));
       if (!p.error && live.length > 0) setProducts(live.map(rowToProduct));
-      if (!s.error && s.data?.data) setSettings({ ...defaultSettings, ...(s.data.data as Partial<Settings>) });
+      if (!s.error && s.data?.data) {
+        const d = s.data.data as Partial<Settings>;
+        // Drop leftover PahelaPride promo lines (PAHELA coupon, combo gift) saved in the database.
+        const old = /pahela|pride|combo|কম্বো|free gift/i;
+        const ann = (d.announcements ?? []).filter((a) => !old.test(a));
+        setSettings({
+          ...defaultSettings,
+          ...d,
+          announcements: ann.length ? ann : defaultSettings.announcements,
+          couponNotice: d.couponNotice && !old.test(d.couponNotice) ? d.couponNotice : "",
+        });
+      }
       setReady(true);
     })();
     return () => {
