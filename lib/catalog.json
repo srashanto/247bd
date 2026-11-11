@@ -980,5 +980,174 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "peak-football",
+    "slug": "peak-football",
+    "name": "PEAK Football",
+    "title": "PEAK Football – PVC Cover, Rubber Bladder, Size 4 & 5",
+    "brand": "PEAK",
+    "gender": "unisex",
+    "category": "footballs",
+    "price": 1560,
+    "regularPrice": 1560,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "black-white",
+        "name": "Black / White",
+        "hex": "#1B1B1B",
+        "images": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "blue-white",
+        "name": "Blue / White",
+        "hex": "#2D5BD0",
+        "images": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "key": "yellow",
+        "name": "Yellow",
+        "hex": "#F2C21B",
+        "images": [
+          6,
+          7
+        ]
+      }
+    ],
+    "details": [
+      8,
+      9
+    ],
+    "badge": "New",
+    "description": "PEAK football for youth matches and training, with a soft PVC cover that is gentle on the feet, a rubber bladder for strong bounce, and a dense wound layer for durability.\n\nThe cover resists scratches and stains, and the ball is suitable for indoor and outdoor play. Available in Black / White, Blue / White and Yellow, in sizes 4 and 5.",
+    "ingredients": [
+      "Product: Football",
+      "Brand: PEAK",
+      "Cover: PVC, scratch and stain resistant",
+      "Bladder: Rubber",
+      "Layer: Dense wound layer",
+      "Sizes: 4 and 5",
+      "Colours: Black / White, Blue / White, Yellow"
+    ],
+    "benefits": [
+      "Soft cover that is gentle on the feet",
+      "Strong bounce, hard to burst",
+      "Scratch-resistant and stain-resistant cover",
+      "For indoor and outdoor play, easy to clean"
+    ],
+    "howToUse": [
+      "Size 5 is the standard match size. Size 4 is for younger players.",
+      "Inflate to a firm but not rock-hard pressure and keep the valve clean.",
+      "Wipe off mud with a damp cloth after play and store away from direct heat."
+    ],
+    "published": true,
+    "sort": 3,
+    "images": [
+      {
+        "src": "/products/peak-black-1.jpg",
+        "thumb": "/products/peak-black-1.jpg"
+      },
+      {
+        "src": "/products/peak-black-2.jpg",
+        "thumb": "/products/peak-black-2.jpg"
+      },
+      {
+        "src": "/products/peak-black-3.jpg",
+        "thumb": "/products/peak-black-3.jpg"
+      },
+      {
+        "src": "/products/peak-blue-1.jpg",
+        "thumb": "/products/peak-blue-1.jpg"
+      },
+      {
+        "src": "/products/peak-blue-2.jpg",
+        "thumb": "/products/peak-blue-2.jpg"
+      },
+      {
+        "src": "/products/peak-blue-3.jpg",
+        "thumb": "/products/peak-blue-3.jpg"
+      },
+      {
+        "src": "/products/peak-yellow-1.jpg",
+        "thumb": "/products/peak-yellow-1.jpg"
+      },
+      {
+        "src": "/products/peak-yellow-2.jpg",
+        "thumb": "/products/peak-yellow-2.jpg"
+      },
+      {
+        "src": "/products/peak-cutaway.jpg",
+        "thumb": "/products/peak-cutaway.jpg"
+      },
+      {
+        "src": "/products/peak-range.jpg",
+        "thumb": "/products/peak-range.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "black-white-4",
+        "label": "Black / White, Size 4",
+        "color": "black-white",
+        "size": "4",
+        "price": 1560,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "black-white-5",
+        "label": "Black / White, Size 5",
+        "color": "black-white",
+        "size": "5",
+        "price": 1560,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-white-4",
+        "label": "Blue / White, Size 4",
+        "color": "blue-white",
+        "size": "4",
+        "price": 1560,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-white-5",
+        "label": "Blue / White, Size 5",
+        "color": "blue-white",
+        "size": "5",
+        "price": 1560,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-4",
+        "label": "Yellow, Size 4",
+        "color": "yellow",
+        "size": "4",
+        "price": 1560,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-5",
+        "label": "Yellow, Size 5",
+        "color": "yellow",
+        "size": "5",
+        "price": 1560,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]

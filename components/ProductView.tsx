@@ -205,7 +205,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           {twoStep && (
             <div className="mt-5" id="size-picker">
               <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">
-                Size (EU): <span className={pickSize && needSize ? "text-alert" : "text-ink"}>{size ?? (pickSize ? "choose a size" : "choose")}</span>
+                {product.category === "boots" ? "Size (EU)" : "Size"}: <span className={pickSize && needSize ? "text-alert" : "text-ink"}>{size ?? (pickSize ? "choose a size" : "choose")}</span>
               </p>
               <div className="pp-sizes mt-2.5">
                 {sizes.map((z) => {
@@ -355,7 +355,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
 
       {detailImgs.length > 0 && (
         <section className="mt-12">
-          <h2 className="pp-h2">Built for the pitch</h2>
+          <h2 className="pp-h2">Product details</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {detailImgs.map((im, n) => (
               // eslint-disable-next-line @next/next/no-img-element
