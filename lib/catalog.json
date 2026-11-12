@@ -3603,5 +3603,141 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "match-training-ball",
+    "slug": "match-training-football",
+    "name": "Match and Training Football",
+    "title": "Match and Training Football – Wear-Resistant PVC, Size 4 & 5",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "footballs",
+    "price": 980,
+    "regularPrice": 980,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "blue",
+        "name": "Blue / White",
+        "hex": "#2D6FD6",
+        "images": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "pink",
+        "name": "Pink / White",
+        "hex": "#F08DB7",
+        "images": [
+          6,
+          7
+        ]
+      }
+    ],
+    "details": [
+      3,
+      4,
+      5
+    ],
+    "badge": "New",
+    "description": "Machine-stitched football for matches and training, with a soft, wear-resistant PVC cover, nylon wound yarn for a stable shape and a rubber bladder for strong bounce.\n\nIt handles mud, sand, concrete and grass. Size 4 (kids and teens) is ৳980 and Size 5 (standard adult ball) is ৳1,040. Available in Blue / White and Pink / White. A net bag, pump and needle are included.",
+    "ingredients": [
+      "Product: Football",
+      "Cover: Wear-resistant PVC, soft feel",
+      "Layer: Nylon wound yarn",
+      "Bladder: Rubber",
+      "Stitching: Machine-stitched",
+      "Size 4: Diameter about 19.5 cm, circumference 62-65 cm, for kids and teens",
+      "Size 5: Diameter about 21.5 cm, circumference 68-70 cm, standard adult ball",
+      "Included: Net bag, pump and needle",
+      "Colours: Blue / White, Pink / White"
+    ],
+    "benefits": [
+      "Soft, wear-resistant PVC cover with an easy feel",
+      "High bounce and a stable shape",
+      "For mud, sand, concrete and grass",
+      "Pump, needle and net bag included"
+    ],
+    "howToUse": [
+      "Size 5 is the standard adult match size. Size 4 is for kids and teens.",
+      "Moisten the needle, push it into the valve and pump until the ball is firm but not rock-hard.",
+      "Wipe off mud with a damp cloth and keep the ball in the net bag away from direct heat."
+    ],
+    "published": true,
+    "sort": 10,
+    "images": [
+      {
+        "src": "/products/ball-coach.jpg",
+        "thumb": "/products/ball-coach.jpg"
+      },
+      {
+        "src": "/products/ball-comfort.jpg",
+        "thumb": "/products/ball-comfort.jpg"
+      },
+      {
+        "src": "/products/ball-stadium.jpg",
+        "thumb": "/products/ball-stadium.jpg"
+      },
+      {
+        "src": "/products/ball-structure.jpg",
+        "thumb": "/products/ball-structure.jpg"
+      },
+      {
+        "src": "/products/ball-sizes.jpg",
+        "thumb": "/products/ball-sizes.jpg"
+      },
+      {
+        "src": "/products/ball-pitches.jpg",
+        "thumb": "/products/ball-pitches.jpg"
+      },
+      {
+        "src": "/products/ball-pink-1.jpg",
+        "thumb": "/products/ball-pink-1.jpg"
+      },
+      {
+        "src": "/products/ball-pink-2.jpg",
+        "thumb": "/products/ball-pink-2.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "blue-4",
+        "label": "Blue / White, Size 4",
+        "color": "blue",
+        "size": "4",
+        "price": 980,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-5",
+        "label": "Blue / White, Size 5",
+        "color": "blue",
+        "size": "5",
+        "price": 1040,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "pink-4",
+        "label": "Pink / White, Size 4",
+        "color": "pink",
+        "size": "4",
+        "price": 980,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "pink-5",
+        "label": "Pink / White, Size 5",
+        "color": "pink",
+        "size": "5",
+        "price": 1040,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
