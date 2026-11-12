@@ -2422,5 +2422,134 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "shinguard-set",
+    "slug": "shin-guard-sleeve-set",
+    "name": "Shin Guard and Sleeve Set",
+    "title": "Shin Guard and Sleeve Set – Shin Pads with Pocket Sleeves, 3 Colours",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "shin-guards",
+    "price": 493,
+    "regularPrice": 493,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "white",
+        "name": "White",
+        "hex": "#F4F4F6",
+        "images": [
+          0,
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "key": "black",
+        "name": "Black",
+        "hex": "#111111",
+        "images": [
+          1
+        ]
+      },
+      {
+        "key": "blue",
+        "name": "Blue",
+        "hex": "#1F6FE0",
+        "images": [
+          2
+        ]
+      }
+    ],
+    "details": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "badge": "New",
+    "description": "2-piece football set: 1 pair of shin guards and 1 pair of mesh sleeves with a built-in pocket.\n\nSlide the shin guard into the sleeve pocket and pull the sleeve on. The guard stays in place on the shin without tape, and the breathable mesh keeps your leg cool. Available in White, Black and Blue.",
+    "ingredients": [
+      "Set: 1 pair of shin guards + 1 pair of sleeves",
+      "Shin guards: Hard shell, lightweight",
+      "Sleeves: Breathable mesh with a pocket for the guard",
+      "Colours: White, Black, Blue",
+      "Size: Free size, stretch fit"
+    ],
+    "benefits": [
+      "Guard stays in place, no tape needed",
+      "Breathable mesh sleeve",
+      "Pocket holds the shin guard securely",
+      "Light hard-shell protection for matches and training"
+    ],
+    "howToUse": [
+      "Put the shin guard into the pocket of the sleeve.",
+      "Pull the sleeve onto your leg with the guard over the shin, then put your football socks on top if you like.",
+      "Wash the sleeves by hand and air dry. Wipe the guards clean with a damp cloth."
+    ],
+    "published": true,
+    "sort": 7,
+    "images": [
+      {
+        "src": "/products/shinguard-set-white.jpg",
+        "thumb": "/products/shinguard-set-white.jpg"
+      },
+      {
+        "src": "/products/shinguard-set-black.jpg",
+        "thumb": "/products/shinguard-set-black.jpg"
+      },
+      {
+        "src": "/products/shinguard-set-blue.jpg",
+        "thumb": "/products/shinguard-set-blue.jpg"
+      },
+      {
+        "src": "/products/shinguard-white-1.jpg",
+        "thumb": "/products/shinguard-white-1.jpg"
+      },
+      {
+        "src": "/products/shinguard-white-2.jpg",
+        "thumb": "/products/shinguard-white-2.jpg"
+      },
+      {
+        "src": "/products/shinguard-white-3.jpg",
+        "thumb": "/products/shinguard-white-3.jpg"
+      },
+      {
+        "src": "/products/shinguard-white-4.jpg",
+        "thumb": "/products/shinguard-white-4.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "white-free",
+        "label": "White, Free size",
+        "color": "white",
+        "size": "Free",
+        "price": 493,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "black-free",
+        "label": "Black, Free size",
+        "color": "black",
+        "size": "Free",
+        "price": 493,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-free",
+        "label": "Blue, Free size",
+        "color": "blue",
+        "size": "Free",
+        "price": 493,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
