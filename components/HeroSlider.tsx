@@ -46,13 +46,13 @@ function useTyped(full: string, run: boolean, delay: number, speed: number) {
   return n;
 }
 
-function Copy({ s, active, big }: { s: Slide; active: boolean; big: boolean }) {
+function Copy({ s, active }: { s: Slide; active: boolean }) {
   const k = useTyped(s.kicker, active, 150, 28);
   const a = useTyped(s.lines[0], active, 500, 55);
   const b = useTyped(s.lines[1], active && a >= s.lines[0].length, 0, 55);
   const t = useTyped(s.text, active && b >= s.lines[1].length, 100, 14);
   const done = t >= s.text.length;
-  const Tag = big ? "h1" : "p";
+  const Tag = "p";
   return (
     <>
       <p className="pp-ban__kicker" aria-label={s.kicker}>
@@ -92,7 +92,7 @@ export default function HeroSlider() {
           <div className="pp-ban__shade" />
           <div className="pp-ban__streaks" aria-hidden />
           <div className="pp-container pp-ban__copy">
-            <Copy s={s} active={i === at} big={i === 0} />
+            <Copy s={s} active={i === at} />
             <div className="pp-slide__btns">
               <Link href={s.href} className="pp-pill pp-pill--punk" tabIndex={i === at ? 0 : -1}>{s.cta}</Link>
               <Link href="/products/" className="pp-pill pp-pill--ghost" tabIndex={i === at ? 0 : -1}>All products</Link>

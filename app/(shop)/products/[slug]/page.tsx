@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import ProductView from "@/components/ProductView";
 import { getCategory, hasVariations, priceRange, staticProducts, totalStock } from "@/lib/products";
-import { categoryHref, SITE_URL } from "@/lib/seo";
+import { absUrl, categoryHref, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return staticProducts.map((p) => ({ slug: p.slug }));
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     158
   );
   return {
-    title: `${p.name} Price in Bangladesh`,
+    title: `${p.name} Price in Bangladesh | Buy Online`,
     description,
     alternates: { canonical: `/products/${p.slug}/` },
     openGraph: {
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: `${p.name} | 247BD`,
       description,
       url: `/products/${p.slug}/`,
-      images: p.images?.slice(0, 1).map((i) => ({ url: i.src, width: 1000, height: 1000, alt: p.name })),
+      images: p.images?.slice(0, 1).map((i) => ({ url: absUrl(i.src), width: 1000, height: 1000, alt: p.name })),
     },
   };
 }
@@ -53,7 +53,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       "@type": "Product",
       name: p.name,
       description: (p.description ?? "").replace(/\s+/g, " ").slice(0, 5000),
-      image: p.images?.map((i) => i.src),
+      image: p.images?.map((i) => absUrl(i.src)),
       sku: p.id,
       brand: { "@type": "Brand", name: p.brand ?? "247BD" },
       category: category?.name,

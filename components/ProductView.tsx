@@ -359,7 +359,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {detailImgs.map((im, n) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={im.src + n} src={im.src} alt="" loading="lazy" className="w-full rounded-md bg-night" />
+              <img key={im.src + n} src={im.src} alt={`${product.name} details ${n + 1}`} loading="lazy" className="w-full rounded-md bg-night" />
             ))}
           </div>
         </section>

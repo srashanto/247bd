@@ -4,7 +4,7 @@ import CategoryGrid from "@/components/CategoryGrid";
 import LandingPills from "@/components/LandingPills";
 import JsonLd from "@/components/JsonLd";
 import { staticProducts } from "@/lib/products";
-import { landings, SITE_URL } from "@/lib/seo";
+import { absUrl, landings, SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
   return landings.map((l) => ({ landing: l.slug }));
@@ -15,13 +15,16 @@ export const dynamicParams = false;
 export async function generateMetadata({ params }: { params: Promise<{ landing: string }> }): Promise<Metadata> {
   const { landing } = await params;
   const l = landings.find((x) => x.slug === landing)!;
-  const cover = staticProducts.find((p) => !l.category || p.category === l.category)?.images?.[0]?.src;
+  const items = staticProducts.filter((p) => !l.category || p.category === l.category);
+  const cover = items[0]?.images?.[0]?.src;
   return {
     title: l.title,
     description: l.description,
     keywords: l.keywords,
     alternates: { canonical: `/${l.slug}/` },
-    openGraph: { title: l.title, description: l.description, url: `/${l.slug}/`, images: cover ? [cover] : undefined },
+    // A category with no products yet would be a thin page, so keep it out of Google until it has some.
+    robots: items.length ? undefined : { index: false, follow: true },
+    openGraph: { title: l.title, description: l.description, url: `/${l.slug}/`, images: cover ? [absUrl(cover)] : undefined },
   };
 }
 
@@ -79,6 +82,7 @@ export default async function LandingPage({ params }: { params: Promise<{ landin
         <div className="max-w-prose space-y-4 text-[16px] leading-relaxed text-ink/85">
           <h2 className="text-3xl font-extrabold uppercase italic text-ink">About {l.h1.charAt(0).toLowerCase() + l.h1.slice(1)}</h2>
           {l.body.map((b) => <p key={b}>{b}</p>)}
+          <p lang="bn">{l.bn}</p>
         </div>
         <div>
           <h2 className="text-3xl font-extrabold uppercase italic">Questions</h2>

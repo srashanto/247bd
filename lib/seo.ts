@@ -1,6 +1,9 @@
 export const SITE_URL = "https://247bd.net";
 export const SITE_NAME = "247BD";
 
+/** Google wants absolute image URLs in structured data and sitemaps. */
+export const absUrl = (u: string) => (u.startsWith("http") ? u : `${SITE_URL}${u}`);
+
 export type Faq = { q: string; a: string };
 
 export type Landing = {
@@ -16,6 +19,8 @@ export type Landing = {
   h1: string;
   /** Short line under the heading. */
   lead: string;
+  /** Same idea in Bangla, so Bengali searches match too. */
+  bn: string;
   /** Longer copy shown below the products. */
   body: string[];
   keywords: string[];
@@ -40,11 +45,12 @@ export const landings: Landing[] = [
     description: "Shop football boots, footballs, jerseys, socks, shin guards and goalkeeper gloves in Bangladesh. Cash on delivery all over Bangladesh.",
     h1: "Football gear in Bangladesh",
     lead: "Boots, balls, kit and accessories for players of every level, delivered anywhere in Bangladesh with cash on delivery.",
+    bn: "২৪৭বিডি বাংলাদেশের ফুটবল স্টোর। এখান থেকে ফুটবল বুট, ফুটবল, জার্সি, সক্স, শিন গার্ড ও গোলকিপার গ্লাভস অনলাইনে অর্ডার করুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "247BD is a football store. Find boots for grass and turf, match balls, jerseys, socks, shin guards and everything else you need on the pitch.",
       "Every product page shows the colours and sizes in stock, so you can choose before you order.",
     ],
-    keywords: ["football shop Bangladesh", "football boots Bangladesh", "football gear BD", "sports shop Bangladesh"],
+    keywords: ["football shop Bangladesh", "football boots Bangladesh", "football gear BD", "sports shop Bangladesh", "ফুটবল শপ বাংলাদেশ", "ফুটবল সরঞ্জাম"],
     faq: [{
         q: "How do I pick my size?",
         a: "Measure your foot length in centimetres and compare it with the size chart, or message us on WhatsApp with your foot length. If you are between two sizes, go one size up.",
@@ -56,15 +62,16 @@ export const landings: Landing[] = [
     slug: "boots",
     label: "Boots",
     category: "boots",
-    title: "Football Boots in Bangladesh",
-    description: "Buy football boots in Bangladesh: long stud boots with mesh uppers in several colours, sizes 35 to 45. Cash on delivery all over Bangladesh.",
+    title: "Football Boots in Bangladesh: Price and Sizes",
+    description: "Buy football boots online in Bangladesh. Long stud boots in several colours, EU sizes 35 to 45. Check the price, pick your size, cash on delivery all over Bangladesh.",
     h1: "Football boots in Bangladesh",
-    lead: "Long stud boots for natural grass, in four colours and sizes 35 to 45.",
+    lead: "Long stud football boots in several colours, EU sizes 35 to 45.",
+    bn: "বাংলাদেশে ফুটবল বুটের দাম ও সাইজ দেখুন এবং অনলাইনে অর্ডার করুন। ঘাসের মাঠের জন্য লং স্টাড ফুটবল বুট, সাইজ ৩৫ থেকে ৪৫। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
-      "Long TPU studs grip natural grass for sprints, sudden stops and sharp turns. A flexible ankle collar and TPU support spine keep the boot snug and stable.",
+      "Long studs grip natural grass for sprints, sudden stops and sharp turns. Each product page lists the colours, the EU sizes in stock and the price in taka.",
       "Pick your colour and EU size on the product page, then order with cash on delivery.",
     ],
-    keywords: ["football boots price in Bangladesh", "football boot BD", "studs boots Bangladesh", "football shoes Bangladesh"],
+    keywords: ["football boots price in Bangladesh", "football boot BD", "studs boots Bangladesh", "football shoes Bangladesh", "ফুটবল বুট", "ফুটবল বুটের দাম", "ফুটবল জুতা"],
     faq: [{
         q: "How do I pick my size?",
         a: "Measure your foot length in centimetres and compare it with the size chart, or message us on WhatsApp with your foot length. If you are between two sizes, go one size up.",
@@ -76,14 +83,15 @@ export const landings: Landing[] = [
     slug: "footballs",
     label: "Footballs",
     category: "footballs",
-    title: "Footballs in Bangladesh",
-    description: "Buy footballs in Bangladesh for matches and training. Cash on delivery all over Bangladesh.",
+    title: "Footballs in Bangladesh: Price, Size 4 and 5",
+    description: "Buy footballs online in Bangladesh for matches and training, size 4 and size 5. Check the price and pick your colour. Cash on delivery all over Bangladesh.",
     h1: "Footballs in Bangladesh",
     lead: "Match and training balls for the pitch, the field and the street.",
+    bn: "বাংলাদেশে ফুটবল কিনুন অনলাইনে। ম্যাচ ও প্র্যাকটিসের জন্য সাইজ ৪ ও ৫ ফুটবল পাওয়া যায়। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Choose a size 5 ball for adults and older players, size 4 for juniors and size 3 for young children.",
     ],
-    keywords: ["football price in Bangladesh", "buy football BD", "match ball Bangladesh"],
+    keywords: ["football price in Bangladesh", "buy football BD", "match ball Bangladesh", "ফুটবল", "ফুটবলের দাম"],
     faq: [deliveryFaq, codFaq],
   },
   {
@@ -94,10 +102,11 @@ export const landings: Landing[] = [
     description: "Football jerseys, training tops and shorts in Bangladesh. Cash on delivery all over Bangladesh.",
     h1: "Football jerseys and shorts",
     lead: "Match jerseys, training tops and shorts in a range of sizes and colours.",
+    bn: "ফুটবল জার্সি ও শর্টস অনলাইনে কিনুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Check the size on each product page before you order.",
     ],
-    keywords: ["football jersey Bangladesh", "jersey price in BD", "football shorts BD"],
+    keywords: ["football jersey Bangladesh", "jersey price in BD", "football shorts BD", "ফুটবল জার্সি"],
     faq: [{
         q: "How do I pick my size?",
         a: "Measure your foot length in centimetres and compare it with the size chart, or message us on WhatsApp with your foot length. If you are between two sizes, go one size up.",
@@ -113,10 +122,11 @@ export const landings: Landing[] = [
     description: "Football socks and grip socks in Bangladesh. Cash on delivery all over Bangladesh.",
     h1: "Football socks in Bangladesh",
     lead: "Long match socks and grip socks in team colours.",
+    bn: "ফুটবল সক্স ও গ্রিপ সক্স অনলাইনে কিনুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Long socks keep shin guards in place, and grip socks stop your foot sliding inside the boot.",
     ],
-    keywords: ["football socks Bangladesh", "grip socks BD"],
+    keywords: ["football socks Bangladesh", "grip socks BD", "ফুটবল সক্স"],
     faq: [deliveryFaq, codFaq],
   },
   {
@@ -127,10 +137,11 @@ export const landings: Landing[] = [
     description: "Football shin guards in Bangladesh, slip-in and with ankle cover. Cash on delivery all over Bangladesh.",
     h1: "Shin guards in Bangladesh",
     lead: "Lightweight protection for the shin, with and without ankle cover.",
+    bn: "ফুটবল শিন গার্ড অনলাইনে কিনুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Pick the size by your height and wear the guard under a long sock.",
     ],
-    keywords: ["shin guard Bangladesh", "shin pads BD"],
+    keywords: ["shin guard Bangladesh", "shin pads BD", "শিন গার্ড"],
     faq: [deliveryFaq, codFaq],
   },
   {
@@ -141,10 +152,11 @@ export const landings: Landing[] = [
     description: "Goalkeeper gloves in Bangladesh with a soft grip palm. Cash on delivery all over Bangladesh.",
     h1: "Goalkeeper gloves in Bangladesh",
     lead: "Gloves with a grippy palm for training and match days.",
+    bn: "গোলকিপার গ্লাভস অনলাইনে কিনুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Choose a glove size that leaves a little room at the fingertips.",
     ],
-    keywords: ["goalkeeper gloves Bangladesh", "keeper gloves BD"],
+    keywords: ["goalkeeper gloves Bangladesh", "keeper gloves BD", "গোলকিপার গ্লাভস"],
     faq: [{
         q: "How do I pick my size?",
         a: "Measure your foot length in centimetres and compare it with the size chart, or message us on WhatsApp with your foot length. If you are between two sizes, go one size up.",
@@ -160,10 +172,11 @@ export const landings: Landing[] = [
     description: "Boot bags and kit backpacks in Bangladesh. Cash on delivery all over Bangladesh.",
     h1: "Football bags in Bangladesh",
     lead: "Carry your boots, ball and kit to every session.",
+    bn: "ফুটবল ব্যাগ ও বুট ব্যাগ অনলাইনে কিনুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Keep wet boots in a bag that lets air through.",
     ],
-    keywords: ["football bag Bangladesh", "boot bag BD"],
+    keywords: ["football bag Bangladesh", "boot bag BD", "ফুটবল ব্যাগ"],
     faq: [deliveryFaq, codFaq],
   },
   {
@@ -174,10 +187,11 @@ export const landings: Landing[] = [
     description: "Cones, pumps, armbands and training gear in Bangladesh. Cash on delivery all over Bangladesh.",
     h1: "Football training gear",
     lead: "Cones, pumps, armbands and the small things every session needs.",
+    bn: "ফুটবল ট্রেনিং কোন, পাম্প ও প্র্যাকটিসের সরঞ্জাম অনলাইনে কিনুন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।",
     body: [
       "Everything for drills and practice.",
     ],
-    keywords: ["football training equipment Bangladesh", "training cones BD"],
+    keywords: ["football training equipment Bangladesh", "training cones BD", "ফুটবল ট্রেনিং সরঞ্জাম"],
     faq: [deliveryFaq, codFaq],
   },
 ]
