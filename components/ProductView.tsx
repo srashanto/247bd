@@ -74,6 +74,13 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
     if (!variation) setVariation((product.variations.find((v) => v.stock > 0) ?? product.variations[0]).id);
   }, [product, variation, color, twoStep]);
 
+  // A colour with a single size (e.g. "Free") needs no size picker: select it automatically.
+  useEffect(() => {
+    if (!product || !twoStep || !color) return;
+    const only = Array.from(new Set(product.variations.filter((x) => x.color === color).map((x) => x.size!)));
+    if (only.length === 1 && size !== only[0]) setSize(only[0]);
+  }, [product, twoStep, color, size]);
+
   const inside = useMemo(
     () => (product?.includes ?? []).map((s) => get(s)).filter((p): p is Product => Boolean(p)),
     [product, get]
@@ -236,7 +243,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             </div>
           )}
 
-          {twoStep && (
+          {twoStep && sizes.length > 1 && (
             <div className="mt-5" id="size-picker">
               <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">
                 {product.sizeLabel ?? (product.category === "boots" ? "Size (EU)" : "Size")}: <span className={pickSize && needSize ? "text-alert" : "text-ink"}>{size ?? (pickSize ? `choose ${(product.sizeLabel ?? "a size").toLowerCase()}` : "choose")}</span>
@@ -318,7 +325,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           {stock > 0 && stock <= 5 && <p className="mt-3 text-sm text-alert">Only {stock} left in stock</p>}
 
           <ul className="mt-6 space-y-2.5 text-[15px]">
-            <li className="flex gap-3"><CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-gold" /> Pick your colour and size before you order</li>
+            <li className="flex gap-3"><CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-gold" /> {twoStep && sizes.length <= 1 ? "Pick your colour before you order" : "Pick your colour and size before you order"}</li>
             <li className="flex gap-3"><CashIcon className="h-5 w-5 shrink-0 text-gold" /> Cash on Delivery available</li>
             <li className="flex gap-3"><TruckIcon className="h-5 w-5 shrink-0 text-gold" /> Delivery all over Bangladesh: ৳{settings.deliveryInsideDhaka} inside Dhaka, ৳{settings.deliveryOutsideDhaka} outside</li>
           </ul>
