@@ -2098,5 +2098,177 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "grip-socks",
+    "slug": "grip-football-socks-2-pair-pack",
+    "name": "Grip Football Socks (2 Pair Pack)",
+    "title": "Grip Football Socks – 2 Pair Pack, Anti-Slip, Long Over-Calf",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "socks",
+    "price": 450,
+    "regularPrice": 450,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "black-white",
+        "name": "Black + White",
+        "hex": "linear-gradient(135deg, #111111 50%, #F4F4F6 50%)",
+        "images": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "black-red",
+        "name": "Black + Red",
+        "hex": "linear-gradient(135deg, #111111 50%, #E0261F 50%)",
+        "images": [
+          1,
+          3
+        ]
+      },
+      {
+        "key": "black-blue",
+        "name": "Black + Blue",
+        "hex": "linear-gradient(135deg, #111111 50%, #1F4FE0 50%)",
+        "images": [
+          1,
+          0
+        ]
+      },
+      {
+        "key": "white-red",
+        "name": "White + Red",
+        "hex": "linear-gradient(135deg, #F4F4F6 50%, #E0261F 50%)",
+        "images": [
+          2,
+          3
+        ]
+      },
+      {
+        "key": "white-blue",
+        "name": "White + Blue",
+        "hex": "linear-gradient(135deg, #F4F4F6 50%, #1F4FE0 50%)",
+        "images": [
+          2,
+          0
+        ]
+      },
+      {
+        "key": "red-blue",
+        "name": "Red + Blue",
+        "hex": "linear-gradient(135deg, #E0261F 50%, #1F4FE0 50%)",
+        "images": [
+          3,
+          0
+        ]
+      }
+    ],
+    "details": [
+      4
+    ],
+    "badge": "New",
+    "description": "Long football grip socks with rubber grip dots on the leg and a cushioned, grippy sole, so your foot stays put inside the boot and your shin guard stays in place.\n\nEach pack has 2 pairs. Pick any 2 colours from Black, White, Red and Blue. One free size fits most adults.",
+    "ingredients": [
+      "Product: Long football grip socks",
+      "Pack: 2 pairs, you choose the 2 colours",
+      "Colours: Black, White, Red, Blue",
+      "Grip: Rubber grip dots on the heel, leg and sole",
+      "Sole: Cushioned",
+      "Size: Free size, stretch fit"
+    ],
+    "benefits": [
+      "Grip dots stop your foot sliding inside the boot",
+      "Grip on the leg helps hold shin guards in place",
+      "Cushioned sole for comfort on long sessions",
+      "Long over-calf length, stretch fit"
+    ],
+    "howToUse": [
+      "Choose your 2 colours, then add the pack to the cart. You get one pair of each colour.",
+      "Wash inside out in cool water and air dry so the grip dots last longer.",
+      "Do not iron the grip dots."
+    ],
+    "published": true,
+    "sort": 5,
+    "images": [
+      {
+        "src": "/products/grip-socks-blue.jpg",
+        "thumb": "/products/grip-socks-blue.jpg"
+      },
+      {
+        "src": "/products/grip-socks-black.jpg",
+        "thumb": "/products/grip-socks-black.jpg"
+      },
+      {
+        "src": "/products/grip-socks-white.jpg",
+        "thumb": "/products/grip-socks-white.jpg"
+      },
+      {
+        "src": "/products/grip-socks-red.jpg",
+        "thumb": "/products/grip-socks-red.jpg"
+      },
+      {
+        "src": "/products/grip-socks-colours.jpg",
+        "thumb": "/products/grip-socks-colours.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "black-white-free",
+        "label": "Black + White (2 pairs), Free size",
+        "color": "black-white",
+        "size": "Free",
+        "price": 450,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "black-red-free",
+        "label": "Black + Red (2 pairs), Free size",
+        "color": "black-red",
+        "size": "Free",
+        "price": 450,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "black-blue-free",
+        "label": "Black + Blue (2 pairs), Free size",
+        "color": "black-blue",
+        "size": "Free",
+        "price": 450,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "white-red-free",
+        "label": "White + Red (2 pairs), Free size",
+        "color": "white-red",
+        "size": "Free",
+        "price": 450,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "white-blue-free",
+        "label": "White + Blue (2 pairs), Free size",
+        "color": "white-blue",
+        "size": "Free",
+        "price": 450,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-blue-free",
+        "label": "Red + Blue (2 pairs), Free size",
+        "color": "red-blue",
+        "size": "Free",
+        "price": 450,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
