@@ -39,6 +39,8 @@ export type Product = {
   variations: Variation[];
   stock: number;
   images?: ProductImage[];
+  /** Heading for the second picker, e.g. "Pack". Defaults to Size. */
+  sizeLabel?: string;
   colors?: ProductColor[];
   /** Positions in `images` shown in the "Built for the pitch" strip on the product page. */
   details?: number[];

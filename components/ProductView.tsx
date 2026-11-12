@@ -239,7 +239,7 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
           {twoStep && (
             <div className="mt-5" id="size-picker">
               <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">
-                {product.category === "boots" ? "Size (EU)" : "Size"}: <span className={pickSize && needSize ? "text-alert" : "text-ink"}>{size ?? (pickSize ? "choose a size" : "choose")}</span>
+                {product.sizeLabel ?? (product.category === "boots" ? "Size (EU)" : "Size")}: <span className={pickSize && needSize ? "text-alert" : "text-ink"}>{size ?? (pickSize ? `choose ${(product.sizeLabel ?? "a size").toLowerCase()}` : "choose")}</span>
               </p>
               <div className="pp-sizes mt-2.5">
                 {sizes.map((z) => {

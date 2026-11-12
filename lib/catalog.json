@@ -2270,5 +2270,157 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "ankle-support",
+    "slug": "ankle-support-compression-brace",
+    "name": "Ankle Support Compression Brace",
+    "title": "Ankle Support Compression Brace – Slim 1mm, Adjustable Strap, 3 Colours",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "training",
+    "price": 199,
+    "regularPrice": 199,
+    "stock": 0,
+    "sizeLabel": "Pack",
+    "colors": [
+      {
+        "key": "green",
+        "name": "Green",
+        "hex": "#B7F000",
+        "images": [
+          1
+        ]
+      },
+      {
+        "key": "purple",
+        "name": "Purple",
+        "hex": "#B9A2E8",
+        "images": [
+          0
+        ]
+      },
+      {
+        "key": "grey",
+        "name": "Grey / White",
+        "hex": "#D4D4D8",
+        "images": [
+          0
+        ]
+      }
+    ],
+    "details": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "badge": "New",
+    "description": "Slim compression ankle support for football, running and gym. The high-stretch, skin-friendly fabric is as thin as 1mm, so it fits inside your boot or shoe without feeling bulky.\n\nA Y-shaped strap with a strong velcro closure gives two-way compression around the ankle, and the open heel keeps it comfortable. Buy 1 piece for 199 tk or a pair for 357 tk. Available in Green, Purple and Grey / White.",
+    "ingredients": [
+      "Product: Compression ankle support",
+      "Thickness: As thin as 1mm",
+      "Fabric: High-stretch, breathable, sweat-wicking",
+      "Design: Y-shaped strap, open heel, textured grip pattern",
+      "Closure: Strong velcro strap",
+      "Colours: Green, Purple, Grey / White",
+      "Pack: 1 piece or 2 pieces (pair)"
+    ],
+    "benefits": [
+      "Two-way compression support for the ankle",
+      "Slim 1mm fabric, fits inside boots and shoes",
+      "Breathable, sweat-wicking and skin-friendly",
+      "Open heel and adjustable velcro strap"
+    ],
+    "howToUse": [
+      "Slide it over the foot and position it around the ankle with the heel open.",
+      "Wrap the strap around the ankle in a Y shape and press the velcro closed. Adjust the tightness so it is firm but comfortable.",
+      "Wash by hand in cool water and air dry. Keep the velcro clean."
+    ],
+    "published": true,
+    "sort": 6,
+    "images": [
+      {
+        "src": "/products/ankle-colours.jpg",
+        "thumb": "/products/ankle-colours.jpg"
+      },
+      {
+        "src": "/products/ankle-hero.jpg",
+        "thumb": "/products/ankle-hero.jpg"
+      },
+      {
+        "src": "/products/ankle-callouts.jpg",
+        "thumb": "/products/ankle-callouts.jpg"
+      },
+      {
+        "src": "/products/ankle-y-support.jpg",
+        "thumb": "/products/ankle-y-support.jpg"
+      },
+      {
+        "src": "/products/ankle-specs.jpg",
+        "thumb": "/products/ankle-specs.jpg"
+      },
+      {
+        "src": "/products/ankle-invisible.jpg",
+        "thumb": "/products/ankle-invisible.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "green-1",
+        "label": "Green, 1 piece",
+        "color": "green",
+        "size": "Single",
+        "price": 199,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-2",
+        "label": "Green, 2 pieces (pair)",
+        "color": "green",
+        "size": "Pair",
+        "price": 357,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "purple-1",
+        "label": "Purple, 1 piece",
+        "color": "purple",
+        "size": "Single",
+        "price": 199,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "purple-2",
+        "label": "Purple, 2 pieces (pair)",
+        "color": "purple",
+        "size": "Pair",
+        "price": 357,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "grey-1",
+        "label": "Grey / White, 1 piece",
+        "color": "grey",
+        "size": "Single",
+        "price": 199,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "grey-2",
+        "label": "Grey / White, 2 pieces (pair)",
+        "color": "grey",
+        "size": "Pair",
+        "price": 357,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
