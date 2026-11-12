@@ -21,7 +21,8 @@ export type Variation = {
 export type ProductImage = { src: string; thumb: string };
 
 /** A colour option. `images` are positions in Product.images shown for this colour. */
-export type ProductColor = { key: string; name: string; hex: string; images?: number[] };
+/** `sole` (e.g. "Spike (FG)", "Flat (TF)") adds a Sole picker. The same colour in another sole shares the key prefix before "-" (white-fg, white-tf). */
+export type ProductColor = { key: string; name: string; hex: string; images?: number[]; sole?: string };
 
 export type Product = {
   id: string;

@@ -1154,7 +1154,7 @@
     "id": "striker-boots",
     "slug": "striker-football-boots",
     "name": "Striker Football Boots",
-    "title": "Striker Football Boots – Long Stud (FG) and Turf (TF), 4 Colours",
+    "title": "Striker Football Boots – Spike (FG) and Flat (TF) Soles, 4 Colours",
     "brand": "247BD",
     "gender": "unisex",
     "category": "boots",
@@ -1164,79 +1164,87 @@
     "colors": [
       {
         "key": "white-fg",
-        "name": "White / Pink, Long Stud (FG)",
+        "name": "White / Pink",
         "hex": "#F4F4F6",
         "images": [
           0
-        ]
+        ],
+        "sole": "Spike (FG)"
       },
       {
         "key": "white-tf",
-        "name": "White / Blue, Turf (TF)",
+        "name": "White / Blue",
         "hex": "#DCE9F7",
         "images": [
           1
-        ]
+        ],
+        "sole": "Flat (TF)"
       },
       {
         "key": "black-fg",
-        "name": "Black / Green, Long Stud (FG)",
+        "name": "Black / Green",
         "hex": "#111111",
         "images": [
           2
-        ]
+        ],
+        "sole": "Spike (FG)"
       },
       {
         "key": "black-tf",
-        "name": "Black / Green, Turf (TF)",
+        "name": "Black / Green",
         "hex": "#1D2A1D",
         "images": [
           3
-        ]
+        ],
+        "sole": "Flat (TF)"
       },
       {
         "key": "mint-fg",
-        "name": "Mint / Orange, Long Stud (FG)",
+        "name": "Mint / Orange",
         "hex": "#A9E4D2",
         "images": [
           4,
           5
-        ]
+        ],
+        "sole": "Spike (FG)"
       },
       {
         "key": "mint-tf",
-        "name": "Mint / Orange, Turf (TF)",
+        "name": "Mint / Orange",
         "hex": "#8CD6C0",
         "images": [
           6
-        ]
+        ],
+        "sole": "Flat (TF)"
       },
       {
         "key": "pink-fg",
-        "name": "Pink / Black, Long Stud (FG)",
+        "name": "Pink / Black",
         "hex": "#F29AB0",
         "images": [
           7
-        ]
+        ],
+        "sole": "Spike (FG)"
       },
       {
         "key": "pink-tf",
-        "name": "Pink / Black, Turf (TF)",
+        "name": "Pink / Black",
         "hex": "#F6B3C4",
         "images": [
           8
-        ]
+        ],
+        "sole": "Flat (TF)"
       }
     ],
     "details": [
       9
     ],
     "badge": "New",
-    "description": "Lightweight football boots with a textured synthetic upper and a snug lace-up fit. Choose long studs (FG) for natural grass or turf soles (TF) for artificial turf, concrete and mixed grounds.\n\nAvailable in White / Pink, Black / Green, Mint / Orange and Pink / Black, in sizes 35 to 45. See the sole and size guide in the gallery.",
+    "description": "Lightweight football boots with a textured synthetic upper and a snug lace-up fit. Choose the spike sole (long studs, FG) for natural grass or the flat sole (turf, TF) for artificial turf, concrete and hard grounds.\n\nAvailable in White / Pink, Black / Green, Mint / Orange and Pink / Black, in sizes 35 to 45. See the sole and size guide in the gallery.",
     "ingredients": [
       "Product: Football boots",
       "Upper: Textured synthetic",
-      "Sole options: Long studs (FG) or Turf studs (TF)",
+      "Sole options: Spike (long studs, FG) or Flat (turf, TF)",
       "Sizes: 35 to 45",
       "Colours: White / Pink, Black / Green, Mint / Orange, Pink / Black"
     ],
@@ -1299,7 +1307,7 @@
     "variations": [
       {
         "id": "white-fg-35",
-        "label": "White / Pink, Long Stud (FG), EU 35",
+        "label": "White / Pink, Spike (FG), EU 35",
         "color": "white-fg",
         "size": "35",
         "price": 1993,
@@ -1308,7 +1316,7 @@
       },
       {
         "id": "white-fg-36",
-        "label": "White / Pink, Long Stud (FG), EU 36",
+        "label": "White / Pink, Spike (FG), EU 36",
         "color": "white-fg",
         "size": "36",
         "price": 1993,
@@ -1317,7 +1325,7 @@
       },
       {
         "id": "white-fg-37",
-        "label": "White / Pink, Long Stud (FG), EU 37",
+        "label": "White / Pink, Spike (FG), EU 37",
         "color": "white-fg",
         "size": "37",
         "price": 1993,
@@ -1326,7 +1334,7 @@
       },
       {
         "id": "white-fg-38",
-        "label": "White / Pink, Long Stud (FG), EU 38",
+        "label": "White / Pink, Spike (FG), EU 38",
         "color": "white-fg",
         "size": "38",
         "price": 1993,
@@ -1335,7 +1343,7 @@
       },
       {
         "id": "white-fg-39",
-        "label": "White / Pink, Long Stud (FG), EU 39",
+        "label": "White / Pink, Spike (FG), EU 39",
         "color": "white-fg",
         "size": "39",
         "price": 1993,
@@ -1344,7 +1352,7 @@
       },
       {
         "id": "white-fg-40",
-        "label": "White / Pink, Long Stud (FG), EU 40",
+        "label": "White / Pink, Spike (FG), EU 40",
         "color": "white-fg",
         "size": "40",
         "price": 1993,
@@ -1353,7 +1361,7 @@
       },
       {
         "id": "white-fg-41",
-        "label": "White / Pink, Long Stud (FG), EU 41",
+        "label": "White / Pink, Spike (FG), EU 41",
         "color": "white-fg",
         "size": "41",
         "price": 1993,
@@ -1362,7 +1370,7 @@
       },
       {
         "id": "white-fg-42",
-        "label": "White / Pink, Long Stud (FG), EU 42",
+        "label": "White / Pink, Spike (FG), EU 42",
         "color": "white-fg",
         "size": "42",
         "price": 1993,
@@ -1371,7 +1379,7 @@
       },
       {
         "id": "white-fg-43",
-        "label": "White / Pink, Long Stud (FG), EU 43",
+        "label": "White / Pink, Spike (FG), EU 43",
         "color": "white-fg",
         "size": "43",
         "price": 1993,
@@ -1380,7 +1388,7 @@
       },
       {
         "id": "white-fg-44",
-        "label": "White / Pink, Long Stud (FG), EU 44",
+        "label": "White / Pink, Spike (FG), EU 44",
         "color": "white-fg",
         "size": "44",
         "price": 1993,
@@ -1389,7 +1397,7 @@
       },
       {
         "id": "white-fg-45",
-        "label": "White / Pink, Long Stud (FG), EU 45",
+        "label": "White / Pink, Spike (FG), EU 45",
         "color": "white-fg",
         "size": "45",
         "price": 1993,
@@ -1398,7 +1406,7 @@
       },
       {
         "id": "white-tf-35",
-        "label": "White / Blue, Turf (TF), EU 35",
+        "label": "White / Blue, Flat (TF), EU 35",
         "color": "white-tf",
         "size": "35",
         "price": 1993,
@@ -1407,7 +1415,7 @@
       },
       {
         "id": "white-tf-36",
-        "label": "White / Blue, Turf (TF), EU 36",
+        "label": "White / Blue, Flat (TF), EU 36",
         "color": "white-tf",
         "size": "36",
         "price": 1993,
@@ -1416,7 +1424,7 @@
       },
       {
         "id": "white-tf-37",
-        "label": "White / Blue, Turf (TF), EU 37",
+        "label": "White / Blue, Flat (TF), EU 37",
         "color": "white-tf",
         "size": "37",
         "price": 1993,
@@ -1425,7 +1433,7 @@
       },
       {
         "id": "white-tf-38",
-        "label": "White / Blue, Turf (TF), EU 38",
+        "label": "White / Blue, Flat (TF), EU 38",
         "color": "white-tf",
         "size": "38",
         "price": 1993,
@@ -1434,7 +1442,7 @@
       },
       {
         "id": "white-tf-39",
-        "label": "White / Blue, Turf (TF), EU 39",
+        "label": "White / Blue, Flat (TF), EU 39",
         "color": "white-tf",
         "size": "39",
         "price": 1993,
@@ -1443,7 +1451,7 @@
       },
       {
         "id": "white-tf-40",
-        "label": "White / Blue, Turf (TF), EU 40",
+        "label": "White / Blue, Flat (TF), EU 40",
         "color": "white-tf",
         "size": "40",
         "price": 1993,
@@ -1452,7 +1460,7 @@
       },
       {
         "id": "white-tf-41",
-        "label": "White / Blue, Turf (TF), EU 41",
+        "label": "White / Blue, Flat (TF), EU 41",
         "color": "white-tf",
         "size": "41",
         "price": 1993,
@@ -1461,7 +1469,7 @@
       },
       {
         "id": "white-tf-42",
-        "label": "White / Blue, Turf (TF), EU 42",
+        "label": "White / Blue, Flat (TF), EU 42",
         "color": "white-tf",
         "size": "42",
         "price": 1993,
@@ -1470,7 +1478,7 @@
       },
       {
         "id": "white-tf-43",
-        "label": "White / Blue, Turf (TF), EU 43",
+        "label": "White / Blue, Flat (TF), EU 43",
         "color": "white-tf",
         "size": "43",
         "price": 1993,
@@ -1479,7 +1487,7 @@
       },
       {
         "id": "white-tf-44",
-        "label": "White / Blue, Turf (TF), EU 44",
+        "label": "White / Blue, Flat (TF), EU 44",
         "color": "white-tf",
         "size": "44",
         "price": 1993,
@@ -1488,7 +1496,7 @@
       },
       {
         "id": "white-tf-45",
-        "label": "White / Blue, Turf (TF), EU 45",
+        "label": "White / Blue, Flat (TF), EU 45",
         "color": "white-tf",
         "size": "45",
         "price": 1993,
@@ -1497,7 +1505,7 @@
       },
       {
         "id": "black-fg-35",
-        "label": "Black / Green, Long Stud (FG), EU 35",
+        "label": "Black / Green, Spike (FG), EU 35",
         "color": "black-fg",
         "size": "35",
         "price": 1993,
@@ -1506,7 +1514,7 @@
       },
       {
         "id": "black-fg-36",
-        "label": "Black / Green, Long Stud (FG), EU 36",
+        "label": "Black / Green, Spike (FG), EU 36",
         "color": "black-fg",
         "size": "36",
         "price": 1993,
@@ -1515,7 +1523,7 @@
       },
       {
         "id": "black-fg-37",
-        "label": "Black / Green, Long Stud (FG), EU 37",
+        "label": "Black / Green, Spike (FG), EU 37",
         "color": "black-fg",
         "size": "37",
         "price": 1993,
@@ -1524,7 +1532,7 @@
       },
       {
         "id": "black-fg-38",
-        "label": "Black / Green, Long Stud (FG), EU 38",
+        "label": "Black / Green, Spike (FG), EU 38",
         "color": "black-fg",
         "size": "38",
         "price": 1993,
@@ -1533,7 +1541,7 @@
       },
       {
         "id": "black-fg-39",
-        "label": "Black / Green, Long Stud (FG), EU 39",
+        "label": "Black / Green, Spike (FG), EU 39",
         "color": "black-fg",
         "size": "39",
         "price": 1993,
@@ -1542,7 +1550,7 @@
       },
       {
         "id": "black-fg-40",
-        "label": "Black / Green, Long Stud (FG), EU 40",
+        "label": "Black / Green, Spike (FG), EU 40",
         "color": "black-fg",
         "size": "40",
         "price": 1993,
@@ -1551,7 +1559,7 @@
       },
       {
         "id": "black-fg-41",
-        "label": "Black / Green, Long Stud (FG), EU 41",
+        "label": "Black / Green, Spike (FG), EU 41",
         "color": "black-fg",
         "size": "41",
         "price": 1993,
@@ -1560,7 +1568,7 @@
       },
       {
         "id": "black-fg-42",
-        "label": "Black / Green, Long Stud (FG), EU 42",
+        "label": "Black / Green, Spike (FG), EU 42",
         "color": "black-fg",
         "size": "42",
         "price": 1993,
@@ -1569,7 +1577,7 @@
       },
       {
         "id": "black-fg-43",
-        "label": "Black / Green, Long Stud (FG), EU 43",
+        "label": "Black / Green, Spike (FG), EU 43",
         "color": "black-fg",
         "size": "43",
         "price": 1993,
@@ -1578,7 +1586,7 @@
       },
       {
         "id": "black-fg-44",
-        "label": "Black / Green, Long Stud (FG), EU 44",
+        "label": "Black / Green, Spike (FG), EU 44",
         "color": "black-fg",
         "size": "44",
         "price": 1993,
@@ -1587,7 +1595,7 @@
       },
       {
         "id": "black-fg-45",
-        "label": "Black / Green, Long Stud (FG), EU 45",
+        "label": "Black / Green, Spike (FG), EU 45",
         "color": "black-fg",
         "size": "45",
         "price": 1993,
@@ -1596,7 +1604,7 @@
       },
       {
         "id": "black-tf-35",
-        "label": "Black / Green, Turf (TF), EU 35",
+        "label": "Black / Green, Flat (TF), EU 35",
         "color": "black-tf",
         "size": "35",
         "price": 1993,
@@ -1605,7 +1613,7 @@
       },
       {
         "id": "black-tf-36",
-        "label": "Black / Green, Turf (TF), EU 36",
+        "label": "Black / Green, Flat (TF), EU 36",
         "color": "black-tf",
         "size": "36",
         "price": 1993,
@@ -1614,7 +1622,7 @@
       },
       {
         "id": "black-tf-37",
-        "label": "Black / Green, Turf (TF), EU 37",
+        "label": "Black / Green, Flat (TF), EU 37",
         "color": "black-tf",
         "size": "37",
         "price": 1993,
@@ -1623,7 +1631,7 @@
       },
       {
         "id": "black-tf-38",
-        "label": "Black / Green, Turf (TF), EU 38",
+        "label": "Black / Green, Flat (TF), EU 38",
         "color": "black-tf",
         "size": "38",
         "price": 1993,
@@ -1632,7 +1640,7 @@
       },
       {
         "id": "black-tf-39",
-        "label": "Black / Green, Turf (TF), EU 39",
+        "label": "Black / Green, Flat (TF), EU 39",
         "color": "black-tf",
         "size": "39",
         "price": 1993,
@@ -1641,7 +1649,7 @@
       },
       {
         "id": "black-tf-40",
-        "label": "Black / Green, Turf (TF), EU 40",
+        "label": "Black / Green, Flat (TF), EU 40",
         "color": "black-tf",
         "size": "40",
         "price": 1993,
@@ -1650,7 +1658,7 @@
       },
       {
         "id": "black-tf-41",
-        "label": "Black / Green, Turf (TF), EU 41",
+        "label": "Black / Green, Flat (TF), EU 41",
         "color": "black-tf",
         "size": "41",
         "price": 1993,
@@ -1659,7 +1667,7 @@
       },
       {
         "id": "black-tf-42",
-        "label": "Black / Green, Turf (TF), EU 42",
+        "label": "Black / Green, Flat (TF), EU 42",
         "color": "black-tf",
         "size": "42",
         "price": 1993,
@@ -1668,7 +1676,7 @@
       },
       {
         "id": "black-tf-43",
-        "label": "Black / Green, Turf (TF), EU 43",
+        "label": "Black / Green, Flat (TF), EU 43",
         "color": "black-tf",
         "size": "43",
         "price": 1993,
@@ -1677,7 +1685,7 @@
       },
       {
         "id": "black-tf-44",
-        "label": "Black / Green, Turf (TF), EU 44",
+        "label": "Black / Green, Flat (TF), EU 44",
         "color": "black-tf",
         "size": "44",
         "price": 1993,
@@ -1686,7 +1694,7 @@
       },
       {
         "id": "black-tf-45",
-        "label": "Black / Green, Turf (TF), EU 45",
+        "label": "Black / Green, Flat (TF), EU 45",
         "color": "black-tf",
         "size": "45",
         "price": 1993,
@@ -1695,7 +1703,7 @@
       },
       {
         "id": "mint-fg-35",
-        "label": "Mint / Orange, Long Stud (FG), EU 35",
+        "label": "Mint / Orange, Spike (FG), EU 35",
         "color": "mint-fg",
         "size": "35",
         "price": 1993,
@@ -1704,7 +1712,7 @@
       },
       {
         "id": "mint-fg-36",
-        "label": "Mint / Orange, Long Stud (FG), EU 36",
+        "label": "Mint / Orange, Spike (FG), EU 36",
         "color": "mint-fg",
         "size": "36",
         "price": 1993,
@@ -1713,7 +1721,7 @@
       },
       {
         "id": "mint-fg-37",
-        "label": "Mint / Orange, Long Stud (FG), EU 37",
+        "label": "Mint / Orange, Spike (FG), EU 37",
         "color": "mint-fg",
         "size": "37",
         "price": 1993,
@@ -1722,7 +1730,7 @@
       },
       {
         "id": "mint-fg-38",
-        "label": "Mint / Orange, Long Stud (FG), EU 38",
+        "label": "Mint / Orange, Spike (FG), EU 38",
         "color": "mint-fg",
         "size": "38",
         "price": 1993,
@@ -1731,7 +1739,7 @@
       },
       {
         "id": "mint-fg-39",
-        "label": "Mint / Orange, Long Stud (FG), EU 39",
+        "label": "Mint / Orange, Spike (FG), EU 39",
         "color": "mint-fg",
         "size": "39",
         "price": 1993,
@@ -1740,7 +1748,7 @@
       },
       {
         "id": "mint-fg-40",
-        "label": "Mint / Orange, Long Stud (FG), EU 40",
+        "label": "Mint / Orange, Spike (FG), EU 40",
         "color": "mint-fg",
         "size": "40",
         "price": 1993,
@@ -1749,7 +1757,7 @@
       },
       {
         "id": "mint-fg-41",
-        "label": "Mint / Orange, Long Stud (FG), EU 41",
+        "label": "Mint / Orange, Spike (FG), EU 41",
         "color": "mint-fg",
         "size": "41",
         "price": 1993,
@@ -1758,7 +1766,7 @@
       },
       {
         "id": "mint-fg-42",
-        "label": "Mint / Orange, Long Stud (FG), EU 42",
+        "label": "Mint / Orange, Spike (FG), EU 42",
         "color": "mint-fg",
         "size": "42",
         "price": 1993,
@@ -1767,7 +1775,7 @@
       },
       {
         "id": "mint-fg-43",
-        "label": "Mint / Orange, Long Stud (FG), EU 43",
+        "label": "Mint / Orange, Spike (FG), EU 43",
         "color": "mint-fg",
         "size": "43",
         "price": 1993,
@@ -1776,7 +1784,7 @@
       },
       {
         "id": "mint-fg-44",
-        "label": "Mint / Orange, Long Stud (FG), EU 44",
+        "label": "Mint / Orange, Spike (FG), EU 44",
         "color": "mint-fg",
         "size": "44",
         "price": 1993,
@@ -1785,7 +1793,7 @@
       },
       {
         "id": "mint-fg-45",
-        "label": "Mint / Orange, Long Stud (FG), EU 45",
+        "label": "Mint / Orange, Spike (FG), EU 45",
         "color": "mint-fg",
         "size": "45",
         "price": 1993,
@@ -1794,7 +1802,7 @@
       },
       {
         "id": "mint-tf-35",
-        "label": "Mint / Orange, Turf (TF), EU 35",
+        "label": "Mint / Orange, Flat (TF), EU 35",
         "color": "mint-tf",
         "size": "35",
         "price": 1993,
@@ -1803,7 +1811,7 @@
       },
       {
         "id": "mint-tf-36",
-        "label": "Mint / Orange, Turf (TF), EU 36",
+        "label": "Mint / Orange, Flat (TF), EU 36",
         "color": "mint-tf",
         "size": "36",
         "price": 1993,
@@ -1812,7 +1820,7 @@
       },
       {
         "id": "mint-tf-37",
-        "label": "Mint / Orange, Turf (TF), EU 37",
+        "label": "Mint / Orange, Flat (TF), EU 37",
         "color": "mint-tf",
         "size": "37",
         "price": 1993,
@@ -1821,7 +1829,7 @@
       },
       {
         "id": "mint-tf-38",
-        "label": "Mint / Orange, Turf (TF), EU 38",
+        "label": "Mint / Orange, Flat (TF), EU 38",
         "color": "mint-tf",
         "size": "38",
         "price": 1993,
@@ -1830,7 +1838,7 @@
       },
       {
         "id": "mint-tf-39",
-        "label": "Mint / Orange, Turf (TF), EU 39",
+        "label": "Mint / Orange, Flat (TF), EU 39",
         "color": "mint-tf",
         "size": "39",
         "price": 1993,
@@ -1839,7 +1847,7 @@
       },
       {
         "id": "mint-tf-40",
-        "label": "Mint / Orange, Turf (TF), EU 40",
+        "label": "Mint / Orange, Flat (TF), EU 40",
         "color": "mint-tf",
         "size": "40",
         "price": 1993,
@@ -1848,7 +1856,7 @@
       },
       {
         "id": "mint-tf-41",
-        "label": "Mint / Orange, Turf (TF), EU 41",
+        "label": "Mint / Orange, Flat (TF), EU 41",
         "color": "mint-tf",
         "size": "41",
         "price": 1993,
@@ -1857,7 +1865,7 @@
       },
       {
         "id": "mint-tf-42",
-        "label": "Mint / Orange, Turf (TF), EU 42",
+        "label": "Mint / Orange, Flat (TF), EU 42",
         "color": "mint-tf",
         "size": "42",
         "price": 1993,
@@ -1866,7 +1874,7 @@
       },
       {
         "id": "mint-tf-43",
-        "label": "Mint / Orange, Turf (TF), EU 43",
+        "label": "Mint / Orange, Flat (TF), EU 43",
         "color": "mint-tf",
         "size": "43",
         "price": 1993,
@@ -1875,7 +1883,7 @@
       },
       {
         "id": "mint-tf-44",
-        "label": "Mint / Orange, Turf (TF), EU 44",
+        "label": "Mint / Orange, Flat (TF), EU 44",
         "color": "mint-tf",
         "size": "44",
         "price": 1993,
@@ -1884,7 +1892,7 @@
       },
       {
         "id": "mint-tf-45",
-        "label": "Mint / Orange, Turf (TF), EU 45",
+        "label": "Mint / Orange, Flat (TF), EU 45",
         "color": "mint-tf",
         "size": "45",
         "price": 1993,
@@ -1893,7 +1901,7 @@
       },
       {
         "id": "pink-fg-35",
-        "label": "Pink / Black, Long Stud (FG), EU 35",
+        "label": "Pink / Black, Spike (FG), EU 35",
         "color": "pink-fg",
         "size": "35",
         "price": 1993,
@@ -1902,7 +1910,7 @@
       },
       {
         "id": "pink-fg-36",
-        "label": "Pink / Black, Long Stud (FG), EU 36",
+        "label": "Pink / Black, Spike (FG), EU 36",
         "color": "pink-fg",
         "size": "36",
         "price": 1993,
@@ -1911,7 +1919,7 @@
       },
       {
         "id": "pink-fg-37",
-        "label": "Pink / Black, Long Stud (FG), EU 37",
+        "label": "Pink / Black, Spike (FG), EU 37",
         "color": "pink-fg",
         "size": "37",
         "price": 1993,
@@ -1920,7 +1928,7 @@
       },
       {
         "id": "pink-fg-38",
-        "label": "Pink / Black, Long Stud (FG), EU 38",
+        "label": "Pink / Black, Spike (FG), EU 38",
         "color": "pink-fg",
         "size": "38",
         "price": 1993,
@@ -1929,7 +1937,7 @@
       },
       {
         "id": "pink-fg-39",
-        "label": "Pink / Black, Long Stud (FG), EU 39",
+        "label": "Pink / Black, Spike (FG), EU 39",
         "color": "pink-fg",
         "size": "39",
         "price": 1993,
@@ -1938,7 +1946,7 @@
       },
       {
         "id": "pink-fg-40",
-        "label": "Pink / Black, Long Stud (FG), EU 40",
+        "label": "Pink / Black, Spike (FG), EU 40",
         "color": "pink-fg",
         "size": "40",
         "price": 1993,
@@ -1947,7 +1955,7 @@
       },
       {
         "id": "pink-fg-41",
-        "label": "Pink / Black, Long Stud (FG), EU 41",
+        "label": "Pink / Black, Spike (FG), EU 41",
         "color": "pink-fg",
         "size": "41",
         "price": 1993,
@@ -1956,7 +1964,7 @@
       },
       {
         "id": "pink-fg-42",
-        "label": "Pink / Black, Long Stud (FG), EU 42",
+        "label": "Pink / Black, Spike (FG), EU 42",
         "color": "pink-fg",
         "size": "42",
         "price": 1993,
@@ -1965,7 +1973,7 @@
       },
       {
         "id": "pink-fg-43",
-        "label": "Pink / Black, Long Stud (FG), EU 43",
+        "label": "Pink / Black, Spike (FG), EU 43",
         "color": "pink-fg",
         "size": "43",
         "price": 1993,
@@ -1974,7 +1982,7 @@
       },
       {
         "id": "pink-fg-44",
-        "label": "Pink / Black, Long Stud (FG), EU 44",
+        "label": "Pink / Black, Spike (FG), EU 44",
         "color": "pink-fg",
         "size": "44",
         "price": 1993,
@@ -1983,7 +1991,7 @@
       },
       {
         "id": "pink-fg-45",
-        "label": "Pink / Black, Long Stud (FG), EU 45",
+        "label": "Pink / Black, Spike (FG), EU 45",
         "color": "pink-fg",
         "size": "45",
         "price": 1993,
@@ -1992,7 +2000,7 @@
       },
       {
         "id": "pink-tf-35",
-        "label": "Pink / Black, Turf (TF), EU 35",
+        "label": "Pink / Black, Flat (TF), EU 35",
         "color": "pink-tf",
         "size": "35",
         "price": 1993,
@@ -2001,7 +2009,7 @@
       },
       {
         "id": "pink-tf-36",
-        "label": "Pink / Black, Turf (TF), EU 36",
+        "label": "Pink / Black, Flat (TF), EU 36",
         "color": "pink-tf",
         "size": "36",
         "price": 1993,
@@ -2010,7 +2018,7 @@
       },
       {
         "id": "pink-tf-37",
-        "label": "Pink / Black, Turf (TF), EU 37",
+        "label": "Pink / Black, Flat (TF), EU 37",
         "color": "pink-tf",
         "size": "37",
         "price": 1993,
@@ -2019,7 +2027,7 @@
       },
       {
         "id": "pink-tf-38",
-        "label": "Pink / Black, Turf (TF), EU 38",
+        "label": "Pink / Black, Flat (TF), EU 38",
         "color": "pink-tf",
         "size": "38",
         "price": 1993,
@@ -2028,7 +2036,7 @@
       },
       {
         "id": "pink-tf-39",
-        "label": "Pink / Black, Turf (TF), EU 39",
+        "label": "Pink / Black, Flat (TF), EU 39",
         "color": "pink-tf",
         "size": "39",
         "price": 1993,
@@ -2037,7 +2045,7 @@
       },
       {
         "id": "pink-tf-40",
-        "label": "Pink / Black, Turf (TF), EU 40",
+        "label": "Pink / Black, Flat (TF), EU 40",
         "color": "pink-tf",
         "size": "40",
         "price": 1993,
@@ -2046,7 +2054,7 @@
       },
       {
         "id": "pink-tf-41",
-        "label": "Pink / Black, Turf (TF), EU 41",
+        "label": "Pink / Black, Flat (TF), EU 41",
         "color": "pink-tf",
         "size": "41",
         "price": 1993,
@@ -2055,7 +2063,7 @@
       },
       {
         "id": "pink-tf-42",
-        "label": "Pink / Black, Turf (TF), EU 42",
+        "label": "Pink / Black, Flat (TF), EU 42",
         "color": "pink-tf",
         "size": "42",
         "price": 1993,
@@ -2064,7 +2072,7 @@
       },
       {
         "id": "pink-tf-43",
-        "label": "Pink / Black, Turf (TF), EU 43",
+        "label": "Pink / Black, Flat (TF), EU 43",
         "color": "pink-tf",
         "size": "43",
         "price": 1993,
@@ -2073,7 +2081,7 @@
       },
       {
         "id": "pink-tf-44",
-        "label": "Pink / Black, Turf (TF), EU 44",
+        "label": "Pink / Black, Flat (TF), EU 44",
         "color": "pink-tf",
         "size": "44",
         "price": 1993,
@@ -2082,7 +2090,7 @@
       },
       {
         "id": "pink-tf-45",
-        "label": "Pink / Black, Turf (TF), EU 45",
+        "label": "Pink / Black, Flat (TF), EU 45",
         "color": "pink-tf",
         "size": "45",
         "price": 1993,

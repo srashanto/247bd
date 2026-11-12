@@ -97,6 +97,19 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
 
   const v = twoStep ? variationFor(product, color, size) : product.variations.find((x) => x.id === variation);
   const colorInfo = product.colors?.find((c) => c.key === color);
+  const soles = Array.from(new Set((product.colors ?? []).map((c) => c.sole).filter((x): x is string => Boolean(x))));
+  const sole = colorInfo?.sole;
+  const shownColors = soles.length ? product.colors!.filter((c) => c.sole === sole) : product.colors ?? [];
+  const pickSole = (next: string) => {
+    const group = (k: string) => k.split("-")[0];
+    const inSole = product.colors!.filter((c) => c.sole === next);
+    const target = inSole.find((c) => group(c.key) === group(color ?? "")) ?? inSole[0];
+    if (target) {
+      setColor(target.key);
+      setSize(null);
+      setQty(1);
+    }
+  };
   const sizes = twoStep ? Array.from(new Set(product.variations.filter((x) => x.color === color).map((x) => x.size!))) : [];
   // Every photo is in the gallery; the chosen colour's photos come first.
   const allImgs = product.images ?? [];
@@ -180,11 +193,32 @@ export default function ProductView({ slug, initial }: { slug: string; initial?:
             </div>
           )}
 
-          {twoStep && (
+          {twoStep && soles.length > 1 && (
             <div className="mt-5 sm:mt-6">
+              <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">Sole: <span className="text-ink">{sole}</span></p>
+              <div className="mt-2.5 flex flex-wrap gap-2">
+                {soles.map((x) => (
+                  <button
+                    key={x}
+                    type="button"
+                    onClick={() => pickSole(x)}
+                    aria-pressed={x === sole}
+                    className={`rounded-full border px-4 py-2 text-[13px] font-semibold transition ${
+                      x === sole ? "border-gold bg-gold-soft text-gold-2" : "border-line hover:border-ink"
+                    }`}
+                  >
+                    {x}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {twoStep && (
+            <div className={soles.length > 1 ? "mt-5" : "mt-5 sm:mt-6"}>
               <p className="text-[13px] font-semibold uppercase tracking-wider text-muted">Colour: <span className="text-ink">{colorInfo?.name}</span></p>
               <div className="pp-swatches mt-2.5">
-                {product.colors!.map((c) => (
+                {shownColors.map((c) => (
                   <button
                     key={c.key}
                     onClick={() => {
