@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   alternates: { languages: { "en-BD": "/", "x-default": "/" } },
   formatDetection: { telephone: false },
   robots: { index: true, follow: true },
+  verification: { google: "7flj9KQE82PhVZ1VtB5neWZZKz-h_OSGjt9mQ-aKqoc" },
   category: "shopping",
 };
 
