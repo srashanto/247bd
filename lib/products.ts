@@ -62,11 +62,7 @@ export const categories: Category[] = [
   { slug: "boots", name: "Boots" },
   { slug: "footballs", name: "Footballs" },
   { slug: "jerseys", name: "Jerseys & shorts" },
-  { slug: "socks", name: "Socks" },
-  { slug: "shin-guards", name: "Shin guards" },
-  { slug: "gloves", name: "Keeper gloves" },
-  { slug: "bags", name: "Bags" },
-  { slug: "training", name: "Training gear" },
+  { slug: "accessories", name: "Accessories" },
 ];
 export const categorySlugs = new Set(categories.map((c) => c.slug));
 

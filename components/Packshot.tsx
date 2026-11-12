@@ -21,6 +21,7 @@ const byCategory: Record<string, PackShape> = {
   gloves: "glove",
   bags: "bag",
   training: "cone",
+  accessories: "sock",
 };
 
 export function shapeFor(product: Pick<Product, "category" | "pack">): PackShape {

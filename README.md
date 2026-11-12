@@ -20,7 +20,7 @@ Until this is done the store still works, but orders only reach you through What
 
 ### Switching an existing database to the football store
 
-The storefront only shows football categories (boots, footballs, jerseys, socks, shin-guards, gloves, bags, training), so older grooming products in the database stay hidden. To delete them for good, run [`supabase/football-store.sql`](supabase/football-store.sql) once in the SQL Editor, or untick **Show on store** / delete them in **Admin → Products**.
+The storefront only shows football categories (boots, footballs, jerseys, accessories), so older grooming products in the database stay hidden. To delete them for good, run [`supabase/football-store.sql`](supabase/football-store.sql) once in the SQL Editor, or untick **Show on store** / delete them in **Admin → Products**.
 
 ### Adding products
 
