@@ -3820,5 +3820,390 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "training-bibs",
+    "slug": "football-training-bib",
+    "name": "Football Training Bib",
+    "title": "Football Training Bib – Lightweight Mesh Scrimmage Vest, 8 Colours, Children / Adult / Plus",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "jerseys",
+    "price": 150,
+    "regularPrice": 150,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "neon",
+        "name": "Neon Green",
+        "hex": "#8CE62E",
+        "images": [
+          0,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "red",
+        "name": "Red",
+        "hex": "#E32636",
+        "images": [
+          1,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "sky",
+        "name": "Sky Blue",
+        "hex": "#8FB8E8",
+        "images": [
+          2,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "orange",
+        "name": "Orange",
+        "hex": "#F26A24",
+        "images": [
+          3,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "deep",
+        "name": "Deep Blue",
+        "hex": "#1F4FA8",
+        "images": [
+          4,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "yellow",
+        "name": "Yellow",
+        "hex": "#EDB93A",
+        "images": [
+          5,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "aqua",
+        "name": "Aqua",
+        "hex": "#9ADCD8",
+        "images": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "key": "green",
+        "name": "Green",
+        "hex": "#2FA24A",
+        "images": [
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "details": [
+      10
+    ],
+    "badge": "New",
+    "description": "Lightweight mesh training bib to split teams in practice, school games and friendly matches. Slips on over a shirt and stays in place with the side straps, in 8 bright colours so teams are easy to tell apart.\n\nMade from satin-sheen polyester mesh. Children ৳150, Adult ৳200, Plus ৳250. See the size guide to pick the right size.",
+    "ingredients": [
+      "Product: Football training bib / scrimmage vest",
+      "Fabric: Satin-sheen polyester mesh",
+      "Composition: Polyester fibre",
+      "Colours: Neon Green, Red, Sky Blue, Orange, Deep Blue, Yellow, Aqua, Green",
+      "Children: 56 x 35 cm, height 135-145 cm",
+      "Adult: 68 x 45 cm, height 150-175 cm, up to 80 kg",
+      "Plus: 70 x 50 cm, height 176-190 cm, up to 100 kg"
+    ],
+    "benefits": [
+      "Easy to tell teams apart with 8 bright colours",
+      "Lightweight mesh, worn over a shirt",
+      "Side straps keep it in place",
+      "Sizes for kids, adults and bigger builds"
+    ],
+    "howToUse": [
+      "Pick the size from the size guide and put the bib on over your shirt.",
+      "Order one colour per team so players can spot team-mates quickly.",
+      "Hand wash in cool water and dry in the shade."
+    ],
+    "published": true,
+    "sort": 12,
+    "images": [
+      {
+        "src": "/products/bib-neon.jpg",
+        "thumb": "/products/bib-neon.jpg"
+      },
+      {
+        "src": "/products/bib-red.jpg",
+        "thumb": "/products/bib-red.jpg"
+      },
+      {
+        "src": "/products/bib-sky.jpg",
+        "thumb": "/products/bib-sky.jpg"
+      },
+      {
+        "src": "/products/bib-orange.jpg",
+        "thumb": "/products/bib-orange.jpg"
+      },
+      {
+        "src": "/products/bib-deep.jpg",
+        "thumb": "/products/bib-deep.jpg"
+      },
+      {
+        "src": "/products/bib-yellow.jpg",
+        "thumb": "/products/bib-yellow.jpg"
+      },
+      {
+        "src": "/products/bib-aqua.jpg",
+        "thumb": "/products/bib-aqua.jpg"
+      },
+      {
+        "src": "/products/bib-green.jpg",
+        "thumb": "/products/bib-green.jpg"
+      },
+      {
+        "src": "/products/bib-colours.jpg",
+        "thumb": "/products/bib-colours.jpg"
+      },
+      {
+        "src": "/products/bib-fabric.jpg",
+        "thumb": "/products/bib-fabric.jpg"
+      },
+      {
+        "src": "/products/bib-info.jpg",
+        "thumb": "/products/bib-info.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "neon-children",
+        "label": "Neon Green, Children",
+        "color": "neon",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "neon-adult",
+        "label": "Neon Green, Adult",
+        "color": "neon",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "neon-plus",
+        "label": "Neon Green, Plus",
+        "color": "neon",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-children",
+        "label": "Red, Children",
+        "color": "red",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-adult",
+        "label": "Red, Adult",
+        "color": "red",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-plus",
+        "label": "Red, Plus",
+        "color": "red",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "sky-children",
+        "label": "Sky Blue, Children",
+        "color": "sky",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "sky-adult",
+        "label": "Sky Blue, Adult",
+        "color": "sky",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "sky-plus",
+        "label": "Sky Blue, Plus",
+        "color": "sky",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-children",
+        "label": "Orange, Children",
+        "color": "orange",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-adult",
+        "label": "Orange, Adult",
+        "color": "orange",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-plus",
+        "label": "Orange, Plus",
+        "color": "orange",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "deep-children",
+        "label": "Deep Blue, Children",
+        "color": "deep",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "deep-adult",
+        "label": "Deep Blue, Adult",
+        "color": "deep",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "deep-plus",
+        "label": "Deep Blue, Plus",
+        "color": "deep",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-children",
+        "label": "Yellow, Children",
+        "color": "yellow",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-adult",
+        "label": "Yellow, Adult",
+        "color": "yellow",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-plus",
+        "label": "Yellow, Plus",
+        "color": "yellow",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "aqua-children",
+        "label": "Aqua, Children",
+        "color": "aqua",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "aqua-adult",
+        "label": "Aqua, Adult",
+        "color": "aqua",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "aqua-plus",
+        "label": "Aqua, Plus",
+        "color": "aqua",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-children",
+        "label": "Green, Children",
+        "color": "green",
+        "size": "Children",
+        "price": 150,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-adult",
+        "label": "Green, Adult",
+        "color": "green",
+        "size": "Adult",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-plus",
+        "label": "Green, Plus",
+        "color": "green",
+        "size": "Plus",
+        "price": 250,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
