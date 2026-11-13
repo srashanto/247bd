@@ -4205,5 +4205,665 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "laceless-longstud-boots",
+    "slug": "laceless-long-stud-football-boots",
+    "name": "Laceless Long-Stud Football Boots",
+    "title": "Laceless Long-Stud Football Boots – Knit + TPU Upper, TPU Studs, Youth to Adult 32-45",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "boots",
+    "price": 2560,
+    "regularPrice": 3490,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "cream",
+        "name": "Cream",
+        "hex": "#EFE6D2",
+        "images": [
+          4,
+          5
+        ]
+      },
+      {
+        "key": "black",
+        "name": "Black",
+        "hex": "#1A1A1A",
+        "images": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "key": "red",
+        "name": "Red",
+        "hex": "#E0392B",
+        "images": [
+          6,
+          7
+        ]
+      },
+      {
+        "key": "pink",
+        "name": "Pink",
+        "hex": "#F2B5C4",
+        "images": [
+          8,
+          9
+        ]
+      }
+    ],
+    "details": [
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "badge": "Offer",
+    "description": "Laceless long-stud football boots with a knit upper joined to TPU panels. The knit zones are light and breathable, while the TPU adds support at the key load points to keep the foot stable when you sprint and change direction.\n\nThe 2.0 TPU long-stud sole is tough and wear-resistant, with forefoot studs for starts and turns and heel studs for steady braking on natural grass or artificial turf. Light enough for training and everyday outdoor wear too.\n\nAvailable in Cream, Black, Red and Pink, in sizes 32 to 45. Regular price ৳3,490, offer price ৳2,560. See the size guide in the gallery. Long studs suit players with some experience: check with your coach that your ground is suitable.",
+    "ingredients": [
+      "Product: Laceless long-stud football boots",
+      "Upper: Knit + TPU",
+      "Sole: 2.0 TPU long studs",
+      "Features: Anti-twist, elastic and breathable",
+      "Sizes: 32 to 45 (standard sizing)",
+      "Colours: Cream, Black, Red, Pink"
+    ],
+    "benefits": [
+      "Laceless knit upper with TPU support panels",
+      "Tough, wear-resistant 2.0 TPU long-stud sole",
+      "Forefoot studs for starts and turns, heel studs for steady braking",
+      "For football training, matches and everyday outdoor wear"
+    ],
+    "howToUse": [
+      "Choose your EU size (32-45) from your foot length using the size guide. Sizes are standard: order the size you normally wear, and go one size up if you are between sizes.",
+      "Long studs (FG) are for natural grass and suitable grounds. Check with your coach that your ground suits long studs before you order.",
+      "Wipe off mud after every session and let the boots air dry away from direct heat."
+    ],
+    "published": true,
+    "sort": 13,
+    "images": [
+      {
+        "src": "/products/lb-black-1.jpg",
+        "thumb": "/products/lb-black-1.jpg"
+      },
+      {
+        "src": "/products/lb-black-2.jpg",
+        "thumb": "/products/lb-black-2.jpg"
+      },
+      {
+        "src": "/products/lb-black-3.jpg",
+        "thumb": "/products/lb-black-3.jpg"
+      },
+      {
+        "src": "/products/lb-black-4.jpg",
+        "thumb": "/products/lb-black-4.jpg"
+      },
+      {
+        "src": "/products/lb-cream-1.jpg",
+        "thumb": "/products/lb-cream-1.jpg"
+      },
+      {
+        "src": "/products/lb-cream-2.jpg",
+        "thumb": "/products/lb-cream-2.jpg"
+      },
+      {
+        "src": "/products/lb-red-1.jpg",
+        "thumb": "/products/lb-red-1.jpg"
+      },
+      {
+        "src": "/products/lb-red-2.jpg",
+        "thumb": "/products/lb-red-2.jpg"
+      },
+      {
+        "src": "/products/lb-pink-1.jpg",
+        "thumb": "/products/lb-pink-1.jpg"
+      },
+      {
+        "src": "/products/lb-pink-2.jpg",
+        "thumb": "/products/lb-pink-2.jpg"
+      },
+      {
+        "src": "/products/lb-info.jpg",
+        "thumb": "/products/lb-info.jpg"
+      },
+      {
+        "src": "/products/lb-guide.jpg",
+        "thumb": "/products/lb-guide.jpg"
+      },
+      {
+        "src": "/products/lb-sport.jpg",
+        "thumb": "/products/lb-sport.jpg"
+      },
+      {
+        "src": "/products/lb-youth.jpg",
+        "thumb": "/products/lb-youth.jpg"
+      },
+      {
+        "src": "/products/lb-pro.jpg",
+        "thumb": "/products/lb-pro.jpg"
+      },
+      {
+        "src": "/products/lb-sole.jpg",
+        "thumb": "/products/lb-sole.jpg"
+      },
+      {
+        "src": "/products/lb-convenient.jpg",
+        "thumb": "/products/lb-convenient.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "cream-32",
+        "label": "Cream, EU 32",
+        "color": "cream",
+        "size": "32",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-33",
+        "label": "Cream, EU 33",
+        "color": "cream",
+        "size": "33",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-34",
+        "label": "Cream, EU 34",
+        "color": "cream",
+        "size": "34",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-35",
+        "label": "Cream, EU 35",
+        "color": "cream",
+        "size": "35",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-36",
+        "label": "Cream, EU 36",
+        "color": "cream",
+        "size": "36",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-37",
+        "label": "Cream, EU 37",
+        "color": "cream",
+        "size": "37",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-38",
+        "label": "Cream, EU 38",
+        "color": "cream",
+        "size": "38",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-39",
+        "label": "Cream, EU 39",
+        "color": "cream",
+        "size": "39",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-40",
+        "label": "Cream, EU 40",
+        "color": "cream",
+        "size": "40",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-41",
+        "label": "Cream, EU 41",
+        "color": "cream",
+        "size": "41",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-42",
+        "label": "Cream, EU 42",
+        "color": "cream",
+        "size": "42",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-43",
+        "label": "Cream, EU 43",
+        "color": "cream",
+        "size": "43",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-44",
+        "label": "Cream, EU 44",
+        "color": "cream",
+        "size": "44",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "cream-45",
+        "label": "Cream, EU 45",
+        "color": "cream",
+        "size": "45",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-32",
+        "label": "Black, EU 32",
+        "color": "black",
+        "size": "32",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-33",
+        "label": "Black, EU 33",
+        "color": "black",
+        "size": "33",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-34",
+        "label": "Black, EU 34",
+        "color": "black",
+        "size": "34",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-35",
+        "label": "Black, EU 35",
+        "color": "black",
+        "size": "35",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-36",
+        "label": "Black, EU 36",
+        "color": "black",
+        "size": "36",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-37",
+        "label": "Black, EU 37",
+        "color": "black",
+        "size": "37",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-38",
+        "label": "Black, EU 38",
+        "color": "black",
+        "size": "38",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-39",
+        "label": "Black, EU 39",
+        "color": "black",
+        "size": "39",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-40",
+        "label": "Black, EU 40",
+        "color": "black",
+        "size": "40",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-41",
+        "label": "Black, EU 41",
+        "color": "black",
+        "size": "41",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-42",
+        "label": "Black, EU 42",
+        "color": "black",
+        "size": "42",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-43",
+        "label": "Black, EU 43",
+        "color": "black",
+        "size": "43",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-44",
+        "label": "Black, EU 44",
+        "color": "black",
+        "size": "44",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "black-45",
+        "label": "Black, EU 45",
+        "color": "black",
+        "size": "45",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-32",
+        "label": "Red, EU 32",
+        "color": "red",
+        "size": "32",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-33",
+        "label": "Red, EU 33",
+        "color": "red",
+        "size": "33",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-34",
+        "label": "Red, EU 34",
+        "color": "red",
+        "size": "34",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-35",
+        "label": "Red, EU 35",
+        "color": "red",
+        "size": "35",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-36",
+        "label": "Red, EU 36",
+        "color": "red",
+        "size": "36",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-37",
+        "label": "Red, EU 37",
+        "color": "red",
+        "size": "37",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-38",
+        "label": "Red, EU 38",
+        "color": "red",
+        "size": "38",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-39",
+        "label": "Red, EU 39",
+        "color": "red",
+        "size": "39",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-40",
+        "label": "Red, EU 40",
+        "color": "red",
+        "size": "40",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-41",
+        "label": "Red, EU 41",
+        "color": "red",
+        "size": "41",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-42",
+        "label": "Red, EU 42",
+        "color": "red",
+        "size": "42",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-43",
+        "label": "Red, EU 43",
+        "color": "red",
+        "size": "43",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-44",
+        "label": "Red, EU 44",
+        "color": "red",
+        "size": "44",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "red-45",
+        "label": "Red, EU 45",
+        "color": "red",
+        "size": "45",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-32",
+        "label": "Pink, EU 32",
+        "color": "pink",
+        "size": "32",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-33",
+        "label": "Pink, EU 33",
+        "color": "pink",
+        "size": "33",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-34",
+        "label": "Pink, EU 34",
+        "color": "pink",
+        "size": "34",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-35",
+        "label": "Pink, EU 35",
+        "color": "pink",
+        "size": "35",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-36",
+        "label": "Pink, EU 36",
+        "color": "pink",
+        "size": "36",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-37",
+        "label": "Pink, EU 37",
+        "color": "pink",
+        "size": "37",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-38",
+        "label": "Pink, EU 38",
+        "color": "pink",
+        "size": "38",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-39",
+        "label": "Pink, EU 39",
+        "color": "pink",
+        "size": "39",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-40",
+        "label": "Pink, EU 40",
+        "color": "pink",
+        "size": "40",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-41",
+        "label": "Pink, EU 41",
+        "color": "pink",
+        "size": "41",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-42",
+        "label": "Pink, EU 42",
+        "color": "pink",
+        "size": "42",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-43",
+        "label": "Pink, EU 43",
+        "color": "pink",
+        "size": "43",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-44",
+        "label": "Pink, EU 44",
+        "color": "pink",
+        "size": "44",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      },
+      {
+        "id": "pink-45",
+        "label": "Pink, EU 45",
+        "color": "pink",
+        "size": "45",
+        "price": 2560,
+        "regularPrice": 3490,
+        "stock": 5
+      }
+    ]
   }
 ]
