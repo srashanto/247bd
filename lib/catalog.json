@@ -3739,5 +3739,86 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "adidas-euro2024-ball",
+    "slug": "adidas-euro-2024-finale-football",
+    "name": "Adidas Euro 2024 Finale Football",
+    "title": "Official Adidas Euro 2024 Finale Football – Silver & Gold, Size 5",
+    "brand": "Adidas",
+    "gender": "unisex",
+    "category": "footballs",
+    "price": 9985,
+    "regularPrice": 9985,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "finale",
+        "name": "Silver / Gold",
+        "hex": "linear-gradient(135deg,#C9CCD1 50%,#D9A93A 50%)",
+        "images": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ],
+    "details": [],
+    "badge": "Official",
+    "description": "The official Adidas ball from the UEFA EURO 2024 Germany final. Silver finish with gold and black graphics, the red Adidas stripes and the EURO 2024 trophy emblem.\n\nA premium, collector-grade match ball in size 5 for real games and for display. Price ৳9,985.",
+    "ingredients": [
+      "Brand: Adidas",
+      "Edition: UEFA EURO 2024 Germany, Finale",
+      "Size: 5 (standard adult match ball)",
+      "Colour: Silver / Gold with black and red graphics"
+    ],
+    "benefits": [
+      "Official Adidas ball",
+      "UEFA EURO 2024 Germany Finale edition",
+      "Size 5, standard adult match size",
+      "A collector's piece for any football fan"
+    ],
+    "howToUse": [
+      "Inflate with a needle moistened with water until firm but not rock-hard.",
+      "Wipe clean with a damp cloth after use.",
+      "Store away from direct heat and sunlight."
+    ],
+    "published": true,
+    "sort": 11,
+    "images": [
+      {
+        "src": "/products/adidas-studio.jpg",
+        "thumb": "/products/adidas-studio.jpg"
+      },
+      {
+        "src": "/products/adidas-stadium.jpg",
+        "thumb": "/products/adidas-stadium.jpg"
+      },
+      {
+        "src": "/products/adidas-grass.jpg",
+        "thumb": "/products/adidas-grass.jpg"
+      },
+      {
+        "src": "/products/adidas-net.jpg",
+        "thumb": "/products/adidas-net.jpg"
+      },
+      {
+        "src": "/products/adidas-air.jpg",
+        "thumb": "/products/adidas-air.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "finale-5",
+        "label": "Silver / Gold, Size 5",
+        "color": "finale",
+        "size": "5",
+        "price": 9985,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
