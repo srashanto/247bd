@@ -69,6 +69,8 @@ update public.settings
 set data = data || jsonb_build_object(
   'tagline', 'Football boots, balls and kit, delivered all over Bangladesh',
   'announcements', jsonb_build_array('Football boots, balls and kit, 24/7', 'Cash on Delivery সারা বাংলাদেশে', 'Pick your colour and size before you order'),
-  'couponNotice', ''),
+  'couponNotice', '',
+  'facebook', 'https://www.facebook.com/247.bd.net',
+  'instagram', ''),
   updated_at = now()
 where id = 1;
