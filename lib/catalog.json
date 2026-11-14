@@ -4961,5 +4961,524 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "lowcut-laceup-boots",
+    "slug": "low-cut-lace-up-football-boots",
+    "name": "Low-Cut Lace-Up Football Boots",
+    "title": "Low-Cut Lace-Up Football Boots – Knit Collar, Spike (FG) and Flat (TF) Soles, 3 Colours",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "boots",
+    "price": 2960,
+    "regularPrice": 4500,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "cream-fg",
+        "name": "Cream / Black / Red",
+        "hex": "linear-gradient(135deg,#EFE6D2 50%,#E0392B 50%)",
+        "sole": "Spike (FG)",
+        "images": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "key": "black-fg",
+        "name": "Black / Red",
+        "hex": "linear-gradient(135deg,#1A1A1A 50%,#E0392B 50%)",
+        "sole": "Spike (FG)",
+        "images": [
+          5
+        ]
+      },
+      {
+        "key": "pink-fg",
+        "name": "White / Pink / Lime",
+        "hex": "linear-gradient(135deg,#E5188B 50%,#B8E600 50%)",
+        "sole": "Spike (FG)",
+        "images": [
+          6
+        ]
+      },
+      {
+        "key": "pink-tf",
+        "name": "White / Pink / Lime",
+        "hex": "linear-gradient(135deg,#E5188B 50%,#B8E600 50%)",
+        "sole": "Flat (TF)",
+        "images": [
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "details": [],
+    "badge": "Offer",
+    "description": "Low-cut, lace-up football boots with a snug knit collar and a textured upper for a clean touch on the ball.\n\nChoose the spike sole (FG) for natural grass or the flat sole (TF) for artificial turf and hard grounds. Spike (FG) comes in Cream / Black / Red, Black / Red and White / Pink / Lime. Flat (TF) comes in White / Pink / Lime.\n\nRegular price ৳4,500, offer price ৳2,960.",
+    "ingredients": [
+      "Product: Low-cut lace-up football boots",
+      "Collar: Knit, sock-like",
+      "Sole options: Spike (long studs, FG) or Flat (turf, TF)",
+      "Sizes: 35 to 45",
+      "Colours: Cream / Black / Red, Black / Red, White / Pink / Lime (Flat sole: White / Pink / Lime only)"
+    ],
+    "benefits": [
+      "Lace-up fit with a snug knit collar",
+      "Textured upper for ball control",
+      "Spike (FG) for grass, Flat (TF) for turf and hard ground",
+      "Bold colours that stand out on the pitch"
+    ],
+    "howToUse": [
+      "Choose the sole: Flat (TF) for artificial turf, concrete and mixed grounds, Spike (FG) for natural grass.",
+      "Pick your EU size from your normal boot size. If you are between sizes, go one size up.",
+      "Wipe off mud after every session and let the boots air dry away from direct heat."
+    ],
+    "published": true,
+    "sort": 15,
+    "images": [
+      {
+        "src": "/products/ls-cream-1.jpg",
+        "thumb": "/products/ls-cream-1.jpg"
+      },
+      {
+        "src": "/products/ls-cream-2.jpg",
+        "thumb": "/products/ls-cream-2.jpg"
+      },
+      {
+        "src": "/products/ls-cream-3.jpg",
+        "thumb": "/products/ls-cream-3.jpg"
+      },
+      {
+        "src": "/products/ls-cream-4.jpg",
+        "thumb": "/products/ls-cream-4.jpg"
+      },
+      {
+        "src": "/products/ls-cream-5.jpg",
+        "thumb": "/products/ls-cream-5.jpg"
+      },
+      {
+        "src": "/products/ls-black-1.jpg",
+        "thumb": "/products/ls-black-1.jpg"
+      },
+      {
+        "src": "/products/ls-pink-fg-1.jpg",
+        "thumb": "/products/ls-pink-fg-1.jpg"
+      },
+      {
+        "src": "/products/ls-pink-tf-1.jpg",
+        "thumb": "/products/ls-pink-tf-1.jpg"
+      },
+      {
+        "src": "/products/ls-pink-tf-2.jpg",
+        "thumb": "/products/ls-pink-tf-2.jpg"
+      },
+      {
+        "src": "/products/ls-pink-tf-3.jpg",
+        "thumb": "/products/ls-pink-tf-3.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "cream-fg-35",
+        "label": "Cream / Black / Red, Spike (FG), EU 35",
+        "color": "cream-fg",
+        "size": "35",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-36",
+        "label": "Cream / Black / Red, Spike (FG), EU 36",
+        "color": "cream-fg",
+        "size": "36",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-37",
+        "label": "Cream / Black / Red, Spike (FG), EU 37",
+        "color": "cream-fg",
+        "size": "37",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-38",
+        "label": "Cream / Black / Red, Spike (FG), EU 38",
+        "color": "cream-fg",
+        "size": "38",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-39",
+        "label": "Cream / Black / Red, Spike (FG), EU 39",
+        "color": "cream-fg",
+        "size": "39",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-40",
+        "label": "Cream / Black / Red, Spike (FG), EU 40",
+        "color": "cream-fg",
+        "size": "40",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-41",
+        "label": "Cream / Black / Red, Spike (FG), EU 41",
+        "color": "cream-fg",
+        "size": "41",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-42",
+        "label": "Cream / Black / Red, Spike (FG), EU 42",
+        "color": "cream-fg",
+        "size": "42",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-43",
+        "label": "Cream / Black / Red, Spike (FG), EU 43",
+        "color": "cream-fg",
+        "size": "43",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-44",
+        "label": "Cream / Black / Red, Spike (FG), EU 44",
+        "color": "cream-fg",
+        "size": "44",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "cream-fg-45",
+        "label": "Cream / Black / Red, Spike (FG), EU 45",
+        "color": "cream-fg",
+        "size": "45",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-35",
+        "label": "Black / Red, Spike (FG), EU 35",
+        "color": "black-fg",
+        "size": "35",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-36",
+        "label": "Black / Red, Spike (FG), EU 36",
+        "color": "black-fg",
+        "size": "36",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-37",
+        "label": "Black / Red, Spike (FG), EU 37",
+        "color": "black-fg",
+        "size": "37",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-38",
+        "label": "Black / Red, Spike (FG), EU 38",
+        "color": "black-fg",
+        "size": "38",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-39",
+        "label": "Black / Red, Spike (FG), EU 39",
+        "color": "black-fg",
+        "size": "39",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-40",
+        "label": "Black / Red, Spike (FG), EU 40",
+        "color": "black-fg",
+        "size": "40",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-41",
+        "label": "Black / Red, Spike (FG), EU 41",
+        "color": "black-fg",
+        "size": "41",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-42",
+        "label": "Black / Red, Spike (FG), EU 42",
+        "color": "black-fg",
+        "size": "42",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-43",
+        "label": "Black / Red, Spike (FG), EU 43",
+        "color": "black-fg",
+        "size": "43",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-44",
+        "label": "Black / Red, Spike (FG), EU 44",
+        "color": "black-fg",
+        "size": "44",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "black-fg-45",
+        "label": "Black / Red, Spike (FG), EU 45",
+        "color": "black-fg",
+        "size": "45",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-35",
+        "label": "White / Pink / Lime, Spike (FG), EU 35",
+        "color": "pink-fg",
+        "size": "35",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-36",
+        "label": "White / Pink / Lime, Spike (FG), EU 36",
+        "color": "pink-fg",
+        "size": "36",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-37",
+        "label": "White / Pink / Lime, Spike (FG), EU 37",
+        "color": "pink-fg",
+        "size": "37",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-38",
+        "label": "White / Pink / Lime, Spike (FG), EU 38",
+        "color": "pink-fg",
+        "size": "38",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-39",
+        "label": "White / Pink / Lime, Spike (FG), EU 39",
+        "color": "pink-fg",
+        "size": "39",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-40",
+        "label": "White / Pink / Lime, Spike (FG), EU 40",
+        "color": "pink-fg",
+        "size": "40",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-41",
+        "label": "White / Pink / Lime, Spike (FG), EU 41",
+        "color": "pink-fg",
+        "size": "41",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-42",
+        "label": "White / Pink / Lime, Spike (FG), EU 42",
+        "color": "pink-fg",
+        "size": "42",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-43",
+        "label": "White / Pink / Lime, Spike (FG), EU 43",
+        "color": "pink-fg",
+        "size": "43",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-44",
+        "label": "White / Pink / Lime, Spike (FG), EU 44",
+        "color": "pink-fg",
+        "size": "44",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-fg-45",
+        "label": "White / Pink / Lime, Spike (FG), EU 45",
+        "color": "pink-fg",
+        "size": "45",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-35",
+        "label": "White / Pink / Lime, Flat (TF), EU 35",
+        "color": "pink-tf",
+        "size": "35",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-36",
+        "label": "White / Pink / Lime, Flat (TF), EU 36",
+        "color": "pink-tf",
+        "size": "36",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-37",
+        "label": "White / Pink / Lime, Flat (TF), EU 37",
+        "color": "pink-tf",
+        "size": "37",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-38",
+        "label": "White / Pink / Lime, Flat (TF), EU 38",
+        "color": "pink-tf",
+        "size": "38",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-39",
+        "label": "White / Pink / Lime, Flat (TF), EU 39",
+        "color": "pink-tf",
+        "size": "39",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-40",
+        "label": "White / Pink / Lime, Flat (TF), EU 40",
+        "color": "pink-tf",
+        "size": "40",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-41",
+        "label": "White / Pink / Lime, Flat (TF), EU 41",
+        "color": "pink-tf",
+        "size": "41",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-42",
+        "label": "White / Pink / Lime, Flat (TF), EU 42",
+        "color": "pink-tf",
+        "size": "42",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-43",
+        "label": "White / Pink / Lime, Flat (TF), EU 43",
+        "color": "pink-tf",
+        "size": "43",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-44",
+        "label": "White / Pink / Lime, Flat (TF), EU 44",
+        "color": "pink-tf",
+        "size": "44",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      },
+      {
+        "id": "pink-tf-45",
+        "label": "White / Pink / Lime, Flat (TF), EU 45",
+        "color": "pink-tf",
+        "size": "45",
+        "price": 2960,
+        "regularPrice": 4500,
+        "stock": 5
+      }
+    ]
   }
 ]
