@@ -4865,5 +4865,101 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "mizuno-football",
+    "slug": "mizuno-thermal-bonded-football",
+    "name": "Mizuno Thermal-Bonded Football",
+    "title": "Mizuno Thermal-Bonded Football – PU Cover, Size 5, Pink & Neon Green",
+    "brand": "Mizuno",
+    "gender": "unisex",
+    "category": "footballs",
+    "price": 1890,
+    "regularPrice": 2260,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "pink",
+        "name": "White / Black / Pink",
+        "hex": "linear-gradient(135deg,#F2F2F2 50%,#E5188B 50%)",
+        "images": [
+          0
+        ]
+      },
+      {
+        "key": "green",
+        "name": "White / Black / Neon Green",
+        "hex": "linear-gradient(135deg,#F2F2F2 50%,#B8E600 50%)",
+        "images": [
+          1
+        ]
+      }
+    ],
+    "details": [
+      2,
+      3
+    ],
+    "badge": "Offer",
+    "description": "Size 5 football with a PU cover and thermal-bonded (glued, not stitched) panels for a smooth, even surface and a stable flight. The rubber bladder gives a lively bounce.\n\nAvailable in White / Black / Pink and White / Black / Neon Green. Regular price ৳2,260, offer price ৳1,890.",
+    "ingredients": [
+      "Brand: Mizuno",
+      "Model: P3CBA204",
+      "Size: 5",
+      "Cover (outer and inner layer): PU",
+      "Panels: Thermal bonding",
+      "Bladder: Rubber",
+      "Colours: White / Black / Pink, White / Black / Neon Green"
+    ],
+    "benefits": [
+      "PU cover, wear-resistant and tough",
+      "Thermal-bonded panels for a smooth, even surface",
+      "Stable flight",
+      "Size 5, standard adult match ball"
+    ],
+    "howToUse": [
+      "Moisten the needle, push it into the valve and pump until the ball is firm but not rock-hard.",
+      "Wipe off mud with a damp cloth and keep the ball away from direct heat.",
+      "Size 5 is the standard adult match size."
+    ],
+    "published": true,
+    "sort": 14,
+    "images": [
+      {
+        "src": "/products/mz-pink.jpg",
+        "thumb": "/products/mz-pink.jpg"
+      },
+      {
+        "src": "/products/mz-green.jpg",
+        "thumb": "/products/mz-green.jpg"
+      },
+      {
+        "src": "/products/mz-info-pink.jpg",
+        "thumb": "/products/mz-info-pink.jpg"
+      },
+      {
+        "src": "/products/mz-info-green.jpg",
+        "thumb": "/products/mz-info-green.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "pink-5",
+        "label": "White / Black / Pink, Size 5",
+        "color": "pink",
+        "size": "5",
+        "price": 1890,
+        "regularPrice": 2260,
+        "stock": 10
+      },
+      {
+        "id": "green-5",
+        "label": "White / Black / Neon Green, Size 5",
+        "color": "green",
+        "size": "5",
+        "price": 1890,
+        "regularPrice": 2260,
+        "stock": 10
+      }
+    ]
   }
 ]
