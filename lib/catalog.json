@@ -5480,5 +5480,113 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "knee-support",
+    "slug": "adjustable-knee-support-brace",
+    "name": "Adjustable Knee Support Brace",
+    "title": "Adjustable Knee Support Brace – Open Patella, Dual Straps, Free Size",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "accessories",
+    "price": 290,
+    "regularPrice": 590,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "black",
+        "name": "Black",
+        "hex": "#161616",
+        "images": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "details": [],
+    "badge": "Offer",
+    "description": "Adjustable knee support brace with an open-patella design and two adjustable straps. The dual-strap wrap holds the knee snugly and cuts down on wobble, so you can move with more confidence in football, running, gym and everyday use.\n\nOne free size: the Velcro straps adjust to fit. Sold as a single brace. Regular price ৳590, offer price ৳290.",
+    "ingredients": [
+      "Product: Adjustable knee support brace",
+      "Design: Open patella, dual straps",
+      "Closure: Adjustable Velcro straps",
+      "Size: Free (adjustable)",
+      "Colour: Black",
+      "Sold as: 1 brace"
+    ],
+    "benefits": [
+      "Dual-strap wrap for a snug, stable fit",
+      "Open-patella design",
+      "Adjustable Velcro straps, one size fits most",
+      "Light enough for football, running and gym"
+    ],
+    "howToUse": [
+      "Place the brace around the knee with the opening over the kneecap.",
+      "Wrap the lower and upper straps and fasten them until the fit is snug but comfortable.",
+      "Remove it if it feels too tight or causes pain. See a doctor for any injury."
+    ],
+    "published": true,
+    "sort": 16,
+    "images": [
+      {
+        "src": "/products/knee-alone.jpg",
+        "thumb": "/products/knee-alone.jpg"
+      },
+      {
+        "src": "/products/knee-hero.jpg",
+        "thumb": "/products/knee-hero.jpg"
+      },
+      {
+        "src": "/products/knee-close.jpg",
+        "thumb": "/products/knee-close.jpg"
+      },
+      {
+        "src": "/products/knee-stand.jpg",
+        "thumb": "/products/knee-stand.jpg"
+      },
+      {
+        "src": "/products/knee-tilt.jpg",
+        "thumb": "/products/knee-tilt.jpg"
+      },
+      {
+        "src": "/products/knee-stand2.jpg",
+        "thumb": "/products/knee-stand2.jpg"
+      },
+      {
+        "src": "/products/knee-squat.jpg",
+        "thumb": "/products/knee-squat.jpg"
+      },
+      {
+        "src": "/products/knee-strap.jpg",
+        "thumb": "/products/knee-strap.jpg"
+      },
+      {
+        "src": "/products/knee-wrap.jpg",
+        "thumb": "/products/knee-wrap.jpg"
+      },
+      {
+        "src": "/products/knee-wrap2.jpg",
+        "thumb": "/products/knee-wrap2.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "black-free",
+        "label": "Black, Free size",
+        "color": "black",
+        "size": "Free",
+        "price": 290,
+        "regularPrice": 590,
+        "stock": 10
+      }
+    ]
   }
 ]
