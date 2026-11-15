@@ -5667,7 +5667,7 @@
       "Product: Laceless football boots",
       "Collar: Sock-style, slip-on",
       "Sole options: Spike (long studs, FG) or Flat (turf, TF)",
-      "Sizes: 35 to 45",
+      "Sizes: 34 to 45",
       "Colours: Black / Red, White / Sky Blue, Red / White"
     ],
     "benefits": [
@@ -5726,6 +5726,15 @@
       }
     ],
     "variations": [
+      {
+        "id": "black-fg-34",
+        "label": "Black / Red, Spike (FG), EU 34",
+        "color": "black-fg",
+        "size": "34",
+        "price": 2180,
+        "regularPrice": 2990,
+        "stock": 5
+      },
       {
         "id": "black-fg-35",
         "label": "Black / Red, Spike (FG), EU 35",
@@ -5821,6 +5830,15 @@
         "label": "Black / Red, Spike (FG), EU 45",
         "color": "black-fg",
         "size": "45",
+        "price": 2180,
+        "regularPrice": 2990,
+        "stock": 5
+      },
+      {
+        "id": "white-fg-34",
+        "label": "White / Sky Blue, Spike (FG), EU 34",
+        "color": "white-fg",
+        "size": "34",
         "price": 2180,
         "regularPrice": 2990,
         "stock": 5
@@ -5925,6 +5943,15 @@
         "stock": 5
       },
       {
+        "id": "red-fg-34",
+        "label": "Red / White, Spike (FG), EU 34",
+        "color": "red-fg",
+        "size": "34",
+        "price": 2180,
+        "regularPrice": 2990,
+        "stock": 5
+      },
+      {
         "id": "red-fg-35",
         "label": "Red / White, Spike (FG), EU 35",
         "color": "red-fg",
@@ -6019,6 +6046,15 @@
         "label": "Red / White, Spike (FG), EU 45",
         "color": "red-fg",
         "size": "45",
+        "price": 2180,
+        "regularPrice": 2990,
+        "stock": 5
+      },
+      {
+        "id": "black-tf-34",
+        "label": "Black / Red, Flat (TF), EU 34",
+        "color": "black-tf",
+        "size": "34",
         "price": 2180,
         "regularPrice": 2990,
         "stock": 5
@@ -6123,6 +6159,15 @@
         "stock": 5
       },
       {
+        "id": "white-tf-34",
+        "label": "White / Sky Blue, Flat (TF), EU 34",
+        "color": "white-tf",
+        "size": "34",
+        "price": 2180,
+        "regularPrice": 2990,
+        "stock": 5
+      },
+      {
         "id": "white-tf-35",
         "label": "White / Sky Blue, Flat (TF), EU 35",
         "color": "white-tf",
@@ -6217,6 +6262,15 @@
         "label": "White / Sky Blue, Flat (TF), EU 45",
         "color": "white-tf",
         "size": "45",
+        "price": 2180,
+        "regularPrice": 2990,
+        "stock": 5
+      },
+      {
+        "id": "red-tf-34",
+        "label": "Red / White, Flat (TF), EU 34",
+        "color": "red-tf",
+        "size": "34",
         "price": 2180,
         "regularPrice": 2990,
         "stock": 5
