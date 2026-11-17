@@ -14,7 +14,7 @@ import { categoryHref, landings } from "@/lib/seo";
 const homeFaq = [
   { q: "Where can I buy football boots in Bangladesh?", a: "247BD sells football boots, footballs and other football gear online and delivers anywhere in Bangladesh. Pick your colour and size on the product page and pay cash on delivery." },
   { q: "বাংলাদেশে ফুটবল বুট কোথায় কিনতে পাবো?", a: "২৪৭বিডি থেকে অনলাইনে ফুটবল বুট, ফুটবল ও অন্যান্য ফুটবল সরঞ্জাম কিনতে পারবেন। সারা বাংলাদেশে ক্যাশ অন ডেলিভারি।" },
-  { q: "How much is delivery?", a: "Delivery is ৳80 inside Dhaka and ৳120 outside Dhaka. Orders usually arrive in 1–2 days inside Dhaka and 2–4 days outside." },
+  { q: "How much is delivery?", a: "Delivery is ৳80 inside Dhaka and ৳120 outside Dhaka. Our products are shipped in from abroad, so orders usually arrive in 8–10 days, anywhere in Bangladesh." },
   { q: "Can I pay cash on delivery?", a: "Yes. Pay the delivery charge in advance by bKash, Nagad or Rocket to confirm the order, then pay the rest in cash when the parcel arrives." },
   { q: "How do I pick the right size?", a: "Measure your foot length in centimetres and compare it with the size on the product page, or message us on WhatsApp with your foot length. If you are between two sizes, go one size up." },
 ];

@@ -9,8 +9,9 @@ export default function HelpPage() {
       id: "delivery",
       title: "Delivery",
       body: [
-        `Inside Dhaka: ৳${s.deliveryInsideDhaka}, usually in 1–2 days.`,
-        `Outside Dhaka: ৳${s.deliveryOutsideDhaka}, usually in 2–4 days.`,
+        `Inside Dhaka: ৳${s.deliveryInsideDhaka}.`,
+        `Outside Dhaka: ৳${s.deliveryOutsideDhaka}.`,
+        "Our products are shipped in from abroad, so delivery usually takes 8–10 days anywhere in Bangladesh.",
         ...(s.freeDeliveryOver > 0 ? [`Orders over ৳${s.freeDeliveryOver.toLocaleString("en-IN")} ship free anywhere in Bangladesh.`] : []),
         "We call or message you to confirm every order before it ships.",
       ],

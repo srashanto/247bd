@@ -29,7 +29,7 @@ export type Landing = {
 
 const deliveryFaq: Faq = {
   q: "How much is delivery and how long does it take?",
-  a: "Delivery is ৳80 inside Dhaka and ৳120 outside Dhaka, anywhere in Bangladesh. Orders usually arrive in 1–2 days inside Dhaka and 2–4 days outside.",
+  a: "Delivery is ৳80 inside Dhaka and ৳120 outside Dhaka, anywhere in Bangladesh. Our products are shipped in from abroad, so orders usually arrive in 8–10 days.",
 };
 const codFaq: Faq = {
   q: "Can I pay cash on delivery?",
