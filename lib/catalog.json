@@ -6375,5 +6375,297 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "training-cones",
+    "slug": "football-training-marker-cones",
+    "name": "Football Training Marker Cones",
+    "title": "Football Training Marker Cones – Flat Disc Cones, 5 / 15 / 30 Piece Packs, 5 Colours",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "accessories",
+    "price": 200,
+    "regularPrice": 200,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "mixed",
+        "name": "Mixed (5 colours)",
+        "hex": "conic-gradient(#E53935 0 20%,#F5821F 0 40%,#F6D21B 0 60%,#7ED321 0 80%,#1E6FD9 0 100%)",
+        "images": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "key": "red",
+        "name": "Red",
+        "hex": "#E53935",
+        "images": [
+          4
+        ]
+      },
+      {
+        "key": "orange",
+        "name": "Orange",
+        "hex": "#F5821F",
+        "images": [
+          4
+        ]
+      },
+      {
+        "key": "yellow",
+        "name": "Yellow",
+        "hex": "#F6D21B",
+        "images": [
+          4
+        ]
+      },
+      {
+        "key": "green",
+        "name": "Green",
+        "hex": "#7ED321",
+        "images": [
+          4
+        ]
+      },
+      {
+        "key": "blue",
+        "name": "Blue",
+        "hex": "#1E6FD9",
+        "images": [
+          4
+        ]
+      }
+    ],
+    "details": [
+      5,
+      6,
+      7
+    ],
+    "sizeLabel": "Pack",
+    "badge": "New",
+    "description": "Flat disc marker cones for football drills, agility ladders, dribbling courses and training sessions. Soft, flexible LDPE that springs back to shape and stacks flat, so a whole set packs away easily.\n\nBright colours make them easy to spot on the pitch and help sharpen reactions. Choose a pack of 5 (৳200), 15 (৳400) or 30 (৳700) pieces, in Mixed, Red, Orange, Yellow, Green or Blue.",
+    "ingredients": [
+      "Product: Flat disc marker cones",
+      "Material: LDPE / PE, soft and flexible",
+      "Colours: Mixed (5 colours), Red, Orange, Yellow, Green, Blue",
+      "Packs: 5 pieces, 15 pieces or 30 pieces",
+      "Stacks flat for easy carrying"
+    ],
+    "benefits": [
+      "Soft, flexible LDPE that springs back after being stepped on",
+      "Bright colours that stand out in training",
+      "Stack flat, easy to carry and store",
+      "Packs of 5, 15 or 30 pieces"
+    ],
+    "howToUse": [
+      "Lay the discs out on the pitch to mark drills, lanes, goals or boundaries.",
+      "Mix colours to set up team zones or dribbling courses.",
+      "Stack them together after training and keep them away from direct heat."
+    ],
+    "published": true,
+    "sort": 18,
+    "images": [
+      {
+        "src": "/products/cone-set.jpg",
+        "thumb": "/products/cone-set.jpg"
+      },
+      {
+        "src": "/products/cone-bag.jpg",
+        "thumb": "/products/cone-bag.jpg"
+      },
+      {
+        "src": "/products/cone-stack.jpg",
+        "thumb": "/products/cone-stack.jpg"
+      },
+      {
+        "src": "/products/cone-stackbag.jpg",
+        "thumb": "/products/cone-stackbag.jpg"
+      },
+      {
+        "src": "/products/cone-colours.jpg",
+        "thumb": "/products/cone-colours.jpg"
+      },
+      {
+        "src": "/products/cone-material.jpg",
+        "thumb": "/products/cone-material.jpg"
+      },
+      {
+        "src": "/products/cone-colour-range.jpg",
+        "thumb": "/products/cone-colour-range.jpg"
+      },
+      {
+        "src": "/products/cone-features.jpg",
+        "thumb": "/products/cone-features.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "mixed-5",
+        "label": "Mixed (5 colours), 5 pcs",
+        "color": "mixed",
+        "size": "5 pcs",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "mixed-15",
+        "label": "Mixed (5 colours), 15 pcs",
+        "color": "mixed",
+        "size": "15 pcs",
+        "price": 400,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "mixed-30",
+        "label": "Mixed (5 colours), 30 pcs",
+        "color": "mixed",
+        "size": "30 pcs",
+        "price": 700,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-5",
+        "label": "Red, 5 pcs",
+        "color": "red",
+        "size": "5 pcs",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-15",
+        "label": "Red, 15 pcs",
+        "color": "red",
+        "size": "15 pcs",
+        "price": 400,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-30",
+        "label": "Red, 30 pcs",
+        "color": "red",
+        "size": "30 pcs",
+        "price": 700,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-5",
+        "label": "Orange, 5 pcs",
+        "color": "orange",
+        "size": "5 pcs",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-15",
+        "label": "Orange, 15 pcs",
+        "color": "orange",
+        "size": "15 pcs",
+        "price": 400,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-30",
+        "label": "Orange, 30 pcs",
+        "color": "orange",
+        "size": "30 pcs",
+        "price": 700,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-5",
+        "label": "Yellow, 5 pcs",
+        "color": "yellow",
+        "size": "5 pcs",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-15",
+        "label": "Yellow, 15 pcs",
+        "color": "yellow",
+        "size": "15 pcs",
+        "price": 400,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-30",
+        "label": "Yellow, 30 pcs",
+        "color": "yellow",
+        "size": "30 pcs",
+        "price": 700,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-5",
+        "label": "Green, 5 pcs",
+        "color": "green",
+        "size": "5 pcs",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-15",
+        "label": "Green, 15 pcs",
+        "color": "green",
+        "size": "15 pcs",
+        "price": 400,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-30",
+        "label": "Green, 30 pcs",
+        "color": "green",
+        "size": "30 pcs",
+        "price": 700,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-5",
+        "label": "Blue, 5 pcs",
+        "color": "blue",
+        "size": "5 pcs",
+        "price": 200,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-15",
+        "label": "Blue, 15 pcs",
+        "color": "blue",
+        "size": "15 pcs",
+        "price": 400,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-30",
+        "label": "Blue, 30 pcs",
+        "color": "blue",
+        "size": "30 pcs",
+        "price": 700,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
