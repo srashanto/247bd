@@ -6667,5 +6667,537 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "strap-tongue-boots",
+    "slug": "strap-tongue-football-boots",
+    "name": "Strap Tongue Football Boots",
+    "title": "Strap Tongue Football Boots – Knit KPU Upper, TPU Long Studs, 4 Colours, Size 35-45",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "boots",
+    "price": 1960,
+    "regularPrice": 2890,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "cream",
+        "name": "Cream / Black / Red",
+        "hex": "linear-gradient(135deg,#EFE6D2 50%,#E8402F 50%)",
+        "images": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "red",
+        "name": "Red / White",
+        "hex": "#E8402F",
+        "images": [
+          3,
+          4
+        ]
+      },
+      {
+        "key": "black",
+        "name": "Black / Gold",
+        "hex": "linear-gradient(135deg,#1A1A1A 50%,#D9A93A 50%)",
+        "images": [
+          5,
+          6
+        ]
+      },
+      {
+        "key": "teal",
+        "name": "Teal / Pink",
+        "hex": "linear-gradient(135deg,#4FC6C9 50%,#F2548F 50%)",
+        "images": [
+          7,
+          8
+        ]
+      }
+    ],
+    "details": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "badge": "Offer",
+    "description": "Football boots with a fold-over tongue and a wrap-around strap for a locked-in fit. The knit KPU upper gives a softer, more comfortable feel when you put them on, and stays light and agile on the pitch.\n\nThe TPU long-stud sole is made for natural grass. Sizes 35 to 45, in four colours: Cream / Black / Red, Red / White, Black / Gold and Teal / Pink.\n\nRegular price ৳2,890, offer price ৳1,960.",
+    "ingredients": [
+      "Product: Football boots (training)",
+      "Style: Sport, fold-over tongue with strap",
+      "Upper: Knit KPU",
+      "Sole: TPU long studs",
+      "Sizes: 35 to 45",
+      "Colours: Cream / Black / Red, Red / White, Black / Gold, Teal / Pink"
+    ],
+    "benefits": [
+      "Fold-over tongue and strap for a secure fit",
+      "Soft knit KPU upper, light and agile",
+      "TPU long-stud sole for natural grass",
+      "4 bold colours"
+    ],
+    "howToUse": [
+      "Pick your EU size (35-45) from your normal boot size. If you are between sizes, go one size up.",
+      "Long studs (FG) are for natural grass. Check that your ground suits long studs before you order.",
+      "Wipe off mud after every session and let the boots air dry away from direct heat."
+    ],
+    "published": true,
+    "sort": 19,
+    "images": [
+      {
+        "src": "/products/st-cream-1.jpg",
+        "thumb": "/products/st-cream-1.jpg"
+      },
+      {
+        "src": "/products/st-cream-2.jpg",
+        "thumb": "/products/st-cream-2.jpg"
+      },
+      {
+        "src": "/products/st-cream-sole.jpg",
+        "thumb": "/products/st-cream-sole.jpg"
+      },
+      {
+        "src": "/products/st-red-1.jpg",
+        "thumb": "/products/st-red-1.jpg"
+      },
+      {
+        "src": "/products/st-red-2.jpg",
+        "thumb": "/products/st-red-2.jpg"
+      },
+      {
+        "src": "/products/st-black-1.jpg",
+        "thumb": "/products/st-black-1.jpg"
+      },
+      {
+        "src": "/products/st-black-2.jpg",
+        "thumb": "/products/st-black-2.jpg"
+      },
+      {
+        "src": "/products/st-teal-1.jpg",
+        "thumb": "/products/st-teal-1.jpg"
+      },
+      {
+        "src": "/products/st-teal-2.jpg",
+        "thumb": "/products/st-teal-2.jpg"
+      },
+      {
+        "src": "/products/st-heel.jpg",
+        "thumb": "/products/st-heel.jpg"
+      },
+      {
+        "src": "/products/st-function.jpg",
+        "thumb": "/products/st-function.jpg"
+      },
+      {
+        "src": "/products/st-colours.jpg",
+        "thumb": "/products/st-colours.jpg"
+      },
+      {
+        "src": "/products/st-spec.jpg",
+        "thumb": "/products/st-spec.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "cream-35",
+        "label": "Cream / Black / Red, EU 35",
+        "color": "cream",
+        "size": "35",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-36",
+        "label": "Cream / Black / Red, EU 36",
+        "color": "cream",
+        "size": "36",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-37",
+        "label": "Cream / Black / Red, EU 37",
+        "color": "cream",
+        "size": "37",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-38",
+        "label": "Cream / Black / Red, EU 38",
+        "color": "cream",
+        "size": "38",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-39",
+        "label": "Cream / Black / Red, EU 39",
+        "color": "cream",
+        "size": "39",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-40",
+        "label": "Cream / Black / Red, EU 40",
+        "color": "cream",
+        "size": "40",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-41",
+        "label": "Cream / Black / Red, EU 41",
+        "color": "cream",
+        "size": "41",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-42",
+        "label": "Cream / Black / Red, EU 42",
+        "color": "cream",
+        "size": "42",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-43",
+        "label": "Cream / Black / Red, EU 43",
+        "color": "cream",
+        "size": "43",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-44",
+        "label": "Cream / Black / Red, EU 44",
+        "color": "cream",
+        "size": "44",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "cream-45",
+        "label": "Cream / Black / Red, EU 45",
+        "color": "cream",
+        "size": "45",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-35",
+        "label": "Red / White, EU 35",
+        "color": "red",
+        "size": "35",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-36",
+        "label": "Red / White, EU 36",
+        "color": "red",
+        "size": "36",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-37",
+        "label": "Red / White, EU 37",
+        "color": "red",
+        "size": "37",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-38",
+        "label": "Red / White, EU 38",
+        "color": "red",
+        "size": "38",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-39",
+        "label": "Red / White, EU 39",
+        "color": "red",
+        "size": "39",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-40",
+        "label": "Red / White, EU 40",
+        "color": "red",
+        "size": "40",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-41",
+        "label": "Red / White, EU 41",
+        "color": "red",
+        "size": "41",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-42",
+        "label": "Red / White, EU 42",
+        "color": "red",
+        "size": "42",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-43",
+        "label": "Red / White, EU 43",
+        "color": "red",
+        "size": "43",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-44",
+        "label": "Red / White, EU 44",
+        "color": "red",
+        "size": "44",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "red-45",
+        "label": "Red / White, EU 45",
+        "color": "red",
+        "size": "45",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-35",
+        "label": "Black / Gold, EU 35",
+        "color": "black",
+        "size": "35",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-36",
+        "label": "Black / Gold, EU 36",
+        "color": "black",
+        "size": "36",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-37",
+        "label": "Black / Gold, EU 37",
+        "color": "black",
+        "size": "37",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-38",
+        "label": "Black / Gold, EU 38",
+        "color": "black",
+        "size": "38",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-39",
+        "label": "Black / Gold, EU 39",
+        "color": "black",
+        "size": "39",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-40",
+        "label": "Black / Gold, EU 40",
+        "color": "black",
+        "size": "40",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-41",
+        "label": "Black / Gold, EU 41",
+        "color": "black",
+        "size": "41",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-42",
+        "label": "Black / Gold, EU 42",
+        "color": "black",
+        "size": "42",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-43",
+        "label": "Black / Gold, EU 43",
+        "color": "black",
+        "size": "43",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-44",
+        "label": "Black / Gold, EU 44",
+        "color": "black",
+        "size": "44",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "black-45",
+        "label": "Black / Gold, EU 45",
+        "color": "black",
+        "size": "45",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-35",
+        "label": "Teal / Pink, EU 35",
+        "color": "teal",
+        "size": "35",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-36",
+        "label": "Teal / Pink, EU 36",
+        "color": "teal",
+        "size": "36",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-37",
+        "label": "Teal / Pink, EU 37",
+        "color": "teal",
+        "size": "37",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-38",
+        "label": "Teal / Pink, EU 38",
+        "color": "teal",
+        "size": "38",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-39",
+        "label": "Teal / Pink, EU 39",
+        "color": "teal",
+        "size": "39",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-40",
+        "label": "Teal / Pink, EU 40",
+        "color": "teal",
+        "size": "40",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-41",
+        "label": "Teal / Pink, EU 41",
+        "color": "teal",
+        "size": "41",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-42",
+        "label": "Teal / Pink, EU 42",
+        "color": "teal",
+        "size": "42",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-43",
+        "label": "Teal / Pink, EU 43",
+        "color": "teal",
+        "size": "43",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-44",
+        "label": "Teal / Pink, EU 44",
+        "color": "teal",
+        "size": "44",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      },
+      {
+        "id": "teal-45",
+        "label": "Teal / Pink, EU 45",
+        "color": "teal",
+        "size": "45",
+        "price": 1960,
+        "regularPrice": 2890,
+        "stock": 5
+      }
+    ]
   }
 ]
