@@ -7199,5 +7199,320 @@
         "stock": 5
       }
     ]
+  },
+  {
+    "id": "captain-armband",
+    "slug": "football-captain-armband",
+    "name": "Football Captain Armband",
+    "title": "Football Captain Armband – Strong Velcro, 5 Colours, 1 / 2 / 4 / 5 Piece Packs",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "accessories",
+    "price": 90,
+    "regularPrice": 90,
+    "stock": 0,
+    "colors": [
+      {
+        "key": "green",
+        "name": "Neon Green",
+        "hex": "#9BE000",
+        "images": [
+          3,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "yellow",
+        "name": "Yellow",
+        "hex": "#F6D21B",
+        "images": [
+          4,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "orange",
+        "name": "Orange",
+        "hex": "#F5821F",
+        "images": [
+          5,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "blue",
+        "name": "Blue",
+        "hex": "#1E4FD8",
+        "images": [
+          6,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "key": "red",
+        "name": "Red",
+        "hex": "#E5402A",
+        "images": [
+          7,
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "details": [
+      8
+    ],
+    "sizeLabel": "Pack",
+    "badge": "New",
+    "description": "Football captain's armband with a bold black \"C\", made to be seen from across the pitch. Slips on over the sleeve and holds its place through the whole match, with a strong velcro closure that stays put in fierce play.\n\nFive bright colours: Neon Green, Yellow, Orange, Blue and Red. Choose 1 piece (৳90), 2 pieces (৳160), 4 pieces (৳260) or 5 pieces (৳300).",
+    "ingredients": [
+      "Product: Football captain armband",
+      "Marking: Black \"C\"",
+      "Closure: Strong velcro",
+      "Colours: Neon Green, Yellow, Orange, Blue, Red",
+      "Packs: 1, 2, 4 or 5 pieces"
+    ],
+    "benefits": [
+      "Bold \"C\" that is easy to spot",
+      "Strong velcro that stays on in fierce play",
+      "5 bright colours",
+      "Packs for one captain or a whole squad"
+    ],
+    "howToUse": [
+      "Place the armband around the upper arm, over the sleeve, with the \"C\" facing out.",
+      "Press the velcro firmly shut so it stays on during play.",
+      "Hand wash and air dry. Keep away from direct heat."
+    ],
+    "published": true,
+    "sort": 20,
+    "images": [
+      {
+        "src": "/products/arm-colours.jpg",
+        "thumb": "/products/arm-colours.jpg"
+      },
+      {
+        "src": "/products/arm-wear.jpg",
+        "thumb": "/products/arm-wear.jpg"
+      },
+      {
+        "src": "/products/arm-flat.jpg",
+        "thumb": "/products/arm-flat.jpg"
+      },
+      {
+        "src": "/products/arm-green.jpg",
+        "thumb": "/products/arm-green.jpg"
+      },
+      {
+        "src": "/products/arm-yellow.jpg",
+        "thumb": "/products/arm-yellow.jpg"
+      },
+      {
+        "src": "/products/arm-orange.jpg",
+        "thumb": "/products/arm-orange.jpg"
+      },
+      {
+        "src": "/products/arm-blue.jpg",
+        "thumb": "/products/arm-blue.jpg"
+      },
+      {
+        "src": "/products/arm-red.jpg",
+        "thumb": "/products/arm-red.jpg"
+      },
+      {
+        "src": "/products/arm-velcro.jpg",
+        "thumb": "/products/arm-velcro.jpg"
+      }
+    ],
+    "variations": [
+      {
+        "id": "green-1",
+        "label": "Neon Green, 1 pc",
+        "color": "green",
+        "size": "1 pc",
+        "price": 90,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-2",
+        "label": "Neon Green, 2 pcs",
+        "color": "green",
+        "size": "2 pcs",
+        "price": 160,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-4",
+        "label": "Neon Green, 4 pcs",
+        "color": "green",
+        "size": "4 pcs",
+        "price": 260,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "green-5",
+        "label": "Neon Green, 5 pcs",
+        "color": "green",
+        "size": "5 pcs",
+        "price": 300,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-1",
+        "label": "Yellow, 1 pc",
+        "color": "yellow",
+        "size": "1 pc",
+        "price": 90,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-2",
+        "label": "Yellow, 2 pcs",
+        "color": "yellow",
+        "size": "2 pcs",
+        "price": 160,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-4",
+        "label": "Yellow, 4 pcs",
+        "color": "yellow",
+        "size": "4 pcs",
+        "price": 260,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "yellow-5",
+        "label": "Yellow, 5 pcs",
+        "color": "yellow",
+        "size": "5 pcs",
+        "price": 300,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-1",
+        "label": "Orange, 1 pc",
+        "color": "orange",
+        "size": "1 pc",
+        "price": 90,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-2",
+        "label": "Orange, 2 pcs",
+        "color": "orange",
+        "size": "2 pcs",
+        "price": 160,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-4",
+        "label": "Orange, 4 pcs",
+        "color": "orange",
+        "size": "4 pcs",
+        "price": 260,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "orange-5",
+        "label": "Orange, 5 pcs",
+        "color": "orange",
+        "size": "5 pcs",
+        "price": 300,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-1",
+        "label": "Blue, 1 pc",
+        "color": "blue",
+        "size": "1 pc",
+        "price": 90,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-2",
+        "label": "Blue, 2 pcs",
+        "color": "blue",
+        "size": "2 pcs",
+        "price": 160,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-4",
+        "label": "Blue, 4 pcs",
+        "color": "blue",
+        "size": "4 pcs",
+        "price": 260,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "blue-5",
+        "label": "Blue, 5 pcs",
+        "color": "blue",
+        "size": "5 pcs",
+        "price": 300,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-1",
+        "label": "Red, 1 pc",
+        "color": "red",
+        "size": "1 pc",
+        "price": 90,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-2",
+        "label": "Red, 2 pcs",
+        "color": "red",
+        "size": "2 pcs",
+        "price": 160,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-4",
+        "label": "Red, 4 pcs",
+        "color": "red",
+        "size": "4 pcs",
+        "price": 260,
+        "regularPrice": null,
+        "stock": 10
+      },
+      {
+        "id": "red-5",
+        "label": "Red, 5 pcs",
+        "color": "red",
+        "size": "5 pcs",
+        "price": 300,
+        "regularPrice": null,
+        "stock": 10
+      }
+    ]
   }
 ]
