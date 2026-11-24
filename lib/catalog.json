@@ -7514,5 +7514,282 @@
         "stock": 10
       }
     ]
+  },
+  {
+    "id": "cross-strap-knee-sleeve",
+    "slug": "cross-strap-knee-support-sleeve",
+    "name": "Cross-Strap Knee Support Sleeve",
+    "title": "Adjustable Cross-Strap Knee Support Sleeve – Single or Pair",
+    "brand": "247BD",
+    "gender": "unisex",
+    "category": "accessories",
+    "price": 400,
+    "stock": 0,
+    "sizeLabel": "Size & pack",
+    "description": "Pull on the knitted sleeve and fasten the two adjustable straps in a cross over the knee. Choose one sleeve for ৳400 or a matching pair for ৳750. Each pair contains two sleeves of the selected colour and size.\n\nSize guide by body weight: S — 50 kg, M — 55–65 kg, L — 70–80 kg, XL — 80–100 kg.",
+    "howToUse": [
+      "Centre the circular knit panel over your kneecap.",
+      "Cross the straps and fasten them at a comfortable tension."
+    ],
+    "images": [
+      {
+        "src": "/products/cross-strap-knee-orange.jpg",
+        "thumb": "/products/cross-strap-knee-orange.jpg"
+      },
+      {
+        "src": "/products/cross-strap-knee-green.jpg",
+        "thumb": "/products/cross-strap-knee-green.jpg"
+      },
+      {
+        "src": "/products/cross-strap-knee-grey.jpg",
+        "thumb": "/products/cross-strap-knee-grey.jpg"
+      },
+      {
+        "src": "/products/cross-strap-knee-fit.jpg",
+        "thumb": "/products/cross-strap-knee-fit.jpg"
+      },
+      {
+        "src": "/products/cross-strap-knee-pair.jpg",
+        "thumb": "/products/cross-strap-knee-pair.jpg"
+      },
+      {
+        "src": "/products/cross-strap-knee-straps.jpg",
+        "thumb": "/products/cross-strap-knee-straps.jpg"
+      },
+      {
+        "src": "/products/cross-strap-knee-knit.jpg",
+        "thumb": "/products/cross-strap-knee-knit.jpg"
+      }
+    ],
+    "details": [
+      5,
+      6
+    ],
+    "colors": [
+      {
+        "key": "orange",
+        "name": "Black / Orange",
+        "hex": "#f86d26",
+        "images": [
+          0,
+          3,
+          5
+        ]
+      },
+      {
+        "key": "green",
+        "name": "Black / Green",
+        "hex": "#5dbd45",
+        "images": [
+          1,
+          4,
+          6
+        ]
+      },
+      {
+        "key": "grey",
+        "name": "Black / Grey",
+        "hex": "#494949",
+        "images": [
+          2
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "id": "orange-s-single",
+        "label": "Black / Orange, S, Single",
+        "color": "orange",
+        "size": "S · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "orange-s-pair",
+        "label": "Black / Orange, S, Pair",
+        "color": "orange",
+        "size": "S · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "orange-m-single",
+        "label": "Black / Orange, M, Single",
+        "color": "orange",
+        "size": "M · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "orange-m-pair",
+        "label": "Black / Orange, M, Pair",
+        "color": "orange",
+        "size": "M · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "orange-l-single",
+        "label": "Black / Orange, L, Single",
+        "color": "orange",
+        "size": "L · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "orange-l-pair",
+        "label": "Black / Orange, L, Pair",
+        "color": "orange",
+        "size": "L · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "orange-xl-single",
+        "label": "Black / Orange, XL, Single",
+        "color": "orange",
+        "size": "XL · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "orange-xl-pair",
+        "label": "Black / Orange, XL, Pair",
+        "color": "orange",
+        "size": "XL · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "green-s-single",
+        "label": "Black / Green, S, Single",
+        "color": "green",
+        "size": "S · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "green-s-pair",
+        "label": "Black / Green, S, Pair",
+        "color": "green",
+        "size": "S · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "green-m-single",
+        "label": "Black / Green, M, Single",
+        "color": "green",
+        "size": "M · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "green-m-pair",
+        "label": "Black / Green, M, Pair",
+        "color": "green",
+        "size": "M · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "green-l-single",
+        "label": "Black / Green, L, Single",
+        "color": "green",
+        "size": "L · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "green-l-pair",
+        "label": "Black / Green, L, Pair",
+        "color": "green",
+        "size": "L · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "green-xl-single",
+        "label": "Black / Green, XL, Single",
+        "color": "green",
+        "size": "XL · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "green-xl-pair",
+        "label": "Black / Green, XL, Pair",
+        "color": "green",
+        "size": "XL · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "grey-s-single",
+        "label": "Black / Grey, S, Single",
+        "color": "grey",
+        "size": "S · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "grey-s-pair",
+        "label": "Black / Grey, S, Pair",
+        "color": "grey",
+        "size": "S · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "grey-m-single",
+        "label": "Black / Grey, M, Single",
+        "color": "grey",
+        "size": "M · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "grey-m-pair",
+        "label": "Black / Grey, M, Pair",
+        "color": "grey",
+        "size": "M · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "grey-l-single",
+        "label": "Black / Grey, L, Single",
+        "color": "grey",
+        "size": "L · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "grey-l-pair",
+        "label": "Black / Grey, L, Pair",
+        "color": "grey",
+        "size": "L · Pair",
+        "price": 750,
+        "stock": 10
+      },
+      {
+        "id": "grey-xl-single",
+        "label": "Black / Grey, XL, Single",
+        "color": "grey",
+        "size": "XL · Single",
+        "price": 400,
+        "stock": 10
+      },
+      {
+        "id": "grey-xl-pair",
+        "label": "Black / Grey, XL, Pair",
+        "color": "grey",
+        "size": "XL · Pair",
+        "price": 750,
+        "stock": 10
+      }
+    ],
+    "published": true,
+    "sort": 21
   }
 ]
