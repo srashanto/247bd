@@ -8766,5 +8766,837 @@
     ],
     "published": true,
     "sort": 22
+  },
+  {
+    "id": "x2008-low-cut",
+    "slug": "x2008-low-cut-football-boots",
+    "name": "X2008 Low-Cut Football Boots",
+    "title": "X2008 Low-Cut Football Boots – Long Studs or Turf",
+    "price": 2270,
+    "category": "boots",
+    "gender": "unisex",
+    "stock": 0,
+    "published": true,
+    "sort": 23,
+    "description": "Low-cut lace-up football boots with a striped upper. Choose the X2008 long-stud sole or the X2008-1 turf sole. Sold as one matching pair.",
+    "images": [
+      {
+        "src": "/products/x2008-black-stud.webp",
+        "thumb": "/products/x2008-black-stud.webp"
+      },
+      {
+        "src": "/products/x2008-purple-stud.webp",
+        "thumb": "/products/x2008-purple-stud.webp"
+      },
+      {
+        "src": "/products/x2008-white-blue-stud.webp",
+        "thumb": "/products/x2008-white-blue-stud.webp"
+      },
+      {
+        "src": "/products/x2008-gold-stud.webp",
+        "thumb": "/products/x2008-gold-stud.webp"
+      },
+      {
+        "src": "/products/x2008-purple-turf.webp",
+        "thumb": "/products/x2008-purple-turf.webp"
+      },
+      {
+        "src": "/products/x2008-black-turf.webp",
+        "thumb": "/products/x2008-black-turf.webp"
+      },
+      {
+        "src": "/products/x2008-white-blue-turf.webp",
+        "thumb": "/products/x2008-white-blue-turf.webp"
+      },
+      {
+        "src": "/products/x2008-gold-turf.webp",
+        "thumb": "/products/x2008-gold-turf.webp"
+      },
+      {
+        "src": "/products/x2008-white-blue-stud-side.webp",
+        "thumb": "/products/x2008-white-blue-stud-side.webp"
+      }
+    ],
+    "colors": [
+      {
+        "key": "black-stud",
+        "name": "Black",
+        "hex": "#171717",
+        "sole": "Long studs",
+        "images": [
+          0
+        ]
+      },
+      {
+        "key": "gold-stud",
+        "name": "Gold",
+        "hex": "#c39b4d",
+        "sole": "Long studs",
+        "images": [
+          3
+        ]
+      },
+      {
+        "key": "purple-stud",
+        "name": "Purple",
+        "hex": "#773aa3",
+        "sole": "Long studs",
+        "images": [
+          1
+        ]
+      },
+      {
+        "key": "white-stud",
+        "name": "White / Blue",
+        "hex": "#e4edf6",
+        "sole": "Long studs",
+        "images": [
+          2,
+          8
+        ]
+      },
+      {
+        "key": "black-turf",
+        "name": "Black",
+        "hex": "#171717",
+        "sole": "Turf",
+        "images": [
+          5
+        ]
+      },
+      {
+        "key": "gold-turf",
+        "name": "Gold",
+        "hex": "#c39b4d",
+        "sole": "Turf",
+        "images": [
+          7
+        ]
+      },
+      {
+        "key": "purple-turf",
+        "name": "Purple",
+        "hex": "#773aa3",
+        "sole": "Turf",
+        "images": [
+          4
+        ]
+      },
+      {
+        "key": "white-turf",
+        "name": "White / Blue",
+        "hex": "#e4edf6",
+        "sole": "Turf",
+        "images": [
+          6
+        ]
+      }
+    ],
+    "variations": [
+      {
+        "id": "black-stud-35",
+        "label": "Black, Long studs, EU 35",
+        "color": "black-stud",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-36",
+        "label": "Black, Long studs, EU 36",
+        "color": "black-stud",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-37",
+        "label": "Black, Long studs, EU 37",
+        "color": "black-stud",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-38",
+        "label": "Black, Long studs, EU 38",
+        "color": "black-stud",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-39",
+        "label": "Black, Long studs, EU 39",
+        "color": "black-stud",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-40",
+        "label": "Black, Long studs, EU 40",
+        "color": "black-stud",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-41",
+        "label": "Black, Long studs, EU 41",
+        "color": "black-stud",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-42",
+        "label": "Black, Long studs, EU 42",
+        "color": "black-stud",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-43",
+        "label": "Black, Long studs, EU 43",
+        "color": "black-stud",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-44",
+        "label": "Black, Long studs, EU 44",
+        "color": "black-stud",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-stud-45",
+        "label": "Black, Long studs, EU 45",
+        "color": "black-stud",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-35",
+        "label": "Gold, Long studs, EU 35",
+        "color": "gold-stud",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-36",
+        "label": "Gold, Long studs, EU 36",
+        "color": "gold-stud",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-37",
+        "label": "Gold, Long studs, EU 37",
+        "color": "gold-stud",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-38",
+        "label": "Gold, Long studs, EU 38",
+        "color": "gold-stud",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-39",
+        "label": "Gold, Long studs, EU 39",
+        "color": "gold-stud",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-40",
+        "label": "Gold, Long studs, EU 40",
+        "color": "gold-stud",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-41",
+        "label": "Gold, Long studs, EU 41",
+        "color": "gold-stud",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-42",
+        "label": "Gold, Long studs, EU 42",
+        "color": "gold-stud",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-43",
+        "label": "Gold, Long studs, EU 43",
+        "color": "gold-stud",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-44",
+        "label": "Gold, Long studs, EU 44",
+        "color": "gold-stud",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-stud-45",
+        "label": "Gold, Long studs, EU 45",
+        "color": "gold-stud",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-35",
+        "label": "Purple, Long studs, EU 35",
+        "color": "purple-stud",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-36",
+        "label": "Purple, Long studs, EU 36",
+        "color": "purple-stud",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-37",
+        "label": "Purple, Long studs, EU 37",
+        "color": "purple-stud",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-38",
+        "label": "Purple, Long studs, EU 38",
+        "color": "purple-stud",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-39",
+        "label": "Purple, Long studs, EU 39",
+        "color": "purple-stud",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-40",
+        "label": "Purple, Long studs, EU 40",
+        "color": "purple-stud",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-41",
+        "label": "Purple, Long studs, EU 41",
+        "color": "purple-stud",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-42",
+        "label": "Purple, Long studs, EU 42",
+        "color": "purple-stud",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-43",
+        "label": "Purple, Long studs, EU 43",
+        "color": "purple-stud",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-44",
+        "label": "Purple, Long studs, EU 44",
+        "color": "purple-stud",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-stud-45",
+        "label": "Purple, Long studs, EU 45",
+        "color": "purple-stud",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-35",
+        "label": "White / Blue, Long studs, EU 35",
+        "color": "white-stud",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-36",
+        "label": "White / Blue, Long studs, EU 36",
+        "color": "white-stud",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-37",
+        "label": "White / Blue, Long studs, EU 37",
+        "color": "white-stud",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-38",
+        "label": "White / Blue, Long studs, EU 38",
+        "color": "white-stud",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-39",
+        "label": "White / Blue, Long studs, EU 39",
+        "color": "white-stud",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-40",
+        "label": "White / Blue, Long studs, EU 40",
+        "color": "white-stud",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-41",
+        "label": "White / Blue, Long studs, EU 41",
+        "color": "white-stud",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-42",
+        "label": "White / Blue, Long studs, EU 42",
+        "color": "white-stud",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-43",
+        "label": "White / Blue, Long studs, EU 43",
+        "color": "white-stud",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-44",
+        "label": "White / Blue, Long studs, EU 44",
+        "color": "white-stud",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-stud-45",
+        "label": "White / Blue, Long studs, EU 45",
+        "color": "white-stud",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-35",
+        "label": "Black, Turf, EU 35",
+        "color": "black-turf",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-36",
+        "label": "Black, Turf, EU 36",
+        "color": "black-turf",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-37",
+        "label": "Black, Turf, EU 37",
+        "color": "black-turf",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-38",
+        "label": "Black, Turf, EU 38",
+        "color": "black-turf",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-39",
+        "label": "Black, Turf, EU 39",
+        "color": "black-turf",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-40",
+        "label": "Black, Turf, EU 40",
+        "color": "black-turf",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-41",
+        "label": "Black, Turf, EU 41",
+        "color": "black-turf",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-42",
+        "label": "Black, Turf, EU 42",
+        "color": "black-turf",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-43",
+        "label": "Black, Turf, EU 43",
+        "color": "black-turf",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-44",
+        "label": "Black, Turf, EU 44",
+        "color": "black-turf",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "black-turf-45",
+        "label": "Black, Turf, EU 45",
+        "color": "black-turf",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-35",
+        "label": "Gold, Turf, EU 35",
+        "color": "gold-turf",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-36",
+        "label": "Gold, Turf, EU 36",
+        "color": "gold-turf",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-37",
+        "label": "Gold, Turf, EU 37",
+        "color": "gold-turf",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-38",
+        "label": "Gold, Turf, EU 38",
+        "color": "gold-turf",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-39",
+        "label": "Gold, Turf, EU 39",
+        "color": "gold-turf",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-40",
+        "label": "Gold, Turf, EU 40",
+        "color": "gold-turf",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-41",
+        "label": "Gold, Turf, EU 41",
+        "color": "gold-turf",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-42",
+        "label": "Gold, Turf, EU 42",
+        "color": "gold-turf",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-43",
+        "label": "Gold, Turf, EU 43",
+        "color": "gold-turf",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-44",
+        "label": "Gold, Turf, EU 44",
+        "color": "gold-turf",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "gold-turf-45",
+        "label": "Gold, Turf, EU 45",
+        "color": "gold-turf",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-35",
+        "label": "Purple, Turf, EU 35",
+        "color": "purple-turf",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-36",
+        "label": "Purple, Turf, EU 36",
+        "color": "purple-turf",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-37",
+        "label": "Purple, Turf, EU 37",
+        "color": "purple-turf",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-38",
+        "label": "Purple, Turf, EU 38",
+        "color": "purple-turf",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-39",
+        "label": "Purple, Turf, EU 39",
+        "color": "purple-turf",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-40",
+        "label": "Purple, Turf, EU 40",
+        "color": "purple-turf",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-41",
+        "label": "Purple, Turf, EU 41",
+        "color": "purple-turf",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-42",
+        "label": "Purple, Turf, EU 42",
+        "color": "purple-turf",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-43",
+        "label": "Purple, Turf, EU 43",
+        "color": "purple-turf",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-44",
+        "label": "Purple, Turf, EU 44",
+        "color": "purple-turf",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "purple-turf-45",
+        "label": "Purple, Turf, EU 45",
+        "color": "purple-turf",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-35",
+        "label": "White / Blue, Turf, EU 35",
+        "color": "white-turf",
+        "size": "35",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-36",
+        "label": "White / Blue, Turf, EU 36",
+        "color": "white-turf",
+        "size": "36",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-37",
+        "label": "White / Blue, Turf, EU 37",
+        "color": "white-turf",
+        "size": "37",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-38",
+        "label": "White / Blue, Turf, EU 38",
+        "color": "white-turf",
+        "size": "38",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-39",
+        "label": "White / Blue, Turf, EU 39",
+        "color": "white-turf",
+        "size": "39",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-40",
+        "label": "White / Blue, Turf, EU 40",
+        "color": "white-turf",
+        "size": "40",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-41",
+        "label": "White / Blue, Turf, EU 41",
+        "color": "white-turf",
+        "size": "41",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-42",
+        "label": "White / Blue, Turf, EU 42",
+        "color": "white-turf",
+        "size": "42",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-43",
+        "label": "White / Blue, Turf, EU 43",
+        "color": "white-turf",
+        "size": "43",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-44",
+        "label": "White / Blue, Turf, EU 44",
+        "color": "white-turf",
+        "size": "44",
+        "price": 2270,
+        "stock": 10
+      },
+      {
+        "id": "white-turf-45",
+        "label": "White / Blue, Turf, EU 45",
+        "color": "white-turf",
+        "size": "45",
+        "price": 2270,
+        "stock": 10
+      }
+    ]
   }
 ]
